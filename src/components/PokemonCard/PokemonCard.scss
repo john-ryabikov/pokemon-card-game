@@ -1,0 +1,50 @@
+.pokemon-card {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 5px;
+    width: 150px;
+    &__card-img {
+        position: relative;
+        width: 130px;
+        box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.6);
+    }
+    &__hp {
+        position: absolute;
+        top: 10px;
+        left: 90px;
+        padding: 1px;
+        color: #FF0000;
+        font-size: 8px;
+        font-weight: 700;
+        background-color: #B3C473;
+    }
+    &__stack-energy {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 4px;
+    }
+    &__stack-energy-icons {
+        position: absolute;
+        top: 2px;
+        right: 1px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 8px;
+    }
+    &__energy-deck {
+        position: relative;
+        width: 16px;
+        height: 16px;
+        border-radius: 100%;
+        background-color: rgba(83, 83, 83, 0.35);
+        box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.25);
+    }
+}

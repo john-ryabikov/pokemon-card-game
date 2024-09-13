@@ -1,0 +1,109 @@
+.game-page {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 36px;
+    width: 100%;
+    height: 100%;
+    padding: var(--padding-tablet);
+    &__board {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 28px;
+        width: 100%;
+    }
+    &__energy-box {
+        position: relative;
+        border-radius: 10px;
+        width: 100%;
+        height: 125px;
+        background-color: #2f2f2f;
+        overflow-x: auto;
+        scrollbar-width: none;
+        &_empty {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 14px;
+            text-align: center;
+            color: #a3a3a3;
+        }
+    }
+    &__energy-box-wprapper {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 8px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 5px;
+        overflow-x: auto;
+        width: auto;
+        padding-right: 8px;
+    }
+    &__energy-card {
+        position: relative;
+        width: 70px;
+    }
+    &__actions {
+        position: absolute;
+        border-top: 1px solid #606060;
+        border-radius: 30px 30px 0 0;
+        bottom: 0;
+        left: 0;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        padding: var(--padding-tablet);
+        width: 100%;
+        height: 100px;
+        background-color: #101010;
+    }
+    &__btn-deck {
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 4px;
+    }
+    &__btn-deck-icon {
+        transition: all 0.4s;
+        &_disable {
+            opacity: 0.6;
+            filter: grayscale(100%);
+        }
+    }
+    &__btn-deck-attack {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border-bottom: 2px solid #7c0909;
+        background-color: #e5001c;
+        border-radius: 10px;
+        width: 120px;
+        height: 60px;
+        font-weight: 700;
+        font-size: 16px;
+        text-align: center;
+        color: #fff;
+        transition: all 0.4s;
+        &_disable {
+            background-color: #272727;
+            border-bottom: 2px solid #3F3E3E;
+            color: #313131;
+        }
+    }
+}
