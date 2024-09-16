@@ -10,4 +10,5 @@ export default defineConfig({
     }
   },
   plugins: [react()],
+  base: '/pokemon-card-game'
 })
