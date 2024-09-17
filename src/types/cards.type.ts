@@ -1,18 +1,22 @@
+export enum TypeEnergies {
+    'Flame' , 'Plane' , 'Psy' , 'Hydro' , 'Strong' , 'Electric',
+}
+
 export interface Pokemon {
     number: number,
     pokemonName: string,
     pokemonImg: string,
-    type: "Flame" | "Plane",
+    type: TypeEnergies,
     hp: number,
     energy: Energy[],
     energyLength: number,
     attackPower: number,
-    attackCost: number
+    attackEffect: string
 }
 
 export interface Energy {
     id: number,
-    type: "Flame" | "Plane",
+    type: TypeEnergies,
     cardImg: string,
     cardIcon: string
 }

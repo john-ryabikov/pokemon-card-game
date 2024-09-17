@@ -6,6 +6,23 @@
     justify-content: center;
     gap: 5px;
     width: 150px;
+    &__attack-effect {
+        position: absolute;
+        top: -70px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 3;
+    }
+    &__attack-for-enemy {
+        position: absolute;
+        top: -20px;
+        right: 0;
+        transform: translateX(-50%);
+        z-index: 4;
+        font-size: 24px;
+        font-weight: 700;
+        color: #FF0000;
+    }
     &__card-img {
         position: relative;
         width: 130px;
@@ -14,12 +31,14 @@
     &__hp {
         position: absolute;
         top: 10px;
-        left: 90px;
+        right: 49px;
         padding: 1px;
         color: #FF0000;
         font-size: 8px;
         font-weight: 700;
         background-color: #B3C473;
+        text-align: end;
+        z-index: 3;
     }
     &__stack-energy {
         position: relative;

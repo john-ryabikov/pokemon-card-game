@@ -1,24 +1,17 @@
 import { create } from "zustand";
-import { ENERGY } from "@/data/pokemons.cards";
+import { ENERGY } from "@/data/energy.cards";
 import { POKEMONS } from "@/data/pokemons.cards";
-import { IGameStore } from "./game.types";
-import { Energy } from "@/types/cards.type";
 
-const initialGameSettings: Pick<
-    IGameStore, 
-    "deck" | 
-    "playerEnergy" | 
-    "playerHP" | 
-    "playerEnergyLength" | 
-    "playerAttackPower" | 
-    "enemyHP" | 
-    "energyBox" | 
-    "isGameEnd" |
-    "isLose" |
-    "isWin" | 
-    "isAttack"
-    > = {
+import type { IGameStore } from "./game.types";
+
+import { gameOverAction } from "./actions-store/game-over";
+import { takeEnergyAction } from "./actions-store/take-energy";
+import { giveEnergyAction } from "./actions-store/give-energy";
+import { attackAction } from "./actions-store/attack";
+
+const initialGameSettings = {
     deck: ENERGY,
+    playerPokrmonType: POKEMONS[0].type,
     playerEnergy: POKEMONS[0].energy,
     playerEnergyLength: POKEMONS[0].energyLength,
     playerAttackPower: POKEMONS[0].attackPower,
@@ -29,53 +22,16 @@ const initialGameSettings: Pick<
     isLose: false,
     isWin: false,
     isAttack: false,
+    isAttacked: false,
 }
 
-const useGameStore = create<IGameStore>((set) => ({
+const useGameStore = create<IGameStore>((set, get) => ({
     ...initialGameSettings,
     startGame: () => set(initialGameSettings),
-    takeEnergy: (id: number) => set(state => {
-        const energy = state.deck.find(elem => elem.id === id) as Energy
-        const energyDeckFiltered = state.deck.filter(elem => {
-            if (elem.id !== id) return elem
-        })
-        return {
-            deck: energyDeckFiltered,
-            energyBox: [energy, ...state.energyBox]
-        }  
-    }),
-    giveEnergy: (id: number) => set(state => {
-        const energy = state.energyBox.find(elem => elem?.id === id) as Energy
-        const energyBoxFiltered = state.energyBox.filter(elem => {
-            if (elem.id !== id) return elem
-        })
-        if (state.playerEnergy.length < state.playerEnergyLength && energy.type === "Flame") {
-            state.playerEnergy = [...state.playerEnergy, energy]
-            if (state.playerEnergy.length === state.playerEnergyLength) {
-                return { 
-                    energyBox: energyBoxFiltered,
-                    isAttack: !state.isAttack
-                }
-            } else {
-                return { 
-                    energyBox: energyBoxFiltered,
-                }
-            }
-
-        } else return state  
-
-    }),
-    attackAction: () => set(state => {
-        state.enemyHP = state.enemyHP - state.playerAttackPower 
-        state.playerEnergy = []
-        if (state.enemyHP === 0) {
-            return { isWin: true, isGameEnd: true }
-        }
-        return {
-            isAttack: !state.isAttack,
-        }
-    }),
-    gameOver: () => set({isLose: true, isGameEnd: true}) 
+    takeEnergy: (id: number) => set(takeEnergyAction(get, id)),
+    giveEnergy: (id: number) => set(giveEnergyAction(get, id)),
+    attack: () => {set(attackAction(set, get))},
+    gameOver: () => set(gameOverAction(get)) 
 }))
 
 export { useGameStore }

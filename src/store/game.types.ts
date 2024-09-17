@@ -1,7 +1,8 @@
-import type { Energy } from "@/types/cards.type";
+import type { Energy, TypeEnergies } from "@/types/cards.type";
 
 export interface IGameStore {
     deck: Energy[],
+    playerPokrmonType: TypeEnergies,
     playerEnergy: Energy[],
     playerEnergyLength: number,
     playerAttackPower: number,
@@ -12,9 +13,12 @@ export interface IGameStore {
     isLose: boolean,
     isWin: boolean,
     isAttack: boolean,
+    isAttacked: boolean,
     startGame: () => void,
     takeEnergy: (id: number) => void,
-    gameOver: () => void,
     giveEnergy: (id: number) => void,
-    attackAction: () => void
+    attack: () => void
+    gameOver: () => void,
+    
+    
 }

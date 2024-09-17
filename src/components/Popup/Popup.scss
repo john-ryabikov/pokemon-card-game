@@ -25,7 +25,7 @@
         flex-direction: row;
         align-items: center;
         justify-content: center;
-        gap: 40px;
+        gap: 20px;
     }
     &__retry-btn {
         position: relative;
@@ -35,8 +35,8 @@
         justify-content: center;
         gap: 6px;
         color: #ffffff;
-        width: 90px;
-        height: 90px;
+        width: 70px;
+        height: 70px;
         border-bottom: 2px solid #7c0909;
         background-color: #e5001c;
         border-radius: 45px;
@@ -45,7 +45,7 @@
         }
         img {
             position: relative;
-            width: 30px;
+            width: 24px;
         }
     }
     &__exit-btn {
@@ -56,8 +56,8 @@
         justify-content: center;
         gap: 10px;
         color: #ffffff;
-        width: 90px;
-        height: 90px;
+        width: 70px;
+        height: 70px;
         background-color: #272727;
         border-bottom: 2px solid #3F3E3E;
         border-radius: 45px;
@@ -66,7 +66,7 @@
         }
         img {
             position: relative;
-            width: 24px;
+            width: 20px;
         }
     }
 }

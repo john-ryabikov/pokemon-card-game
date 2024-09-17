@@ -1,35 +1,29 @@
-import { useEffect } from "react"
+import { useEffect, useRef } from "react"
 import { useGameStore } from "@/store/game.store"
-import { POKEMONS } from "@/data/pokemons.cards";
-import { createDeck } from "@/store/actions/game.create-deck";
+import { motion } from "framer-motion"
 
-import EnergyCard from "@/components/EnergyCard/EnergyCard"
-import PokemonCard from "@/components/PokemonCard/PokemonCard"
+import { createDeck } from "@/actions-game/game.create-deck"
+import { playerTakeEnergy } from "@/actions-game/game.player-take-energy"
+
 import Popup from "@/components/Popup/Popup";
+import Board from "@/components/Board/Board";
+import EnergyBox from "@/components/EnergyBox/EnergyBox";
 
 import "./GamePage.scss"
 
 export default function GamePage({ title }:{ title: string }) {
 
+    const energyBoxRef = useRef<HTMLButtonElement>(null)
+
     const {
         deck,
-        playerEnergy,
-        playerEnergyLength,
-        enemyHP,
-        energyBox,
         isGameEnd,
         isAttack,
+        energyBox,
         takeEnergy,
         gameOver,
-        attackAction
-
+        attack
     } = useGameStore()
-
-    const playerTakeEnergy = () => {
-        if (deck.length !== 1) {
-            takeEnergy(deck[0].id as number) 
-        } else gameOver()
-    }
 
     useEffect(() => {
         document.title = `${title} | Pokemon Game`
@@ -37,36 +31,30 @@ export default function GamePage({ title }:{ title: string }) {
     }, [deck])
 
     return (
-        <section className='game-page'>
+        <motion.section 
+            className='game-page'
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ delay: 0.45 }}
+        >
             {isGameEnd && <Popup/>}
-            <div className="game-page__board">
-                <PokemonCard card={POKEMONS[1].pokemonImg} energyLenght={POKEMONS[1].energyLength} hp={enemyHP}/>
-                <PokemonCard card={POKEMONS[0].pokemonImg} energy={playerEnergy} energyLenght={playerEnergyLength}/>
-            </div>
-            <div className={`game-page__energy-box ${energyBox.length === 0 ? "game-page__energy-box_empty" : ""}`}>
-                {!energyBox.length ? "Not enough enegry cards" : (
-                    <div className='game-page__energy-box-wprapper'>
-                        {energyBox.map((elem, i) => (
-                            <EnergyCard key={i} card={elem}/>
-                        ))}
-                    </div>
-                )}
-            </div>
+            <Board/>
+            <EnergyBox ref={energyBoxRef}/>
             <div className='game-page__actions'>
                 <div className='game-page__btn-deck'>
-                    <button disabled={isAttack} onClick={playerTakeEnergy}>
-                        <img className={`game-page__btn-deck-icon ${isAttack ? "game-page__btn-deck-icon_disable" : ""}`} src="/img/Icons/cards_icon.svg"/>
+                    <button disabled={isAttack} onClick={() => playerTakeEnergy(deck, takeEnergy, energyBox, gameOver, energyBoxRef)}>
+                        <img className={`game-page__btn-deck-icon ${isAttack ? "game-page__btn-deck-icon_disable" : ""}`} src="img/Icons/cards_icon.svg" alt="Cards Energy" draggable={false}/>
                     </button>
                     <span>x{deck.length}</span>
                 </div>
                 <button 
                     disabled={!isAttack} 
                     className={`game-page__btn-deck-attack ${!isAttack ? "game-page__btn-deck-attack_disable" : ""}`}
-                    onClick={() => attackAction()}
+                    onClick={() => attack()}
                 >
-                    Attack
+                    <span>Attack</span>
                 </button>
             </div>
-        </section>
+        </motion.section>
     )
 }
