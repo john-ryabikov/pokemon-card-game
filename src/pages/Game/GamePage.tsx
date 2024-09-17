@@ -13,7 +13,7 @@ import "./GamePage.scss"
 
 export default function GamePage({ title }:{ title: string }) {
 
-    const energyBoxRef = useRef<HTMLButtonElement>(null)
+    const energyBoxRef = useRef<HTMLDivElement>(null)
 
     const {
         deck,
