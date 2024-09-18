@@ -1,0 +1,42 @@
+.store-page {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    scrollbar-width: none;
+    &__pokemons {
+        position: absolute;
+        top: 120px;
+        left: 0;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+        width: 100%;
+        height: auto;
+        padding: var(--padding-mobile);
+        padding-bottom: 30px;
+    }
+    &__pokemon {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        padding: 10px;
+        border-radius: 12px;
+        height: 320px;
+        margin-bottom: 20px;
+        img {
+            width: 150px;
+        }
+        &_selected {
+            // outline: 1px solid #999999;
+            // outline-offset:-1px;
+            background-color: #383838;
+        }
+    }
+}

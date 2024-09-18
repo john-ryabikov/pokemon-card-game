@@ -21,7 +21,10 @@ export default function StartPage() {
             transition={{ delay: 0.25 }}
         >
             <img className='start-page__logo' src="img/Icons/main_logo.png" alt="Pokemon" draggable={false}/>
-            <Link to={'/game'} className='start-page__btn' onClick={() => startGame()}>Start game</Link>
+            <div className='start-page__btns'>
+                <Link to={'/game'} className='start-page__btn' onClick={() => startGame()}>Start game</Link>
+                <Link to={'/store'} className='start-page__btn start-page__btn_store'>Store</Link>
+            </div>
         </motion.section>
     )
   }

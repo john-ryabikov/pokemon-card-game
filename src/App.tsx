@@ -6,6 +6,7 @@ import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 
 import "@/styles/global.scss"
+import PokemonStore from "./pages/PokemonStore/PokemonStore";
 
 export default function App() {
 
@@ -13,12 +14,13 @@ export default function App() {
 
   return (
     <main>
-      {location.pathname === "/game" && (<Header/>)}
+      {location.pathname !== "/" && (<Header/>)}
       <Routes>
         <Route path="/" element={<StartPage />}/>
+        <Route path="/store" element={<PokemonStore title="Pokemon Store"/>}/>
         <Route path="/game" element={<GamePage title="Game Board"/>}/>
       </Routes>
-      {location.pathname !== "/game" && (<Footer/>)}
+      {location.pathname === "/" && (<Footer/>)}
     </main>
   )
 }

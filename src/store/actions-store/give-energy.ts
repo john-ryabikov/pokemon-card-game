@@ -9,7 +9,7 @@ export const giveEnergyAction = (get: () => IGameStore, id: number): Partial<IGa
     const energyBoxFiltered = state.energyBox.filter(elem => {
         if (elem.id !== id) return elem
     })
-    if (state.playerEnergy.length < state.playerEnergyLength && energy.type === state.playerPokrmonType) {
+    if (state.playerEnergy.length < state.playerEnergyLength && energy.type === state.playerPokemonType) {
         state.playerEnergy = [...state.playerEnergy, energy]
         if (state.playerEnergy.length === state.playerEnergyLength) {
             return { 
