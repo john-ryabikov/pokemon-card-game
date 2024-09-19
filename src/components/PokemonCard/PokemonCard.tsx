@@ -11,10 +11,11 @@ interface Props {
     card: string,
     energyLenght: number,
     energy?: Energy[]
-    hp?: number
+    hp?: number,
+    effectAttack?: string
 }
 
-export default function PokemonCard({ typePlayer, card, energyLenght, energy, hp } : Props ) {
+export default function PokemonCard({ typePlayer, card, energyLenght, energy, hp, effectAttack } : Props ) {
 
     const {isAttacked, playerAttackPower} = useGameStore()
 
@@ -23,7 +24,7 @@ export default function PokemonCard({ typePlayer, card, energyLenght, energy, hp
             {(typePlayer === "player" && isAttacked) && 
                 <motion.img 
                     className='pokemon-card__attack-effect' 
-                    src="img/Effects/flame.png"
+                    src={effectAttack}
                     initial={{x: -56, y: 0, opacity: 1 }}
                     whileInView={{x: -56, y: -60, opacity: 0 }}
                     transition={{delay: 0.15, duration: 0.5}}

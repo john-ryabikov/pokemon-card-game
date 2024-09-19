@@ -40,7 +40,12 @@ export default function GamePage({ title }:{ title: string }) {
             {isGameEnd && <Popup/>}
             <Board/>
             <EnergyBox ref={energyBoxRef}/>
-            <div className='game-page__actions'>
+            <motion.div 
+                className='game-page__actions'
+                initial={{ y: 90 }}
+                whileInView={{ y: 0 }}
+                transition={{ delay: 0.75 }}
+            >
                 <div className='game-page__btn-deck'>
                     <button disabled={isAttack} onClick={() => playerTakeEnergy(deck, takeEnergy, energyBox, gameOver, energyBoxRef)}>
                         <img className={`game-page__btn-deck-icon ${isAttack ? "game-page__btn-deck-icon_disable" : ""}`} src="img/Icons/cards_icon.svg" alt="Cards Energy" draggable={false}/>
@@ -54,7 +59,7 @@ export default function GamePage({ title }:{ title: string }) {
                 >
                     <span>Attack</span>
                 </button>
-            </div>
+            </motion.div>
         </motion.section>
     )
 }

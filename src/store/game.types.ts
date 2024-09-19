@@ -9,6 +9,7 @@ export interface IGameStore {
     playerEnergyLength: number,
     playerAttackPower: number,
     playerHP: number,
+    playerAttackEffect: string,
     enemyHP: number,
     energyBox: Energy[],
     isGameEnd: boolean,
@@ -28,10 +29,4 @@ export interface IGameStore {
 export interface IPokemonsStore {
     pokemons: Pokemon[],
     startedPokemon: Pokemon
-}
-
-export interface IPokemonStore {
-    pokemon: string,
-    selected: boolean,
-    selectPokemon: () => void
 }

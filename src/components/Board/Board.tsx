@@ -10,13 +10,26 @@ export default function Board() {
         playerHP, 
         playerEnergy, 
         playerEnergyLength,
+        playerAttackEffect,
         enemyHP, 
     } = useGameStore()
 
     return (
         <div className="game-page__board">
-            <PokemonCard typePlayer="enemy" card={POKEMONS[6].pokemonImg} energyLenght={POKEMONS[6].energyLength} hp={enemyHP}/>
-            <PokemonCard typePlayer="player" card={playerPokemon} energy={playerEnergy} energyLenght={playerEnergyLength} hp={playerHP}/>
+            <PokemonCard 
+                typePlayer="enemy" 
+                card={POKEMONS[6].pokemonImg} 
+                energyLenght={POKEMONS[6].energyLength} 
+                hp={enemyHP}
+            />
+            <PokemonCard 
+                typePlayer="player" 
+                card={playerPokemon} 
+                energy={playerEnergy} 
+                energyLenght={playerEnergyLength} 
+                hp={playerHP} 
+                effectAttack={playerAttackEffect}
+            />
         </div>
     )
 }

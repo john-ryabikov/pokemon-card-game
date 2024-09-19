@@ -25,6 +25,7 @@ export default function StartPage() {
                 <Link to={'/game'} className='start-page__btn' onClick={() => startGame()}>Start game</Link>
                 <Link to={'/store'} className='start-page__btn start-page__btn_store'>Store</Link>
             </div>
+            <span className='start-page__version'>Version: 0.0.1</span>
         </motion.section>
     )
   }

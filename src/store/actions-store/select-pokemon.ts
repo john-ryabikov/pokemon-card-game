@@ -13,7 +13,8 @@ export const selectPokemonAction = (get: () => IGameStore, pokemons: Pokemon[], 
     state.playerEnergy = selectedPokemon.energy,
     state.playerEnergyLength = selectedPokemon.energyLength,
     state.playerAttackPower = selectedPokemon.attackPower,
-    state.playerHP = selectedPokemon.hp
+    state.playerHP = selectedPokemon.hp,
+    state.playerAttackEffect = selectedPokemon.attackEffect
 
     return {
         playerPokemon: state.playerPokemon,

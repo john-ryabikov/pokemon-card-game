@@ -36,6 +36,7 @@ const useGameStore = create<IGameStore>((set, get) => ({
     playerEnergyLength: usePokemonsStore.getState().startedPokemon.energyLength,
     playerAttackPower: usePokemonsStore.getState().startedPokemon.attackPower,
     playerHP: usePokemonsStore.getState().startedPokemon.hp,
+    playerAttackEffect: usePokemonsStore.getState().startedPokemon.attackEffect,
     startGame: () => set(initialGameSettings),
     selectPokemon: (pokemonNumber: number) => set(selectPokemonAction(get, POKEMONS, pokemonNumber)),
     takeEnergy: (id: number) => set(takeEnergyAction(get, id)),

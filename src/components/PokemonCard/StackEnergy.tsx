@@ -1,4 +1,5 @@
 import type { Energy } from "@/types/cards.type"
+import { motion } from "framer-motion"
 
 interface Props {
     energyLenght: number,
@@ -15,7 +16,17 @@ export default function StackEnergy({ energyLenght, energy }: Props) {
             </div>
             <div className='pokemon-card__stack-energy-icons'>
                 {energy?.map((energy, i) => {
-                    return <img key={i} width={12} height={12} src={energy.cardIcon} alt="Pokemon Energy" draggable={false}/>
+                    return <motion.img 
+                                key={i} 
+                                width={12} 
+                                height={12} 
+                                src={energy.cardIcon} 
+                                alt="Pokemon Energy" 
+                                draggable={false}
+                                initial={{ opacity: 0, scale: 2 }}
+                                whileInView={{ opacity: 1, scale: 1 }}
+                                transition={{ delay: 0.15 }}
+                            />
                 })}
             </div>
         </>

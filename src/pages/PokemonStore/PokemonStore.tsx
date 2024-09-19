@@ -21,11 +21,14 @@ export default function PokemonStore({ title }: { title: string }) {
             transition={{ delay: 0.45 }}
         >
             <div className='store-page__pokemons'>
-                {pokemons.slice(0, 5).map((p, i) => (
-                    <div key={i} className={`store-page__pokemon ${pokemonSelected === p.number ? "store-page__pokemon_selected" : ""}`} onClick={() => selectPokemon(p.number)}>
-                        <img src={p.pokemonImgStore} alt={p.pokemonName}/>
-                    </div>
-                ))}
+                <h1 className='store-page__title'>Choose your Pokemon</h1>
+                <div className='store-page__pokemons-box'>
+                    {pokemons.slice(0, 6).map((p, i) => (
+                        <div key={i} className={`store-page__pokemon ${pokemonSelected === p.number ? "store-page__pokemon_selected" : ""}`} onClick={() => selectPokemon(p.number)}>
+                            <img src={p.pokemonImgStore} alt={p.pokemonName}/>
+                        </div>
+                    ))}
+                </div>
             </div>
         </motion.section >
     )
