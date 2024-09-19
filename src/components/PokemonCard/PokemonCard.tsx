@@ -1,5 +1,7 @@
 import { Energy } from '@/types/cards.type'
 import { useGameStore } from '@/store/game.store'
+import { useEffect } from 'react'
+import { preloadImage } from '@/actions-game/preload-image'
 import { motion } from "framer-motion"
 
 import StackEnergy from './StackEnergy'
@@ -16,6 +18,13 @@ interface Props {
 }
 
 export default function PokemonCard({ typePlayer, card, energyLenght, energy, hp, effectAttack } : Props ) {
+
+    useEffect(() => {
+        if (effectAttack) {
+            preloadImage(effectAttack)
+            preloadImage(card)
+        }    
+    }, [])
 
     const {isAttacked, playerAttackPower} = useGameStore()
 

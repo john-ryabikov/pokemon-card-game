@@ -8,6 +8,7 @@ import PokemonStore from "./pages/PokemonStore/PokemonStore";
 import "@/styles/global.scss"
 
 export default function App() {
+  
 
   const location = useLocation()
 
