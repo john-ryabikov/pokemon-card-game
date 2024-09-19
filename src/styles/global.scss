@@ -4,8 +4,16 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
   --padding-mobile: 0 15px 0 15px;
+}
+
+@font-face {
+  font-family: 'Sonic Logo';
+  src: url('/fonts/SonicLogo-Bold.woff2') format('woff2'),
+      url('/fonts/SonicLogo-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
 }
 
 * {

@@ -20,7 +20,10 @@ export default function StartPage() {
             whileInView={{ opacity: 1 }}
             transition={{ delay: 0.25 }}
         >
-            <img className='start-page__logo' src="img/Icons/main_logo.png" alt="Pokemon" draggable={false}/>
+            <div className='start-page__logo'>
+                <img className='start-page__logo-img' src="img/Icons/main_logo.png" alt="Pokemon" draggable={false}/>
+                <h1 className='start-page__logo-title'>Duel Dash</h1>
+            </div>
             <div className='start-page__btns'>
                 <Link to={'/game'} className='start-page__btn' onClick={() => startGame()}>Start game</Link>
                 <Link to={'/store'} className='start-page__btn start-page__btn_store'>Store</Link>

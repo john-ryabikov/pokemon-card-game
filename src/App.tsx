@@ -9,7 +9,6 @@ import "@/styles/global.scss"
 
 export default function App() {
   
-
   const location = useLocation()
 
   return (

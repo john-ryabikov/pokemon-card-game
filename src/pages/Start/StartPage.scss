@@ -7,6 +7,26 @@
     gap: 60px;
     width: 100%;
     height: 100%;
+    &__logo {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    &__logo-title {
+        position: relative;
+        width: 100%;
+        font-family: 'Sonic Logo';
+        font-size: 34px;
+        text-align: center;
+        margin-top: -60px;
+        text-shadow: 3px 0 3px #2358f7, 
+            0 3px 3px #4470F1, 
+            -3px 0 3px #4470F1, 
+            0 -3px 3px #4470F1;
+        color: #f1e20a;
+    }
     &__btns {
         position: relative;
         display: flex;
@@ -25,13 +45,13 @@
         border-radius: 10px;
         width: 190px;
         height: 60px;
-        font-weight: 700;
+        font-family: 'Sonic Logo';
         font-size: 16px;
         text-align: center;
         color: #fff;
         &_store {
-            background-color: #2f2e2e;
-            border-bottom: 2px solid #474747;
+            background-color: #1c3ca1;
+            border-bottom: 2px solid #121727;
         }
     }
     &__version {
