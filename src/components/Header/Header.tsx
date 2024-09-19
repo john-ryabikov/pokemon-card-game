@@ -14,7 +14,6 @@ export default function Header() {
             <Link to={'/'}>
                 <img className='header__exit-btn' src="img/Icons/exit_icon.svg"/>
             </Link>
-            <img className='header__logo' src="img/Icons/main_logo.png"/>
         </motion.header>
     )
 }

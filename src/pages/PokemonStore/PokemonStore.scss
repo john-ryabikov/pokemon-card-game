@@ -42,14 +42,14 @@
         justify-content: flex-start;
         padding: 10px;
         border-radius: 12px;
-        background-color: #292929;
+        background-color: rgba(41, 41, 41, 0.5);
         img {
             width: 92px;
         }
         &_selected {
             outline: 1px solid #0059ff;
             outline-offset:-1px;
-            background-color: rgba(145, 179, 243, 0.12);
+            background-color: rgba(145, 179, 243, 0.25);
         }
     }
 }

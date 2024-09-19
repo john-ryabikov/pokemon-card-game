@@ -11,13 +11,12 @@ import './PokemonCard.scss'
 interface Props {
     typePlayer: "player" | "enemy",
     card: string,
-    energyLenght: number,
     energy?: Energy[]
     hp?: number,
     effectAttack?: string
 }
 
-export default function PokemonCard({ typePlayer, card, energyLenght, energy, hp, effectAttack } : Props ) {
+export default function PokemonCard({ typePlayer, card, energy, hp, effectAttack } : Props ) {
 
     useEffect(() => {
         if (effectAttack) {
@@ -34,16 +33,16 @@ export default function PokemonCard({ typePlayer, card, energyLenght, energy, hp
                 <motion.img 
                     className='pokemon-card__attack-effect' 
                     src={effectAttack}
-                    initial={{x: -56, y: 0, opacity: 1 }}
-                    whileInView={{x: -56, y: -60, opacity: 0 }}
+                    initial={{x: -45, y: 0, opacity: 1 }}
+                    whileInView={{x: -45, y: -60, opacity: 0 }}
                     transition={{delay: 0.15, duration: 0.5}}
                 />
             }
             {(typePlayer === "enemy" && isAttacked) && 
                 <motion.span 
-                    className='pokemon-card__attack-for-enemy'
-                    initial={{x: -20, y: 0, opacity: 1 }}
-                    whileInView={{x: -20, y: -10, opacity: 0 }}
+                    className='pokemon-card__hit'
+                    initial={{x: 10, y: 0, opacity: 1 }}
+                    whileInView={{x: 10, y: -10, opacity: 0 }}
                     transition={{delay: 0.15, duration: 0.5}}
                 >
                     -{playerAttackPower}
@@ -51,7 +50,7 @@ export default function PokemonCard({ typePlayer, card, energyLenght, energy, hp
             }
             <span className='pokemon-card__hp'>{hp} HP</span>
             <img className='pokemon-card__card-img' src={card} alt="Pokemon" draggable={false}/>
-            <StackEnergy energyLenght={energyLenght} energy={energy}/>
+            <StackEnergy energy={energy}/>
         </div>
     )
 }

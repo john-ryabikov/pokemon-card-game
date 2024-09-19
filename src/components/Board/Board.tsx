@@ -9,7 +9,6 @@ export default function Board() {
         playerPokemon,  
         playerHP, 
         playerEnergy, 
-        playerEnergyLength,
         playerAttackEffect,
         enemyHP, 
     } = useGameStore()
@@ -19,14 +18,12 @@ export default function Board() {
             <PokemonCard 
                 typePlayer="enemy" 
                 card={POKEMONS[6].pokemonImg} 
-                energyLenght={POKEMONS[6].energyLength} 
                 hp={enemyHP}
             />
             <PokemonCard 
                 typePlayer="player" 
                 card={playerPokemon} 
                 energy={playerEnergy} 
-                energyLenght={playerEnergyLength} 
                 hp={playerHP} 
                 effectAttack={playerAttackEffect}
             />
