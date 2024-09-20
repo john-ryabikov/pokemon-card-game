@@ -13,7 +13,7 @@ export const attackAction = (
         set({ isAttacked : false })
     }, 900)
 
-    state.enemyHP = state.enemyHP - state.playerAttackPower 
+    state.enemyHP -= state.playerAttackPower 
     state.playerEnergy = []
 
     if (state.enemyHP === 0) {

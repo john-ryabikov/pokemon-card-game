@@ -9,6 +9,7 @@ import { takeEnergyAction } from "./actions-store/take-energy";
 import { giveEnergyAction } from "./actions-store/give-energy";
 import { attackAction } from "./actions-store/attack";
 import { selectPokemonAction } from "./actions-store/select-pokemon";
+import { Pokemon } from "@/types/cards.type";
 
 const initialGameSettings = {
     deck: ENERGY,
@@ -24,7 +25,7 @@ const initialGameSettings = {
 
 const usePokemonsStore = create<IPokemonsStore>(() => ({
     pokemons: POKEMONS,
-    startedPokemon: POKEMONS[0]
+    startedPokemon: POKEMONS.find(p => p.started === true) as Pokemon
 }))
 
 const useGameStore = create<IGameStore>((set, get) => ({
