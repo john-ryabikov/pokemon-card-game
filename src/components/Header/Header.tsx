@@ -8,11 +8,12 @@ export default function Header() {
         <motion.header 
             className='header'
             initial={{ y: -90 }}
-            whileInView={{ y: 0 }}
-            transition={{ delay: 0.15 }}
+            animate={{ y: 0 }}
+            exit={{opacity: 0 }}
+            transition={{ delay: 0.45 }}
         >
-            <Link to={'/'}>
-                <img className='header__exit-btn' src="img/Icons/exit_icon.svg"/>
+            <Link to={'/'} className='header__exit-btn'>
+                <img src="img/Icons/exit_icon.svg" alt="" draggable="false"/>
             </Link>
         </motion.header>
     )

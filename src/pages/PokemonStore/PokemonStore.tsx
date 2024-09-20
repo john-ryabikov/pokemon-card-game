@@ -17,7 +17,8 @@ export default function PokemonStore({ title }: { title: string }) {
         <motion.section 
             className='store-page'
             initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
             transition={{ delay: 0.45 }}
         >
             <div className='store-page__pokemons'>

@@ -17,7 +17,8 @@ export default function StartPage() {
         <motion.section 
             className='start-page'
             initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
             transition={{ delay: 0.25 }}
         >
             <div className='start-page__logo'>

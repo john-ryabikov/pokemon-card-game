@@ -34,7 +34,8 @@ export default function GamePage({ title }:{ title: string }) {
         <motion.section 
             className='game-page'
             initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
             transition={{ delay: 0.45 }}
         >
             {isGameEnd && <Popup/>}
@@ -43,7 +44,8 @@ export default function GamePage({ title }:{ title: string }) {
             <motion.div 
                 className='game-page__actions'
                 initial={{ y: 90 }}
-                whileInView={{ y: 0 }}
+                animate={{ y: 0 }}
+                exit={{ opacity: 0 }}
                 transition={{ delay: 0.75 }}
             >
                 <div className='game-page__btn-deck'>
