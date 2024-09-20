@@ -1,5 +1,6 @@
 import { POKEMONS } from "@/data/pokemons.cards";
 import { useGameStore } from "@/store/game.store";
+import { motion } from "framer-motion"
 
 import PokemonCard from "../PokemonCard/PokemonCard";
 
@@ -14,7 +15,13 @@ export default function Board() {
     } = useGameStore()
 
     return (
-        <div className="game-page__board">
+        <motion.div 
+            className="game-page__board"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ delay: 0.45 }}
+        >
             <PokemonCard 
                 typePlayer="enemy" 
                 card={POKEMONS[6].pokemonImg} 
@@ -27,6 +34,6 @@ export default function Board() {
                 hp={playerHP} 
                 effectAttack={playerAttackEffect}
             />
-        </div>
+        </motion.div>
     )
 }

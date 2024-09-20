@@ -1,10 +1,12 @@
 import { useGameStore } from "@/store/game.store"
-import { Link } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import { motion } from "framer-motion"
 
 import "./Popup.scss"
 
 export default  function Popup() {
+
+    const navigate = useNavigate()
 
     const {startGame, isLose, isWin} = useGameStore()
 
@@ -24,9 +26,9 @@ export default  function Popup() {
                     <button className='popup__retry-btn' onClick={() => startGame()}>
                         <img src="img/Icons/replay_icon.svg" alt="Retry" draggable={false}/>
                     </button>
-                    <Link to={'/'} className='popup__exit-btn'>
+                    <button onClick={() => {setTimeout(() => (navigate("/")), 450)}} className='popup__exit-btn'>
                         <img src="img/Icons/exit_icon.svg" alt="Exit" draggable={false}/>
-                    </Link>
+                    </button>
                 </div>
             </motion.div>
         </div>

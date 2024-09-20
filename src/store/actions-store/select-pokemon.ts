@@ -22,7 +22,8 @@ export const selectPokemonAction = (get: () => IGameStore, pokemons: Pokemon[], 
         playerEnergy: state.playerEnergy,
         playerEnergyLength: state.playerEnergyLength,
         playerAttackPower: state.playerAttackPower,
-        playerHP: state.playerHP
+        playerHP: state.playerHP,
+        playerAttackEffect: state.playerAttackEffect
     }
 
 }

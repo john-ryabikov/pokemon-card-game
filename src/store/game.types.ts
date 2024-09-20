@@ -18,6 +18,8 @@ export interface IGameStore {
     isAttack: boolean,
     isAttacked: boolean,
     isLoading: boolean,
+    error: null,
+    loadingPokemons: () => Promise<void>
     selectPokemon: (pokemonNumber: number) => void,
     startGame: () => void,
     takeEnergy: (id: number) => void,

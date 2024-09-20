@@ -11,7 +11,13 @@ const EnergyBox = forwardRef<HTMLDivElement>(function EnergyBox(props, ref) {
     const giveEnergy = useGameStore(useShallow(state => state.giveEnergy))
 
     return (
-        <div className='game-page__energy-box' >
+        <motion.div 
+            className="game-page__energy-box"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ delay: 0.45 }}
+        >
             <div className={`${energyBox.length === 0 ? "game-page__energy-box-wprapper_empty" : "game-page__energy-box-wprapper"}`} ref={ref}>
                 {!energyBox.length ? "Not enough enegry cards" : (
                 energyBox.map((elem, i) => (
@@ -28,7 +34,7 @@ const EnergyBox = forwardRef<HTMLDivElement>(function EnergyBox(props, ref) {
                     </button>
                 )))}
             </div>
-        </div>
+        </motion.div>
     )
 })
 

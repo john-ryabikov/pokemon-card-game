@@ -13,10 +13,12 @@ export const attackAction = (
         set({ isAttacked : false })
     }, 900)
 
+    
     state.enemyHP -= state.playerAttackPower 
     state.playerEnergy = []
 
-    if (state.enemyHP === 0) {
+    if (state.enemyHP <= 0) {
+        state.enemyHP = 0
         setTimeout(() => {
             set({ isWin: true, isGameEnd: true })
         }, 900)

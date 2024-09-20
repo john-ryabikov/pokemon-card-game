@@ -1,20 +1,30 @@
-import { Link } from "react-router-dom"
 import { motion } from "framer-motion"
+import { useGameStore } from "@/store/game.store"
+import { useNavigate } from "react-router-dom"
 
 import "./Header.scss"
 
 export default function Header() {
+
+    const navigate = useNavigate()
+
+    const { isLoading } = useGameStore()
+
     return (
-        <motion.header 
-            className='header'
-            initial={{ y: -90 }}
-            animate={{ y: 0 }}
-            exit={{opacity: 0 }}
-            transition={{ delay: 0.45 }}
-        >
-            <Link to={'/'} className='header__exit-btn'>
-                <img src="img/Icons/exit_icon.svg" alt="" draggable="false"/>
-            </Link>
-        </motion.header>
+        <>
+            {!isLoading && (
+                <motion.header 
+                    className='header'
+                    initial={{ y: -90 }}
+                    animate={{ y: 0 }}
+                    exit={{ y: -90 }}
+                    transition={{ delay: 0.45 }}
+                >
+                    <button onClick={() => {setTimeout(() => (navigate("/")), 250)}} className='header__exit-btn'>
+                        <img src="img/Icons/exit_icon.svg" alt="" draggable="false"/>
+                    </button>
+                </motion.header>
+            )}
+        </>
     )
 }

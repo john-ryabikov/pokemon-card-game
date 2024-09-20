@@ -10,6 +10,7 @@ import { giveEnergyAction } from "./actions-store/give-energy";
 import { attackAction } from "./actions-store/attack";
 import { selectPokemonAction } from "./actions-store/select-pokemon";
 import { Pokemon } from "@/types/cards.type";
+import { loadingPokemonsAction } from "./actions-store/loading-pokemons";
 
 const initialGameSettings = {
     deck: ENERGY,
@@ -20,7 +21,6 @@ const initialGameSettings = {
     isWin: false,
     isAttack: false,
     isAttacked: false,
-    isLoading: false
 }
 
 const usePokemonsStore = create<IPokemonsStore>(() => ({
@@ -30,6 +30,8 @@ const usePokemonsStore = create<IPokemonsStore>(() => ({
 
 const useGameStore = create<IGameStore>((set, get) => ({
     ...initialGameSettings,
+    isLoading: false,
+    error: null,
     pokemonSelected: 1,
     playerPokemon: usePokemonsStore.getState().startedPokemon.pokemonImg,
     playerPokemonType: usePokemonsStore.getState().startedPokemon.type,
@@ -38,6 +40,7 @@ const useGameStore = create<IGameStore>((set, get) => ({
     playerAttackPower: usePokemonsStore.getState().startedPokemon.attackPower,
     playerHP: usePokemonsStore.getState().startedPokemon.hp,
     playerAttackEffect: usePokemonsStore.getState().startedPokemon.attackEffect,
+    loadingPokemons: async () => set(await loadingPokemonsAction(get)),
     startGame: () => set(initialGameSettings),
     selectPokemon: (pokemonNumber: number) => set(selectPokemonAction(get, POKEMONS, pokemonNumber)),
     takeEnergy: (id: number) => set(takeEnergyAction(get, id)),
