@@ -14,6 +14,7 @@ import { loadingPokemonsAction } from "./actions-store/loading-pokemons";
 
 const initialGameSettings = {
     deck: ENERGY,
+    player.Energy: [],
     enemyHP: POKEMONS[6].hp,
     energyBox: [],
     isGameEnd: false,
