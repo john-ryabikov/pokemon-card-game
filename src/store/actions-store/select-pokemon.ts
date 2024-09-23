@@ -1,7 +1,7 @@
 import type { Pokemon } from "@/types/cards.type";
 import type { IGameStore } from "../game.types";
 
-export const selectPokemonAction = (get: () => IGameStore, pokemons: Pokemon[], pokemonNumber: number, ) => {
+export const selectPokemonAction = ( get: () => IGameStore, pokemons: Pokemon[], pokemonNumber: number ) => {
 
     const state = get()
 

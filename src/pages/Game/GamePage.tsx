@@ -22,15 +22,21 @@ export default function GamePage({ title }:{ title: string }) {
         isAttack,
         energyBox,
         isLoading,
+        enemyEnergy,
+        enemyEnergyLength,
         takeEnergy,
         gameOver,
-        attack
+        playerAttack,
+        enemyAttack
     } = useGameStore()
 
     useEffect(() => {
         document.title = `${title} | Pokemon Game`
         createDeck(deck)
-    }, [deck])
+        if (enemyEnergy.length === enemyEnergyLength) {
+            enemyAttack()
+        }
+    }, [deck, enemyEnergy])
 
     return (
         <motion.section 
@@ -59,7 +65,7 @@ export default function GamePage({ title }:{ title: string }) {
                         <button 
                             disabled={!isAttack} 
                             className={`game-page__btn-deck-attack ${!isAttack ? "game-page__btn-deck-attack_disable" : ""}`}
-                            onClick={() => attack()}
+                            onClick={() => playerAttack()}
                         >
                             <span>Attack</span>
                         </button>

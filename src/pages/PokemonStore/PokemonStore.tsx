@@ -13,7 +13,6 @@ export default function PokemonStore({ title }: { title: string }) {
 
     useEffect(() => {
         document.title = `${title} | Pokemon Game`
-        
     }, [])
 
     return (

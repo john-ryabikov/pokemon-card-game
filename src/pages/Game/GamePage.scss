@@ -91,6 +91,7 @@
         &_disable {
             opacity: 0.6;
             filter: grayscale(100%);
+            pointer-events: none;
         }
     }
     &__btn-deck-attack {

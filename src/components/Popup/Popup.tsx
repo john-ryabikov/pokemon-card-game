@@ -8,7 +8,7 @@ export default  function Popup() {
 
     const navigate = useNavigate()
 
-    const {startGame, isLose, isWin} = useGameStore()
+    const {startGame, isLose, isWin, pokemonSelected} = useGameStore()
 
     return (
         <div className='popup'>
@@ -23,7 +23,7 @@ export default  function Popup() {
                     {isWin && "You've won!"}
                 </p>
                 <div className='popup__buttons'>
-                    <button className='popup__retry-btn' onClick={() => {setTimeout(() => startGame(), 250)}}>
+                    <button className='popup__retry-btn' onClick={() => {setTimeout(() => startGame(pokemonSelected), 250)}}>
                         <img src="img/Icons/replay_icon.svg" alt="Retry" draggable={false}/>
                     </button>
                     <button onClick={() => {setTimeout(() => (navigate("/")), 250)}} className='popup__exit-btn'>

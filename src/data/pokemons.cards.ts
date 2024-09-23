@@ -84,7 +84,7 @@ export const POKEMONS : Pokemon[] = [
       energy: [],
       energyLength: 3,
       attackPower: 20,
-      attackEffect: preloadImage("img/Effect/plane.svg"),
+      attackEffect: preloadImage("img/Effects/plane.svg"),
     }
 ]
 

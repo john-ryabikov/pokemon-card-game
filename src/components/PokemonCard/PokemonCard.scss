@@ -12,6 +12,11 @@
         left: 50%;
         transform: translateX(50%);
         z-index: 3;
+        &_enemy {
+            top: auto;
+            bottom: -70px;
+            z-index: 5;
+        }
     }
     &__hit {
         position: absolute;

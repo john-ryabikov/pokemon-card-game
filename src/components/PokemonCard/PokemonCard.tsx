@@ -1,7 +1,5 @@
 import { Energy } from '@/types/cards.type'
 import { useGameStore } from '@/store/game.store'
-import { useEffect } from 'react'
-import { preloadImage } from '@/actions-game/preload-image'
 import { motion } from "framer-motion"
 
 import StackEnergy from './StackEnergy'
@@ -18,18 +16,11 @@ interface Props {
 
 export default function PokemonCard({ typePlayer, card, energy, hp, effectAttack } : Props ) {
 
-    useEffect(() => {
-        if (effectAttack) {
-            preloadImage(effectAttack)
-            preloadImage(card)
-        }    
-    }, [])
-
-    const {isAttacked, playerAttackPower} = useGameStore()
+    const {isPlayerAttacked, isEnemyAttacked, playerAttackPower, enemyAttackPower} = useGameStore()
 
     return (
         <div className="pokemon-card">
-            {(typePlayer === "player" && isAttacked) && 
+            {(typePlayer === "player" && isPlayerAttacked) && 
                 <motion.img 
                     className='pokemon-card__attack-effect' 
                     src={effectAttack}
@@ -38,7 +29,7 @@ export default function PokemonCard({ typePlayer, card, energy, hp, effectAttack
                     transition={{delay: 0.15, duration: 0.5}}
                 />
             }
-            {(typePlayer === "enemy" && isAttacked) && 
+            {(typePlayer === "enemy" && isPlayerAttacked) && 
                 <motion.span 
                     className='pokemon-card__hit'
                     initial={{x: 10, y: 0, opacity: 1 }}
@@ -46,6 +37,25 @@ export default function PokemonCard({ typePlayer, card, energy, hp, effectAttack
                     transition={{delay: 0.15, duration: 0.5}}
                 >
                     -{playerAttackPower}
+                </motion.span>
+            }
+            {(typePlayer === "enemy" && isEnemyAttacked) && 
+                <motion.img 
+                    className='pokemon-card__attack-effect pokemon-card__attack-effect_enemy' 
+                    src={effectAttack}
+                    initial={{x: -45, y: 0, opacity: 1 }}
+                    whileInView={{x: -45, y: 60, opacity: 0 }}
+                    transition={{delay: 0.15, duration: 0.5}}
+                />
+            }
+            {(typePlayer === "player" && isEnemyAttacked) && 
+                <motion.span 
+                    className='pokemon-card__hit'
+                    initial={{x: 10, y: 0, opacity: 1 }}
+                    whileInView={{x: 10, y: -10, opacity: 0 }}
+                    transition={{delay: 0.15, duration: 0.5}}
+                >
+                    -{enemyAttackPower}
                 </motion.span>
             }
             <span className='pokemon-card__hp'>{hp} HP</span>

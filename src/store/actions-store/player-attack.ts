@@ -1,16 +1,16 @@
 import type { IGameStore } from "../game.types";
 
-export const attackAction = (
+export const playerAttackAction = (
     set: (partial: IGameStore | Partial<IGameStore> | ((state: IGameStore) => IGameStore | Partial<IGameStore>), replace?: boolean | undefined) => void, 
     get: () => IGameStore
 ): Partial<IGameStore> => {
 
     const state = get()
 
-    state.isAttacked = true
+    state.isPlayerAttacked = true
     
     setTimeout(() => {
-        set({ isAttacked : false })
+        set({ isPlayerAttacked : false })
     }, 900)
 
     

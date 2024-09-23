@@ -7,10 +7,10 @@ import "./StartPage.scss"
 
 export default function StartPage() {
 
-    const { startGame, loadingPokemons } = useGameStore()
+    const { startGame, loadingPokemons, pokemonSelected } = useGameStore()
 
     const preloadBoard = () => {
-        startGame()
+        startGame(pokemonSelected)
         loadingPokemons(3500)
     }
 
