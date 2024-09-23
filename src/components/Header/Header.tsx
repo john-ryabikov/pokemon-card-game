@@ -20,7 +20,7 @@ export default function Header() {
                     exit={{ y: -90 }}
                     transition={{ delay: 0.45 }}
                 >
-                    <button onClick={() => {setTimeout(() => (navigate("/")), 250)}} className='header__exit-btn'>
+                    <button onClick={() => {setTimeout(() => (navigate("/")), 150)}} className='header__exit-btn'>
                         <img src="img/Icons/exit_icon.svg" alt="" draggable="false"/>
                     </button>
                 </motion.header>

@@ -15,6 +15,7 @@ import { loadingPokemonsAction } from "./actions-store/loading-pokemons";
 const initialGameSettings = {
     deck: ENERGY,
     enemyHP: POKEMONS[6].hp,
+    playerEnergy: [],
     energyBox: [],
     isGameEnd: false,
     isLose: false,
@@ -40,7 +41,7 @@ const useGameStore = create<IGameStore>((set, get) => ({
     playerAttackPower: usePokemonsStore.getState().startedPokemon.attackPower,
     playerHP: usePokemonsStore.getState().startedPokemon.hp,
     playerAttackEffect: usePokemonsStore.getState().startedPokemon.attackEffect,
-    loadingPokemons: async () => set(await loadingPokemonsAction(get)),
+    loadingPokemons: async (timeout: number) => set(await loadingPokemonsAction(get, timeout)),
     startGame: () => set(initialGameSettings),
     selectPokemon: (pokemonNumber: number) => set(selectPokemonAction(get, POKEMONS, pokemonNumber)),
     takeEnergy: (id: number) => set(takeEnergyAction(get, id)),

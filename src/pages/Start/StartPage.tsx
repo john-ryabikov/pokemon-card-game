@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import { useEffect } from "react"
+import { useLayoutEffect } from "react"
 import { useGameStore } from "@/store/game.store"
 import { motion } from "framer-motion"
 
@@ -7,11 +7,16 @@ import "./StartPage.scss"
 
 export default function StartPage() {
 
-    useEffect(() => {
+    const { startGame, loadingPokemons } = useGameStore()
+
+    const preloadBoard = () => {
+        startGame()
+        loadingPokemons(3500)
+    }
+
+    useLayoutEffect(() => {
         document.title = `Pokemon Game`
     }, [])
-
-    const { startGame, loadingPokemons } = useGameStore()
 
     return (
         <motion.section 
@@ -26,11 +31,11 @@ export default function StartPage() {
                 <h1 className='start-page__logo-title'>Duel Dash</h1>
             </div>
             <div className='start-page__btns'>
-                <Link to={'/game'} className='start-page__btn' onClick={() => {startGame(); loadingPokemons()}}>Start game</Link>
-                <Link to={'/store'} className='start-page__btn start-page__btn_store'>Store</Link>
+                <Link to={'/game'} className='start-page__btn' onClick={preloadBoard}>Start game</Link>
+                <Link to={'/store'} className='start-page__btn start-page__btn_store' onClick={() => loadingPokemons(2500)}>Store</Link>
             </div>
             <span className='start-page__version'>Version: 0.0.1</span>
-        </motion.section>
+        </motion.section>     
     )
   }
   

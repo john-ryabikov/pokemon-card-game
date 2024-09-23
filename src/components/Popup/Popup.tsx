@@ -23,10 +23,10 @@ export default  function Popup() {
                     {isWin && "You've won!"}
                 </p>
                 <div className='popup__buttons'>
-                    <button className='popup__retry-btn' onClick={() => startGame()}>
+                    <button className='popup__retry-btn' onClick={() => {setTimeout(() => startGame(), 250)}}>
                         <img src="img/Icons/replay_icon.svg" alt="Retry" draggable={false}/>
                     </button>
-                    <button onClick={() => {setTimeout(() => (navigate("/")), 450)}} className='popup__exit-btn'>
+                    <button onClick={() => {setTimeout(() => (navigate("/")), 250)}} className='popup__exit-btn'>
                         <img src="img/Icons/exit_icon.svg" alt="Exit" draggable={false}/>
                     </button>
                 </div>
