@@ -16,7 +16,6 @@ const initialGameSettings = {
     deck: ENERGY,
     playerEnergy: [],
     enemyHP: POKEMONS[6].hp,
-    playerEnergy: [],
     energyBox: [],
     isGameEnd: false,
     isLose: false,
