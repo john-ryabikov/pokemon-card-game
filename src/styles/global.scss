@@ -43,19 +43,21 @@ body::after{
   overflow:hidden; 
   z-index:-9999; 
   content:
-  // energise
+  // energies
     url("/img/EnergyCards/flame_energy.png")
     url("/img/EnergyCards/electric_energy.png")
     url("/img/EnergyCards/hydro_energy.png")
     url("/img/EnergyCards/plane_energy.png")
     url("/img/EnergyCards/psy_energy.png")
     url("/img/EnergyCards/strong_energy.png")
+    url("/img/EnergyCards/normal_energy.png")
     url("/img/Icons/electric_icon.svg")
     url("/img/Icons/flame_icon.svg")
     url("/img/Icons/psy_icon.svg")
     url("/img/Icons/strong_icon.svg")
     url("/img/Icons/hydro_icon.svg")
     url("/img/Icons/plane_icon.svg")
+    url("/img/Icons/normal_icon.svg")
   // effects
     url("/img/Effects/burn.svg")
     url("/img/Effects/electric.svg")
@@ -63,11 +65,13 @@ body::after{
     url("/img/Effects/plane.svg")
     url("/img/Effects/psy.svg")
     url("/img/Effects/strong.svg")
+    url("/img/Effects/normal.svg")
   // other icons 
     url("/img/Icons/cards_icon.svg")
     url("/img/Icons/exit_icon.svg")
     url("/img/Icons/main_logo.png")
-    url("/img/Icons/replay_icon.svg");
+    url("/img/Icons/replay_icon.svg")
+    url("/img/Icons/pokecoin_icon.svg");
 }
 
 #root {

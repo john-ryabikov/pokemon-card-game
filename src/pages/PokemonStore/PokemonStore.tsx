@@ -33,7 +33,7 @@ export default function PokemonStore({ title }: { title: string }) {
                 >
                     <h1 className='store-page__title'>Choose your Pokemon</h1>
                     <div className='store-page__pokemons-box'>
-                        {pokemons.slice(0, 6).map((p, i) => (
+                        {pokemons.map((p, i) => (
                             <div key={i} className={`store-page__pokemon ${pokemonSelected === p.number ? "store-page__pokemon_selected" : ""}`} onClick={() => selectPokemon(p.number)}>
                                 <img src={p.pokemonImgStore} alt={p.pokemonName}/>
                             </div>

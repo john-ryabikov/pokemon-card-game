@@ -1,6 +1,6 @@
 import { create } from "zustand";
 import { ENERGY } from "@/data/energy.cards";
-import { POKEMONS } from "@/data/pokemons.cards";
+import { ENEMIES, POKEMONS } from "@/data/pokemons.cards";
 
 import type { IGameStore, IPokemonsStore } from "./game.types";
 
@@ -30,9 +30,9 @@ const initialGameSettings = {
     playerHP: usePokemonsStore.getState().startedPokemon.hp,
     enemyTurnCount: 0,
     enemyEnergy: [],
-    enemyAttackPower: POKEMONS[6].attackPower,
-    enemyEnergyLength: POKEMONS[6].energyLength,
-    enemyHP: POKEMONS[6].hp,
+    enemyAttackPower: ENEMIES[0].attackPower,
+    enemyEnergyLength: ENEMIES[0].energyLength,
+    enemyHP: ENEMIES[0].hp,
     energyBox: [],
     isGameEnd: false,
     isLose: false,
@@ -46,9 +46,10 @@ const useGameStore = create<IGameStore>((set, get) => ({
     ...initialGameSettings,
     isLoading: false,
     error: null,
+    enemyTakedEnergy: false,
     loadingPokemons: async (timeout: number) => set(await loadingPokemonsAction(get, timeout)),
     startGame: (pokemonNumber: number) => set(startGameAction(pokemonNumber, POKEMONS, initialGameSettings)),
-    takeEnergy: (id: number) => set(takeEnergyAction(get, id)),
+    takeEnergy: (id: number) => set(takeEnergyAction(set, get, id)),
     giveEnergy: (id: number) => set(giveEnergyAction(get, id)),
     playerAttack: () => set(playerAttackAction(set, get)),
     enemyAttack: () => set(enemyAttackAction(set, get)),

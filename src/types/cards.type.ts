@@ -1,5 +1,5 @@
 export enum TypeEnergies {
-    'Flame' , 'Plane' , 'Psy' , 'Hydro' , 'Strong' , 'Electric',
+    'Flame' , 'Plane' , 'Psy' , 'Hydro' , 'Strong' , 'Electric', 'Normal',
 }
 
 export interface Pokemon {
@@ -12,7 +12,8 @@ export interface Pokemon {
     energyLength: number,
     attackPower: number,
     attackEffect: string,
-    started?: boolean
+    started?: boolean,
+    difficult?: 'easy' | 'normal' | 'hard'  
 }
 
 export interface Energy {

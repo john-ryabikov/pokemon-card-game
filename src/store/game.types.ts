@@ -21,6 +21,7 @@ export interface IGameStore {
     isEnemyAttacked: boolean,
     isLoading: boolean,
     error: null,
+    enemyTakedEnergy: boolean,
     loadingPokemons: (timeout: number) => Promise<void>
     startGame: (pokemonNumber: number) => void,
     takeEnergy: (id: number) => void,

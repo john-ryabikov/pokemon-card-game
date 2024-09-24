@@ -20,6 +20,8 @@ export default function GamePage({ title }:{ title: string }) {
         deck,
         isGameEnd,
         isAttack,
+        isEnemyAttacked,
+        enemyTakedEnergy,
         energyBox,
         isLoading,
         enemyEnergy,
@@ -34,7 +36,9 @@ export default function GamePage({ title }:{ title: string }) {
         document.title = `${title} | Pokemon Game`
         createDeck(deck)
         if (enemyEnergy.length === enemyEnergyLength) {
-            enemyAttack()
+            setTimeout(() => {
+                enemyAttack()
+            }, 950)
         }
     }, [deck, enemyEnergy])
 
@@ -54,11 +58,12 @@ export default function GamePage({ title }:{ title: string }) {
                         className='game-page__actions'
                         initial={{ y: 90 }}
                         whileInView={{ y: 0 }}
-                        transition={{ delay: 0.35 }}
+                        exit={{ y: 90 }}
+                        transition={{ delay: 0.45 }}
                     >
                         <div className='game-page__btn-deck'>
-                            <button disabled={isAttack} onClick={() => playerTakeEnergy(deck, takeEnergy, energyBox, gameOver, energyBoxRef)}>
-                                <img className={`game-page__btn-deck-icon ${isAttack ? "game-page__btn-deck-icon_disable" : ""}`} src="img/Icons/cards_icon.svg" alt="Cards Energy" draggable={false}/>
+                            <button disabled={isAttack || isEnemyAttacked || enemyTakedEnergy} onClick={() => playerTakeEnergy(deck, takeEnergy, energyBox, gameOver, energyBoxRef)}>
+                                <img className={`game-page__btn-deck-icon ${(isAttack || isEnemyAttacked || enemyTakedEnergy ) ? "game-page__btn-deck-icon_disable" : ""}`} src="img/Icons/cards_icon.svg" alt="Cards Energy" draggable={false}/>
                             </button>
                             <span>x{deck.length}</span>
                         </div>

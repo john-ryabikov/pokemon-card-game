@@ -1,4 +1,4 @@
-import { POKEMONS } from "@/data/pokemons.cards";
+import { ENEMIES } from "@/data/pokemons.cards";
 import { useGameStore, usePokemonsStore } from "@/store/game.store";
 import { motion } from "framer-motion"
 
@@ -25,10 +25,10 @@ export default function Board() {
         >
             <PokemonCard 
                 typePlayer="enemy" 
-                card={POKEMONS[6].pokemonImg}
+                card={ENEMIES[0].pokemonImg}
                 energy={enemyEnergy} 
                 hp={enemyHP}
-                effectAttack={POKEMONS[6].attackEffect}
+                effectAttack={ENEMIES[0].attackEffect}
             />
             <PokemonCard 
                 typePlayer="player" 
