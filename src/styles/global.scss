@@ -43,6 +43,26 @@ body::after{
   overflow:hidden; 
   z-index:-9999; 
   content:
+  // pokemons
+    url("img/PokemonCards/Charmander.svg")
+    url("img/PokemonCards/Caterpie.svg")
+    url("img/PokemonCards/Poliwag.svg")
+    url("img/PokemonCards/Sandshrew.svg")
+    url("img/PokemonCards/Abra.svg")
+    url("img/PokemonCards/Meowth.svg")
+    url("img/PokemonCards/Pikachu.svg")
+  // enemies
+    url("img/PokemonEnemyCards/Raticate.svg")
+    url("img/PokemonEnemyCards/Voltorb.svg")
+    url("img/PokemonEnemyCards/Beedrill.svg")
+  // store
+    url("img/PokemonCardsWithHp/Charmander_HP.svg")
+    url("img/PokemonCardsWithHp/Caterpie_HP.svg")
+    url("img/PokemonCardsWithHp/Poliwag_HP.svg")
+    url("img/PokemonCardsWithHp/Sandshrew_HP.svg")
+    url("img/PokemonCardsWithHp/Abra_HP.svg")
+    url("img/PokemonCardsWithHp/Meowth_HP.svg")
+    url("img/PokemonCardsWithHp/Pikachu_HP.svg")
   // energies
     url("/img/EnergyCards/flame_energy.png")
     url("/img/EnergyCards/electric_energy.png")
@@ -71,7 +91,8 @@ body::after{
     url("/img/Icons/exit_icon.svg")
     url("/img/Icons/main_logo.png")
     url("/img/Icons/replay_icon.svg")
-    url("/img/Icons/pokecoin_icon.svg");
+    url("/img/Icons/pokecoin_icon.svg")
+  ;
 }
 
 #root {
