@@ -1,13 +1,14 @@
 import { Link } from "react-router-dom"
 import { useLayoutEffect } from "react"
-import { useGameStore } from "@/store/game.store"
+import { useGameStore, usePokemonsStore } from "@/store/game.store"
 import { motion } from "framer-motion"
 
 import "./StartPage.scss"
 
 export default function StartPage() {
 
-    const { startGame, loadingPokemons, pokemonSelected } = useGameStore()
+    const { pokemonSelected } = usePokemonsStore()
+    const { startGame, loadingPokemons } = useGameStore()
 
     const preloadBoard = () => {
         startGame(pokemonSelected)

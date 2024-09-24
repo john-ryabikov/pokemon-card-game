@@ -2,19 +2,16 @@ import type { Energy, Pokemon, TypeEnergies } from "@/types/cards.type";
 
 export interface IGameStore {
     deck: Energy[],
-    pokemonSelected: number;
-    playerPokemon: string,
     playerPokemonType: TypeEnergies,
     playerEnergy: Energy[],
     playerEnergyLength: number,
-    playerHP: number,
     playerAttackPower: number,
-    playerAttackEffect: string,
+    playerHP: number,
     enemyTurnCount: number,
     enemyEnergy: Energy[],
+    enemyAttackPower: number,
     enemyEnergyLength: number,
     enemyHP: number,
-    enemyAttackPower: number,
     energyBox: Energy[],
     isGameEnd: boolean,
     isLose: boolean,
@@ -25,7 +22,6 @@ export interface IGameStore {
     isLoading: boolean,
     error: null,
     loadingPokemons: (timeout: number) => Promise<void>
-    selectPokemon: (pokemonNumber: number) => void,
     startGame: (pokemonNumber: number) => void,
     takeEnergy: (id: number) => void,
     giveEnergy: (id: number) => void,
@@ -36,5 +32,7 @@ export interface IGameStore {
 
 export interface IPokemonsStore {
     pokemons: Pokemon[],
+    pokemonSelected: number;
     startedPokemon: Pokemon,
+    selectPokemon: (pokemonNumber: number) => void,
 }

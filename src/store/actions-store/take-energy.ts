@@ -8,7 +8,7 @@ export const takeEnergyAction = (get: () => IGameStore, id: number): Partial<IGa
 
     state.enemyTurnCount += 1 
 
-    if (state.enemyTurnCount % 2 === 0) {
+    if (state.enemyTurnCount % 5 === 0) {
         const enemy_energy = state.deck.find(elem => elem?.type === POKEMONS[6].type) as Energy
         state.enemyEnergy = [...state.enemyEnergy, enemy_energy]
     }

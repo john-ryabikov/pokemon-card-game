@@ -8,8 +8,8 @@ import "./PokemonStore.scss"
 
 export default function PokemonStore({ title }: { title: string }) {
 
-    const { pokemons } = usePokemonsStore()
-    const { pokemonSelected, isLoading, selectPokemon } = useGameStore()
+    const { pokemonSelected, pokemons, selectPokemon } = usePokemonsStore()
+    const { isLoading } = useGameStore()
 
     useEffect(() => {
         document.title = `${title} | Pokemon Game`

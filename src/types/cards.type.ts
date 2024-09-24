@@ -9,7 +9,6 @@ export interface Pokemon {
     pokemonImgStore?: string,
     type: TypeEnergies,
     hp: number,
-    energy: Energy[],
     energyLength: number,
     attackPower: number,
     attackEffect: string,

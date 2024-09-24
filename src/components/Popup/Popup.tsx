@@ -1,4 +1,4 @@
-import { useGameStore } from "@/store/game.store"
+import { useGameStore, usePokemonsStore } from "@/store/game.store"
 import { useNavigate } from "react-router-dom"
 import { motion } from "framer-motion"
 
@@ -8,7 +8,8 @@ export default  function Popup() {
 
     const navigate = useNavigate()
 
-    const {startGame, isLose, isWin, pokemonSelected} = useGameStore()
+    const { pokemonSelected } = usePokemonsStore()
+    const {startGame, isLose, isWin } = useGameStore()
 
     return (
         <div className='popup'>
