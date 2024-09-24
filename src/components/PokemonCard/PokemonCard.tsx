@@ -43,7 +43,7 @@ export default function PokemonCard({ typePlayer, card, energy, hp, effectAttack
                 <motion.img 
                     className='pokemon-card__attack-effect pokemon-card__attack-effect_enemy' 
                     src={effectAttack}
-                    initial={{x: -45, y: 0, opacity: 1 }}
+                    initial={{x: -45, y: 0, opacity: 1, rotate: 180 }}
                     whileInView={{x: -45, y: 60, opacity: 0 }}
                     transition={{delay: 0.15, duration: 0.5}}
                 />

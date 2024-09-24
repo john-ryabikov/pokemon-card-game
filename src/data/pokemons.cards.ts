@@ -4,7 +4,7 @@ export const POKEMONS: Pokemon[] = [
   {
     number: 1,
     pokemonName: "Charmander",
-    pokemonImg: "img/PokemonCards/Charmander.svg",
+    pokemonImg: "img/PokemonCards/Charmander.png",
     pokemonImgStore: "img/PokemonCardsWithHp/Charmander_HP.png",
     type: TypeEnergies.Flame,
     hp: 50,
@@ -16,7 +16,7 @@ export const POKEMONS: Pokemon[] = [
   {
     number: 2,
     pokemonName: "Caterpie",
-    pokemonImg: "img/PokemonCards/Caterpie.svg",
+    pokemonImg: "img/PokemonCards/Caterpie.png",
     pokemonImgStore: "img/PokemonCardsWithHp/Caterpie_HP.png",
     type: TypeEnergies.Plane,
     hp: 40,
@@ -27,7 +27,7 @@ export const POKEMONS: Pokemon[] = [
   {
     number: 3,
     pokemonName: "Poliwag",
-    pokemonImg: "img/PokemonCards/Poliwag.svg",
+    pokemonImg: "img/PokemonCards/Poliwag.png",
     pokemonImgStore: "img/PokemonCardsWithHp/Poliwag_HP.png",
     type: TypeEnergies.Hydro,
     hp: 50,
@@ -38,7 +38,7 @@ export const POKEMONS: Pokemon[] = [
   {
     number: 4,
     pokemonName: "Sandshrew",
-    pokemonImg: "img/PokemonCards/Sandshrew.svg",
+    pokemonImg: "img/PokemonCards/Sandshrew.png",
     pokemonImgStore: "img/PokemonCardsWithHp/Sandshrew_HP.png",
     type: TypeEnergies.Strong,
     hp: 40,
@@ -49,7 +49,7 @@ export const POKEMONS: Pokemon[] = [
   {
     number: 5,
     pokemonName: "Abra",
-    pokemonImg: "img/PokemonCards/Abra.svg",
+    pokemonImg: "img/PokemonCards/Abra.png",
     pokemonImgStore: "img/PokemonCardsWithHp/Abra_HP.png",
     type: TypeEnergies.Psy,
     hp: 30,
@@ -60,7 +60,7 @@ export const POKEMONS: Pokemon[] = [
   {
     number: 6,
     pokemonName: "Meowth",
-    pokemonImg: "img/PokemonCards/Meowth.svg",
+    pokemonImg: "img/PokemonCards/Meowth.png",
     pokemonImgStore: "img/PokemonCardsWithHp/Meowth_HP.png",
     type: TypeEnergies.Normal,
     hp: 40,
@@ -71,7 +71,7 @@ export const POKEMONS: Pokemon[] = [
   {
     number: 7,
     pokemonName: "Pikachu",
-    pokemonImg: "img/PokemonCards/Pikachu.svg",
+    pokemonImg: "img/PokemonCards/Pikachu.png",
     pokemonImgStore: "img/PokemonCardsWithHp/Pikachu_HP.png",
     type: TypeEnergies.Electric,
     hp: 40,
@@ -85,7 +85,7 @@ export const ENEMIES: Pokemon[] = [
   {
     number: 8,
     pokemonName: "Raticate",
-    pokemonImg: "img/PokemonEnemyCards/Raticate.svg",
+    pokemonImg: "img/PokemonEnemyCards/Raticate.png",
     type: TypeEnergies.Normal,
     hp: 40,
     energyLength: 1,
@@ -96,7 +96,7 @@ export const ENEMIES: Pokemon[] = [
   {
     number: 9,
     pokemonName: "Voltorb",
-    pokemonImg: "img/PokemonEnemyCards/Voltorb.svg",
+    pokemonImg: "img/PokemonEnemyCards/Voltorb.png",
     type: TypeEnergies.Electric,
     hp: 60,
     energyLength: 3,
@@ -107,7 +107,7 @@ export const ENEMIES: Pokemon[] = [
   {
     number: 10,
     pokemonName: "Beedrill",
-    pokemonImg: "img/PokemonEnemyCards/Beedrill.svg",
+    pokemonImg: "img/PokemonEnemyCards/Beedrill.png",
     type: TypeEnergies.Plane,
     hp: 80,
     energyLength: 3,
