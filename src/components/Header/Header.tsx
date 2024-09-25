@@ -1,6 +1,7 @@
 import { motion } from "framer-motion"
 import { useGameStore, usePokemonsStore } from "@/store/game.store"
 import { useNavigate } from "react-router-dom"
+import { useEffect } from "react"
 
 import "./Header.scss"
 
@@ -8,8 +9,12 @@ export default function Header() {
 
     const navigate = useNavigate()
 
-    const { isLoading } = useGameStore()
-    const { pokecoins } = usePokemonsStore()
+    const { isLoading, isWin } = useGameStore()
+    const { pokecoins, earnCoinsAfterWin } = usePokemonsStore()
+
+    useEffect(() => {
+        if (isWin) earnCoinsAfterWin(100) 
+    }, [isWin])
 
     return (
         <>

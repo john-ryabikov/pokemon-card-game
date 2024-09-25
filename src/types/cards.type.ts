@@ -13,6 +13,8 @@ export interface Pokemon {
     attackPower: number,
     attackEffect: string,
     started?: boolean,
+    purchased?: boolean,
+    cost?: number,
     difficult?: 'easy' | 'normal' | 'hard'  
 }
 

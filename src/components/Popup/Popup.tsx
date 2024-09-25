@@ -1,12 +1,9 @@
 import { useGameStore, usePokemonsStore } from "@/store/game.store"
-import { useNavigate } from "react-router-dom"
 import { motion } from "framer-motion"
 
 import "./Popup.scss"
 
 export default  function Popup() {
-
-    const navigate = useNavigate()
 
     const { pokemonSelected } = usePokemonsStore()
     const {startGame, isLose, isWin } = useGameStore()
@@ -23,12 +20,17 @@ export default  function Popup() {
                     {isLose && "You've lost!"}
                     {isWin && "You've won!"}
                 </p>
+                {isWin && (
+                    <p className='popup__win-coins'>
+                        <span>+</span>
+                        <img src="img/Icons/pokecoin_icon.svg" alt="" draggable="false"/>
+                        <span>100</span>
+                    </p>
+                )}
                 <div className='popup__buttons'>
                     <button className='popup__retry-btn' onClick={() => {setTimeout(() => startGame(pokemonSelected), 250)}}>
                         <img src="img/Icons/replay_icon.svg" alt="Retry" draggable={false}/>
-                    </button>
-                    <button onClick={() => {setTimeout(() => (navigate("/")), 250)}} className='popup__exit-btn'>
-                        <img src="img/Icons/exit_icon.svg" alt="Exit" draggable={false}/>
+                        <span>Retry</span>
                     </button>
                 </div>
             </motion.div>

@@ -13,7 +13,7 @@ import { Pokemon } from "@/types/cards.type";
 import { loadingPokemonsAction } from "./actions-store/loading-pokemons";
 import { enemyAttackAction } from "./actions-store/enemy-attack";
 import { startGameAction } from "./actions-store/start-game";
-import { earnCoinsAfterAttackAction } from "./actions-store/earn-coins";
+import { earnCoinsAction } from "./actions-store/earn-coins";
 
 const usePokemonsStore = create<IPokemonsStore>((set, get) => ({
     pokemons: POKEMONS,
@@ -21,7 +21,12 @@ const usePokemonsStore = create<IPokemonsStore>((set, get) => ({
     pokemonSelected: 1,
     startedPokemon: POKEMONS.find(p => p.started === true) as Pokemon,
     selectPokemon: (pokemonNumber: number) => set(selectPokemonAction(get, pokemonNumber)),
-    earnCoinsAfterAttack: () => set(earnCoinsAfterAttackAction(get, set))
+    earnCoinsAfterAttack: (coins: number) => set(earnCoinsAction(get, set, coins)),
+    earnCoinsAfterWin: (coins: number) => set(earnCoinsAction(get, set, coins)),
+    spendCoins: (pokemonCost: number) => set({ pokecoins: get().pokecoins -= pokemonCost }),
+    unlockPokemon: (pokemonNumber: number) => set({
+        pokemons: get().pokemons.map(p => pokemonNumber === p.number ? {...p, purchased: !p.purchased} : p),
+    }),
 }))
 
 const initialGameSettings = {
