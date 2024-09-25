@@ -9,10 +9,7 @@ export const playerAttackAction = (
 
     state.isPlayerAttacked = true
     
-    setTimeout(() => {
-        set({ isPlayerAttacked : false })
-    }, 900)
-
+    setTimeout(() => set({ isPlayerAttacked : false }), 900)
     
     state.enemyHP -= state.playerAttackPower 
     state.playerEnergy = []
@@ -24,5 +21,7 @@ export const playerAttackAction = (
         }, 900)
     }
 
-    return { isAttack: !state.isAttack }
+    return { 
+        isAttack: !state.isAttack,
+    }
 }

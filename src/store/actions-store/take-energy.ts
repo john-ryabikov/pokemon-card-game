@@ -10,9 +10,15 @@ export const takeEnergyAction = (
 
     const state = get()
 
-    state.enemyTurnCount += 1 
+    state.enemyTurnCount += 1
+    
+    const energy = state.deck.find(elem => elem.id === id) as Energy
 
-    if (state.enemyTurnCount % 5 === 0) {
+    const energyDeckFiltered = state.deck.filter(elem => {
+        if (elem.id !== id) return elem
+    })
+
+    if (state.enemyTurnCount % 6 === 0) {
         const enemy_energy = state.deck.find(elem => elem?.type === ENEMIES[0].type) as Energy
         state.enemyEnergy = [...state.enemyEnergy, enemy_energy]
         state.enemyTakedEnergy = true
@@ -20,12 +26,6 @@ export const takeEnergyAction = (
             set({ enemyTakedEnergy : false })
         }, 900)
     }
-
-    const energy = state.deck.find(elem => elem.id === id) as Energy
-
-    const energyDeckFiltered = state.deck.filter(elem => {
-        if (elem.id !== id) return elem
-    })
 
     return {
         deck: energyDeckFiltered,

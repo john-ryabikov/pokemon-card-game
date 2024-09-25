@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react"
-import { useGameStore } from "@/store/game.store"
+import { useGameStore, usePokemonsStore } from "@/store/game.store"
 import { motion } from "framer-motion"
 
 import { createDeck } from "@/actions-game/game.create-deck"
@@ -12,7 +12,7 @@ import EnergyBox from "@/components/EnergyBox/EnergyBox";
 
 import "./GamePage.scss"
 
-export default function GamePage({ title }:{ title: string }) {
+export default function GamePage({ title }: { title: string }) {
 
     const energyBoxRef = useRef<HTMLDivElement>(null)
 
@@ -31,6 +31,8 @@ export default function GamePage({ title }:{ title: string }) {
         playerAttack,
         enemyAttack
     } = useGameStore()
+
+    const { earnCoinsAfterAttack } = usePokemonsStore()
 
     useEffect(() => {
         document.title = `${title} | Pokemon Game`
@@ -70,7 +72,10 @@ export default function GamePage({ title }:{ title: string }) {
                         <button 
                             disabled={!isAttack} 
                             className={`game-page__btn-deck-attack ${!isAttack ? "game-page__btn-deck-attack_disable" : ""}`}
-                            onClick={() => playerAttack()}
+                            onClick={() => {
+                                playerAttack()
+                                earnCoinsAfterAttack()
+                            }}
                         >
                             <span>Attack</span>
                         </button>

@@ -33,7 +33,9 @@ export interface IGameStore {
 
 export interface IPokemonsStore {
     pokemons: Pokemon[],
+    pokecoins: number,
     pokemonSelected: number;
     startedPokemon: Pokemon,
     selectPokemon: (pokemonNumber: number) => void,
+    earnCoinsAfterAttack: () => void
 }
