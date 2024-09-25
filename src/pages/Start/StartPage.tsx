@@ -35,7 +35,7 @@ export default function StartPage() {
                 <Link to={'/game'} className='start-page__btn' onClick={preloadBoard}>Start game</Link>
                 <Link to={'/store'} className='start-page__btn start-page__btn_store' onClick={() => loadingPokemons(2500)}>Store</Link>
             </div>
-            <span className='start-page__version'>Version: 0.0.2</span>
+            <span className='start-page__version'>Version: 0.0.3</span>
         </motion.section>     
     )
   }
