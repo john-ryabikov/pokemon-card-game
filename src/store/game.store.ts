@@ -14,25 +14,22 @@ import { loadingPokemonsAction } from "./actions-store/loading-pokemons";
 import { enemyAttackAction } from "./actions-store/enemy-attack";
 import { startGameAction } from "./actions-store/start-game";
 import { earnCoinsAction } from "./actions-store/earn-coins";
-import { persist } from "zustand/middleware";
+// import { persist } from "zustand/middleware";
 
 const usePokemonsStore = create<IPokemonsStore>()(
-    persist(
-        (set, get) => ({
-            pokemons: POKEMONS,
-            pokecoins: 0,
-            pokemonSelected: 1,
-            startedPokemon: POKEMONS.find(p => p.started === true) as Pokemon,
-            selectPokemon: (pokemonNumber: number) => set(selectPokemonAction(get, pokemonNumber)),
-            earnCoinsAfterAttack: (coins: number) => set(earnCoinsAction(get, set, coins)),
-            earnCoinsAfterWin: (coins: number) => set(earnCoinsAction(get, set, coins)),
-            spendCoins: (pokemonCost: number) => set({ pokecoins: get().pokecoins -= pokemonCost }),
-            unlockPokemon: (pokemonNumber: number) => set({
-                pokemons: get().pokemons.map(p => pokemonNumber === p.number ? {...p, purchased: !p.purchased} : p),
-            }),
+    (set, get) => ({
+        pokemons: POKEMONS,
+        pokecoins: 0,
+        pokemonSelected: 1,
+        startedPokemon: POKEMONS.find(p => p.started === true) as Pokemon,
+        selectPokemon: (pokemonNumber: number) => set(selectPokemonAction(get, pokemonNumber)),
+        earnCoinsAfterAttack: (coins: number) => set(earnCoinsAction(get, set, coins)),
+        earnCoinsAfterWin: (coins: number) => set(earnCoinsAction(get, set, coins)),
+        spendCoins: (pokemonCost: number) => set({ pokecoins: get().pokecoins -= pokemonCost }),
+        unlockPokemon: (pokemonNumber: number) => set({
+            pokemons: get().pokemons.map(p => pokemonNumber === p.number ? {...p, purchased: !p.purchased} : p),
         }),
-        { name: "Pokemon-store" }
-    )
+    }),
 )
 
 const initialGameSettings = {
@@ -57,22 +54,19 @@ const initialGameSettings = {
 }
 
 const useGameStore = create<IGameStore>()(
-    persist(
-        (set, get) => ({
-            ...initialGameSettings,
-            isLoading: false,
-            error: null,
-            enemyTakedEnergy: false,
-            loadingPokemons: async (timeout: number) => set(await loadingPokemonsAction(get, timeout)),
-            startGame: (pokemonNumber: number) => set(startGameAction(pokemonNumber, POKEMONS, initialGameSettings)),
-            takeEnergy: (id: number) => set(takeEnergyAction(set, get, id)),
-            giveEnergy: (id: number) => set(giveEnergyAction(get, id)),
-            playerAttack: () => set(playerAttackAction(set, get)),
-            enemyAttack: () => set(enemyAttackAction(set, get)),
-            gameOver: () => set(gameOverAction(get)) 
-        }),
-        { name: "Pokemon Game" }
-    )
+    (set, get) => ({
+        ...initialGameSettings,
+        isLoading: false,
+        error: null,
+        enemyTakedEnergy: false,
+        loadingPokemons: async (timeout: number) => set(await loadingPokemonsAction(get, timeout)),
+        startGame: (pokemonNumber: number) => set(startGameAction(pokemonNumber, POKEMONS, initialGameSettings)),
+        takeEnergy: (id: number) => set(takeEnergyAction(set, get, id)),
+        giveEnergy: (id: number) => set(giveEnergyAction(get, id)),
+        playerAttack: () => set(playerAttackAction(set, get)),
+        enemyAttack: () => set(enemyAttackAction(set, get)),
+        gameOver: () => set(gameOverAction(get)) 
+    }),
 )
 
 export { useGameStore, usePokemonsStore }
