@@ -12,7 +12,7 @@ export const POKEMONS: Pokemon[] = [
     attackPower: 10,
     attackEffect: "img/Effects/burn.svg",
     stage: 1,
-    upCost: 10,
+    upCost: 0,
     started: true,
   },
   {
