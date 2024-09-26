@@ -25,8 +25,8 @@ export const POKEMONS: Pokemon[] = [
     energyLength: 1,
     attackPower: 20,
     attackEffect: "img/Effects/plane.svg",
-    stage: 1,
     cost: 0,
+    stage: 1,
     upCost: 0,
     purchased: false
     
@@ -42,6 +42,8 @@ export const POKEMONS: Pokemon[] = [
     attackPower: 10,
     attackEffect: "img/Effects/hydro.svg",
     purchased: false,
+    stage: 1,
+    upCost: 0,
     cost: 0
   },
   {
@@ -55,7 +57,9 @@ export const POKEMONS: Pokemon[] = [
     attackPower: 10,
     attackEffect: "img/Effects/strong.svg",
     purchased: false,
-    cost: 0
+    cost: 0,
+    stage: 1,
+    upCost: 0,
   },
   {
     number: 5,
@@ -68,7 +72,9 @@ export const POKEMONS: Pokemon[] = [
     attackPower: 10,
     attackEffect: "img/Effects/psy.svg",
     purchased: false,
-    cost: 0
+    cost: 0,
+    stage: 1,
+    upCost: 0,
   },
   {
     number: 6,
@@ -76,12 +82,14 @@ export const POKEMONS: Pokemon[] = [
     pokemonImg: "img/PokemonCards/Meowth.png",
     pokemonImgStore: "img/PokemonCardsWithHp/Meowth_HP.png",
     type: TypeEnergies.Normal,
-    hp: 40,
+    hp: 50,
     energyLength: 2,
     attackPower: 20,
     attackEffect: "img/Effects/normal.svg",
     purchased: false,
-    cost: 0
+    cost: 0,
+    stage: 1,
+    upCost: 0,
   },
   {
     number: 7,
@@ -94,7 +102,9 @@ export const POKEMONS: Pokemon[] = [
     attackPower: 30,
     attackEffect: "img/Effects/electric.svg",
     purchased: false,
-    cost: 0
+    cost: 0,
+    stage: 1,
+    upCost: 0,
   }
 ]
 
