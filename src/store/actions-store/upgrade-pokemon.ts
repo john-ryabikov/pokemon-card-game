@@ -1,7 +1,7 @@
 import { POKEMONS_2 } from "@/data/pokemons-stage2.cards"
 import { PokemonUp } from "@/types/cards.type"
 import { IPokemonsStore } from "../game.types"
-import { POKEMONS_3 } from "@/data/pokemons-stage-3.cards"
+import { POKEMONS_3 } from "@/data/pokemons-stage3.cards"
 
 export const upgradePokemonAction = ( get: () => IPokemonsStore, stage: number, pokemonNum: number ): Partial<IPokemonsStore> => {
 
