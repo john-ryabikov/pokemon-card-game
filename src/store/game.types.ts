@@ -38,7 +38,7 @@ export interface IPokemonsStore {
     pokemonSelected: number;
     startedPokemon: Pokemon,
     selectPokemon: (pokemonNumber: number) => void,
-    earnCoinsAfterAttack: (coins: number) => void,
+    earnCoinsAfterAttack: (coins: number, enemyHP: number) => void,
     earnCoinsAfterWin: (coins: number) => void,
     spendCoins: (pokemonCost: number) => void,
     unlockPokemon: (pokemonNumber: number) => void,

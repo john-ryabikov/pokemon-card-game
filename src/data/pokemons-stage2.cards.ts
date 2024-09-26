@@ -9,6 +9,8 @@ export const POKEMONS_2: PokemonUp[] = [
         hp: 80,
         energyLength: 2,
         attackPower: 30,
+        upCost: 30,
+        stage: 2,
     },
     {
         number: 2,
@@ -18,5 +20,7 @@ export const POKEMONS_2: PokemonUp[] = [
         hp: 60,
         energyLength: 1,
         attackPower: 30,
+        upCost: 30,
+        stage: 2,
     }
 ]

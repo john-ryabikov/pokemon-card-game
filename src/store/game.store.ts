@@ -15,6 +15,7 @@ import { enemyAttackAction } from "./actions-store/enemy-attack";
 import { startGameAction } from "./actions-store/start-game";
 import { earnCoinsAction } from "./actions-store/earn-coins";
 import { upgradePokemonAction } from "./actions-store/upgrade-pokemon";
+import { earnWinCoinsAction } from "./actions-store/earn-win-coins";
 // import { persist } from "zustand/middleware";
 
 const usePokemonsStore = create<IPokemonsStore>()(
@@ -24,8 +25,8 @@ const usePokemonsStore = create<IPokemonsStore>()(
         pokemonSelected: 1,
         startedPokemon: POKEMONS.find(p => p.started === true) as Pokemon,
         selectPokemon: (pokemonNumber: number) => set(selectPokemonAction(get, pokemonNumber)),
-        earnCoinsAfterAttack: (coins: number) => set(earnCoinsAction(get, set, coins)),
-        earnCoinsAfterWin: (coins: number) => set(earnCoinsAction(get, set, coins)),
+        earnCoinsAfterAttack: (coins: number, enemyHP: number) => set(earnCoinsAction(get, set, coins, enemyHP)),
+        earnCoinsAfterWin: (coins: number) => set(earnWinCoinsAction(get, set, coins)),
         spendCoins: (pokemonCost: number) => set({ pokecoins: get().pokecoins -= pokemonCost }),
         unlockPokemon: (pokemonNumber: number) => set({
             pokemons: get().pokemons.map(p => pokemonNumber === p.number ? {...p, purchased: !p.purchased} : p),

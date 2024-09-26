@@ -10,11 +10,19 @@ import "./PokemonStore.scss"
 export default function PokemonStore({ title }: { title: string }) {
 
     const { isLoading } = useGameStore()
-    const { pokecoins, startedPokemon, pokemonSelected, upgradePokemon, selectPokemon } = usePokemonsStore()
+    const { pokecoins, startedPokemon, pokemonSelected, upgradePokemon, selectPokemon, spendCoins } = usePokemonsStore()
 
     useEffect(() => {
         document.title = `${title} | Pokemon Game`
     }, [])
+
+    const pokemonUp = () => {
+        setTimeout(() => {
+            upgradePokemon(pokemonSelected, startedPokemon.stage as number)
+            selectPokemon(pokemonSelected)
+            spendCoins(startedPokemon.upCost as number)
+        }, 350)
+    }
 
     return (
         <motion.section 
@@ -36,7 +44,7 @@ export default function PokemonStore({ title }: { title: string }) {
                         <h1 className='store-page__title'>Choose your Pokemon</h1>
                         <PokemonBox/>
                     </motion.div>
-                    {startedPokemon.stage === 1 && (
+                    {startedPokemon.stage !== 3  && (
                         <motion.div 
                             className='store-page__btn-up-box'
                             initial={{ opacity: 0 }}
@@ -50,11 +58,7 @@ export default function PokemonStore({ title }: { title: string }) {
                             </p>
                             <button
                                 className={`store-page__btn-up ${(startedPokemon.upCost && pokecoins < startedPokemon.upCost) ? "store-page__btn-up_lock" : ""}`}
-                                onClick={() => {
-                                        upgradePokemon(pokemonSelected, startedPokemon.stage as number)
-                                        selectPokemon(pokemonSelected)
-                                    }
-                                }
+                                onClick={pokemonUp}
                             >
                                 <span>Upgrade</span>
                             </button>

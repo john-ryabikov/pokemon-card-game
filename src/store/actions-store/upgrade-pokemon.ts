@@ -1,6 +1,7 @@
 import { POKEMONS_2 } from "@/data/pokemons-stage2.cards"
 import { PokemonUp } from "@/types/cards.type"
 import { IPokemonsStore } from "../game.types"
+import { POKEMONS_3 } from "@/data/pokemons-stage-3.cards"
 
 export const upgradePokemonAction = ( get: () => IPokemonsStore, stage: number, pokemonNum: number ): Partial<IPokemonsStore> => {
 
@@ -8,8 +9,13 @@ export const upgradePokemonAction = ( get: () => IPokemonsStore, stage: number, 
 
     let currentPokemon = {} as PokemonUp
 
-    if (stage === 1) {
-        currentPokemon = POKEMONS_2.find(p => p.number === pokemonNum) as PokemonUp
+    switch (stage) {
+        case 1:
+            currentPokemon = POKEMONS_2.find(p => p.number === pokemonNum) as PokemonUp
+        break;
+        case 2:
+            currentPokemon = POKEMONS_3.find(p => p.number === pokemonNum) as PokemonUp
+        break    
     }
 
     return {
@@ -23,7 +29,8 @@ export const upgradePokemonAction = ( get: () => IPokemonsStore, stage: number, 
                     hp: currentPokemon.hp,
                     attackPower: currentPokemon.attackPower,
                     energyLength: currentPokemon.energyLength,
-                    stage: 2
+                    upCost: currentPokemon.upCost,
+                    stage: currentPokemon.stage
                 }
             } else return p
         })

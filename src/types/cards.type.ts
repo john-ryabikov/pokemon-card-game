@@ -28,7 +28,8 @@ export interface PokemonUp {
     hp: number,
     energyLength: number,
     attackPower: number,
-    upCost?: number 
+    upCost?: number,
+    stage: number 
 }
 
 export interface Energy {

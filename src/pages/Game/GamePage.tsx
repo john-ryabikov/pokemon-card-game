@@ -27,6 +27,7 @@ export default function GamePage({ title }: { title: string }) {
         enemyEnergy,
         enemyEnergyLength,
         playerAttackPower,
+        enemyHP,
         takeEnergy,
         gameOver,
         playerAttack,
@@ -75,7 +76,7 @@ export default function GamePage({ title }: { title: string }) {
                             className={`game-page__btn-deck-attack ${!isAttack ? "game-page__btn-deck-attack_disable" : ""}`}
                             onClick={() => {
                                 playerAttack()
-                                earnCoinsAfterAttack(playerAttackPower)
+                                earnCoinsAfterAttack(playerAttackPower, enemyHP)
                             }}
                         >
                             <span>Attack</span>

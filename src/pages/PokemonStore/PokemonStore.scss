@@ -29,11 +29,11 @@
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        width: 360px;
+        width: 350px;
         height: 530px;
         overflow-y: auto;
         scrollbar-width: none;
-        background-color: rgba(34, 34, 34, 0.5);
+        background-color: rgb(10 10 10 / 50%);
         border-radius: 12px;
     }
     &__pokemons-box {
@@ -52,12 +52,15 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: flex-start;
-        padding: 6px;
-        border-radius: 12px;
+        justify-content: center;
+        height: 152px;
+        padding: 4px;
+        border-radius: 6px;
         background-color: rgba(94, 94, 94, 0.5);
         img {
+            position: relative;
             width: 92px;
+            margin-top: 6px;
         }
         &_selected {
             outline: 1px solid #0059ff;
