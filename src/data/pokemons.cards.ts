@@ -24,7 +24,7 @@ export const POKEMONS: Pokemon[] = [
     attackPower: 20,
     attackEffect: "img/Effects/plane.svg",
     purchased: false,
-    cost: 200
+    cost: 0
   },
   {
     number: 3,
@@ -37,7 +37,7 @@ export const POKEMONS: Pokemon[] = [
     attackPower: 10,
     attackEffect: "img/Effects/hydro.svg",
     purchased: false,
-    cost: 500
+    cost: 0
   },
   {
     number: 4,
@@ -50,7 +50,7 @@ export const POKEMONS: Pokemon[] = [
     attackPower: 10,
     attackEffect: "img/Effects/strong.svg",
     purchased: false,
-    cost: 500
+    cost: 0
   },
   {
     number: 5,
@@ -63,7 +63,7 @@ export const POKEMONS: Pokemon[] = [
     attackPower: 10,
     attackEffect: "img/Effects/psy.svg",
     purchased: false,
-    cost: 1000
+    cost: 0
   },
   {
     number: 6,
@@ -76,7 +76,7 @@ export const POKEMONS: Pokemon[] = [
     attackPower: 20,
     attackEffect: "img/Effects/normal.svg",
     purchased: false,
-    cost: 200
+    cost: 0
   },
   {
     number: 7,
@@ -89,7 +89,7 @@ export const POKEMONS: Pokemon[] = [
     attackPower: 30,
     attackEffect: "img/Effects/electric.svg",
     purchased: false,
-    cost: 2000
+    cost: 0
   }
 ]
 

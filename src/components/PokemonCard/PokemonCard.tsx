@@ -20,6 +20,7 @@ export default function PokemonCard({ typePlayer, card, energy, hp, effectAttack
 
     return (
         <div className="pokemon-card">
+            {}
             {(typePlayer === "player" && isPlayerAttacked) && 
                 <motion.img 
                     className='pokemon-card__attack-effect' 
