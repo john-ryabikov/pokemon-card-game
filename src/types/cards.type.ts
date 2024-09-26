@@ -12,10 +12,23 @@ export interface Pokemon {
     energyLength: number,
     attackPower: number,
     attackEffect: string,
+    stage?: number,
+    cost?: number,
+    upCost?: number,
     started?: boolean,
     purchased?: boolean,
-    cost?: number,
     difficult?: 'easy' | 'normal' | 'hard'  
+}
+
+export interface PokemonUp {
+    number: number,
+    pokemonName: string,
+    pokemonImg: string,
+    pokemonImgStore?: string,
+    hp: number,
+    energyLength: number,
+    attackPower: number,
+    upCost?: number 
 }
 
 export interface Energy {

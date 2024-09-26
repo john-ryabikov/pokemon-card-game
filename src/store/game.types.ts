@@ -29,6 +29,7 @@ export interface IGameStore {
     playerAttack: () => void,
     enemyAttack: () => void,
     gameOver: () => void,
+    gameExit: () => void
 }
 
 export interface IPokemonsStore {
@@ -40,5 +41,6 @@ export interface IPokemonsStore {
     earnCoinsAfterAttack: (coins: number) => void,
     earnCoinsAfterWin: (coins: number) => void,
     spendCoins: (pokemonCost: number) => void,
-    unlockPokemon: (pokemonNumber: number) => void
+    unlockPokemon: (pokemonNumber: number) => void,
+    upgradePokemon: (pokemonNumber: number, stage: number) => void
 }

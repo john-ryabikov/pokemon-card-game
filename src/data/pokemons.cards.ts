@@ -1,4 +1,4 @@
-import { type Pokemon, TypeEnergies } from "@/types/cards.type";
+import { Pokemon, TypeEnergies } from "@/types/cards.type";
 
 export const POKEMONS: Pokemon[] = [
   {
@@ -11,6 +11,8 @@ export const POKEMONS: Pokemon[] = [
     energyLength: 1,
     attackPower: 10,
     attackEffect: "img/Effects/burn.svg",
+    stage: 1,
+    upCost: 20,
     started: true,
   },
   {
@@ -23,8 +25,11 @@ export const POKEMONS: Pokemon[] = [
     energyLength: 1,
     attackPower: 20,
     attackEffect: "img/Effects/plane.svg",
-    purchased: false,
-    cost: 0
+    stage: 1,
+    cost: 0,
+    upCost: 0,
+    purchased: false
+    
   },
   {
     number: 3,

@@ -18,7 +18,6 @@ export default function PokemonBox() {
                     <div 
                         key={i} 
                         className={`store-page__pokemon ${pokemonSelected === p.number ? "store-page__pokemon_selected" : ""}`} 
-                        
                     >
                         {p.purchased === false && (
                             <div className='store-page__buy-pokemon'>

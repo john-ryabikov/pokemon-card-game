@@ -14,6 +14,7 @@ import { loadingPokemonsAction } from "./actions-store/loading-pokemons";
 import { enemyAttackAction } from "./actions-store/enemy-attack";
 import { startGameAction } from "./actions-store/start-game";
 import { earnCoinsAction } from "./actions-store/earn-coins";
+import { upgradePokemonAction } from "./actions-store/upgrade-pokemon";
 // import { persist } from "zustand/middleware";
 
 const usePokemonsStore = create<IPokemonsStore>()(
@@ -29,6 +30,7 @@ const usePokemonsStore = create<IPokemonsStore>()(
         unlockPokemon: (pokemonNumber: number) => set({
             pokemons: get().pokemons.map(p => pokemonNumber === p.number ? {...p, purchased: !p.purchased} : p),
         }),
+        upgradePokemon: (pokemonNumber: number, stage: number) => set(upgradePokemonAction(get, stage, pokemonNumber))
     }),
 )
 
@@ -45,12 +47,12 @@ const initialGameSettings = {
     enemyEnergyLength: ENEMIES[0].energyLength,
     enemyHP: ENEMIES[0].hp,
     energyBox: [],
-    isGameEnd: false,
-    isLose: false,
-    isWin: false,
     isAttack: false,
     isPlayerAttacked: false,
     isEnemyAttacked: false,
+    isGameEnd: false,
+    isLose: false,
+    isWin: false,
 }
 
 const useGameStore = create<IGameStore>()(
@@ -60,12 +62,13 @@ const useGameStore = create<IGameStore>()(
         error: null,
         enemyTakedEnergy: false,
         loadingPokemons: async (timeout: number) => set(await loadingPokemonsAction(get, timeout)),
-        startGame: (pokemonNumber: number) => set(startGameAction(pokemonNumber, POKEMONS, initialGameSettings)),
+        startGame: (pokemonNumber: number) => set(startGameAction(pokemonNumber, usePokemonsStore.getState().pokemons, initialGameSettings)),
         takeEnergy: (id: number) => set(takeEnergyAction(set, get, id)),
         giveEnergy: (id: number) => set(giveEnergyAction(get, id)),
         playerAttack: () => set(playerAttackAction(set, get)),
         enemyAttack: () => set(enemyAttackAction(set, get)),
-        gameOver: () => set(gameOverAction(get)) 
+        gameOver: () => set(gameOverAction(get)),
+        gameExit: () => setTimeout(() => set({ isWin: false, isGameEnd: false, isLose: false }), 450) 
     }),
 )
 

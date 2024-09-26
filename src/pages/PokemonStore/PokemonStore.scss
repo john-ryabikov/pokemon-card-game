@@ -15,7 +15,7 @@
         width: 100%;
         height: auto;
         padding: var(--padding-mobile);
-        margin-top: 100px;
+        padding-bottom: 100px;
     }
     &__title {
         position: relative;
@@ -127,9 +127,10 @@
         }
     }
     &__btn-up-box {
-        position: relative;
+        position: absolute;
+        bottom: 50px;
+        left: 0;
         width: 100%;
-        height: 100%;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -157,7 +158,7 @@
         align-items: center;
         justify-content: center;
         background-color: #dd820a;
-        border-bottom: 2px solid #331a14;
+        border-bottom: 2px solid #53271c;
         border-radius: 10px;
         width: 190px;
         height: 60px;
