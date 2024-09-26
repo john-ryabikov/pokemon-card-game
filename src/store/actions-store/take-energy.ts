@@ -18,7 +18,7 @@ export const takeEnergyAction = (
         if (elem.id !== id) return elem
     })
 
-    if (state.enemyTurnCount % 10 === 0) {
+    if (state.enemyTurnCount % 5 === 0) {
         const enemy_energy = state.deck.find(elem => elem?.type === ENEMIES[0].type) as Energy
         state.enemyEnergy = [...state.enemyEnergy, enemy_energy]
         state.enemyTakedEnergy = true

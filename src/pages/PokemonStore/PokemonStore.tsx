@@ -44,7 +44,7 @@ export default function PokemonStore({ title }: { title: string }) {
                         <h1 className='store-page__title'>Choose your Pokemon</h1>
                         <PokemonBox/>
                     </motion.div>
-                    {startedPokemon.stage !== 3  && (
+                    {startedPokemon.stage !== startedPokemon.maxStage && (
                         <motion.div 
                             className='store-page__btn-up-box'
                             initial={{ opacity: 0 }}

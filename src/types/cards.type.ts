@@ -13,6 +13,7 @@ export interface Pokemon {
     attackPower: number,
     attackEffect: string,
     stage?: number,
+    maxStage?: number,
     cost?: number,
     upCost?: number,
     started?: boolean,
