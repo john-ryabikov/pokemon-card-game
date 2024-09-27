@@ -7,7 +7,7 @@ export const selectPokemonAction = ( get: () => IPokemonsStore, pokemonNumber: n
 
     const selectedPokemon = state.pokemons.find(p => p.number === pokemonNumber) as Pokemon
 
-    state.pokemonSelected = selectedPokemon.number,
+    state.pokemonSelected = selectedPokemon.number as number,
     state.startedPokemon = selectedPokemon
 
     return {
