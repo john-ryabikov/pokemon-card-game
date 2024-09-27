@@ -19,7 +19,7 @@ const EnergyBox = forwardRef<HTMLDivElement>(function EnergyBox(props, ref) {
             transition={{ delay: 0.45 }}
         >
             <div className={`${energyBox.length === 0 ? "game-page__energy-box-wprapper_empty" : "game-page__energy-box-wprapper"}`} ref={ref}>
-                {!energyBox.length ? "Not enough enegry cards" : (
+                {!energyBox.length ? "Здесь пока ничего нет" : (
                 energyBox.map((elem, i) => (
                     <button key={i} className='game-page__energy-card'  onClick={() => giveEnergy(elem.id as number)}>
                         <motion.img 

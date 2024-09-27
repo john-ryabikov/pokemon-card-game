@@ -62,12 +62,12 @@ export default function GamePage({ title }: { title: string }) {
                         className='game-page__actions'
                         initial={{ y: 90 }}
                         whileInView={{ y: 0 }}
-                        exit={{ y: 90 }}
+                        exit={{ y: 100 }}
                         transition={{ delay: 0.45 }}
                     >
                         <div className='game-page__btn-deck'>
                             <button disabled={isAttack || isEnemyAttacked || enemyTakedEnergy} onClick={() => playerTakeEnergy(deck, takeEnergy, energyBox, gameOver, energyBoxRef)}>
-                                <img className={`game-page__btn-deck-icon ${(isAttack || isEnemyAttacked || enemyTakedEnergy ) ? "game-page__btn-deck-icon_disable" : ""}`} src="img/Icons/cards_icon.svg" alt="Cards Energy" draggable={false}/>
+                                <img className={`game-page__btn-deck-icon ${(isAttack || isEnemyAttacked || enemyTakedEnergy) ? "game-page__btn-deck-icon_disable" : ""}`} src="img/Icons/cards_icon.svg" alt="Cards Energy" draggable={false}/>
                             </button>
                             <span>x{deck.length}</span>
                         </div>
@@ -79,7 +79,7 @@ export default function GamePage({ title }: { title: string }) {
                                 earnCoinsAfterAttack(playerAttackPower, enemyHP)
                             }}
                         >
-                            <span>Attack</span>
+                            <span>Атака</span>
                         </button>
                     </motion.div>
                 </>

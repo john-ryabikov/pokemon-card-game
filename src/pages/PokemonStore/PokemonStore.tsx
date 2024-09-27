@@ -41,7 +41,7 @@ export default function PokemonStore({ title }: { title: string }) {
                         exit={{ opacity: 0 }}
                         transition={{ delay: 0.45 }}
                     >
-                        <h1 className='store-page__title'>Choose your Pokemon</h1>
+                        <h1 className='store-page__title'>Выбери своего Покемона</h1>
                         <PokemonBox/>
                     </motion.div>
                     {startedPokemon.stage !== startedPokemon.maxStage && (
@@ -60,7 +60,7 @@ export default function PokemonStore({ title }: { title: string }) {
                                 className={`store-page__btn-up ${(startedPokemon.upCost && pokecoins < startedPokemon.upCost) ? "store-page__btn-up_lock" : ""}`}
                                 onClick={pokemonUp}
                             >
-                                <span>Upgrade</span>
+                                <span>Улучшить</span>
                             </button>
                         </motion.div>
                     )}

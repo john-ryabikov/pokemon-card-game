@@ -1,21 +1,36 @@
-import { Link } from "react-router-dom"
-import { useLayoutEffect } from "react"
-import { useGameStore, usePokemonsStore } from "@/store/game.store"
+import { useNavigate } from "react-router-dom"
+import { useEffect } from "react"
+import { useDifficultStore, useGameStore, usePokemonsStore } from "@/store/game.store"
 import { motion } from "framer-motion"
+
+import Loading from "@/components/Loading/Loading"
 
 import "./StartPage.scss"
 
 export default function StartPage() {
 
-    const { pokemonSelected } = usePokemonsStore()
-    const { startGame, loadingPokemons } = useGameStore()
+    const navigate = useNavigate()
 
-    const preloadBoard = () => {
-        startGame(pokemonSelected)
-        loadingPokemons(3500)
+    const { difficultSelected } = useDifficultStore()
+    const { pokemonSelected } = usePokemonsStore()
+    const { isLoading, startGame, loadingPokemons } = useGameStore()
+
+    const playGame = () => {
+        startGame(pokemonSelected, difficultSelected as string)
+        setTimeout(() => {
+            loadingPokemons(3500)
+        }, 500)
+        navigate("/game")
     }
 
-    useLayoutEffect(() => {
+    const inStore = () => {
+        setTimeout(() => {
+            loadingPokemons(2500)
+        }, 500)
+        navigate("/store")
+    }
+
+    useEffect(() => {
         document.title = `Pokemon Game`
     }, [])
 
@@ -25,16 +40,21 @@ export default function StartPage() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ delay: 0.25 }}
+            transition={{ delay: 0.45 }}
         >
-            <div className='start-page__logo'>
-                <img className='start-page__logo-img' src="img/Icons/main_logo.png" alt="Pokemon" draggable={false}/>
-                <h1 className='start-page__logo-title'>Duel Dash</h1>
-            </div>
-            <div className='start-page__btns'>
-                <Link to={'/game'} className='start-page__btn' onClick={preloadBoard}>Start game</Link>
-                <Link to={'/store'} className='start-page__btn start-page__btn_store' onClick={() => loadingPokemons(2500)}>Store</Link>
-            </div>
+            {!isLoading ? (
+                <>
+                    <div className='start-page__logo'>
+                        <img className='start-page__logo-img' src="img/Icons/main_logo.png" alt="Pokemon" draggable={false}/>
+                        <h1 className='start-page__logo-title'>Duel Dash</h1>
+                    </div>
+                    <div className='start-page__btns'>
+                        <button className='start-page__btn' onClick={playGame}>Начать игру</button>
+                        <button className='start-page__btn start-page__btn_store' onClick={inStore}>Магазин</button>
+                    </div>
+                </>
+                ) : <Loading/> 
+            }
             <span className='start-page__version'>Version: 0.0.3</span>
         </motion.section>     
     )

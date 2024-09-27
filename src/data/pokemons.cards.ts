@@ -117,7 +117,17 @@ export const POKEMONS: Pokemon[] = [
 
 export const ENEMIES: Pokemon[] = [
   {
-    number: 8,
+    pokemonName: "Voltorb",
+    pokemonImg: "img/PokemonEnemyCards/Voltorb.png",
+    type: TypeEnergies.Electric,
+    hp: 60,
+    energyLength: 1,
+    attackPower: 10,
+    attackEffect: "img/Effects/electric.svg",
+    difficult: "easy",
+    started: true,
+  },
+  {
     pokemonName: "Raticate",
     pokemonImg: "img/PokemonEnemyCards/Raticate.png",
     type: TypeEnergies.Normal,
@@ -125,27 +135,15 @@ export const ENEMIES: Pokemon[] = [
     energyLength: 2,
     attackPower: 30,
     attackEffect: "img/Effects/normal.svg",
-    difficult: "easy"
+    difficult: "normal",
   },
   {
-    number: 9,
-    pokemonName: "Voltorb",
-    pokemonImg: "img/PokemonEnemyCards/Voltorb.png",
-    type: TypeEnergies.Electric,
-    hp: 60,
-    energyLength: 3,
-    attackPower: 40,
-    attackEffect: "img/Effects/electric.svg",
-    difficult: "normal"
-  },
-  {
-    number: 10,
     pokemonName: "Beedrill",
     pokemonImg: "img/PokemonEnemyCards/Beedrill.png",
     type: TypeEnergies.Plane,
-    hp: 80,
+    hp: 130,
     energyLength: 3,
-    attackPower: 40,
+    attackPower: 110,
     attackEffect: "img/Effects/plane.svg",
     difficult: "hard"
   }

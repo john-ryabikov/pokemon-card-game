@@ -3,7 +3,7 @@ export enum TypeEnergies {
 }
 
 export interface Pokemon {
-    number: number,
+    number?: number,
     pokemonName: string,
     pokemonImg: string,
     pokemonImgStore?: string,

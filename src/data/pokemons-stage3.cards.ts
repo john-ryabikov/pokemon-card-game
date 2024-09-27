@@ -6,9 +6,9 @@ export const POKEMONS_3: PokemonUp[] = [
         pokemonName: "Charizard",
         pokemonImg: "img/PokemonCards/Charizard.png",
         pokemonImgStore: "img/PokemonCardsWithHp/Charizard_HP.png",
-        hp: 330,
+        hp: 180,
         energyLength: 4,
-        attackPower: 330,
+        attackPower: 150,
         stage: 3
     },
     {
@@ -36,7 +36,7 @@ export const POKEMONS_3: PokemonUp[] = [
         pokemonName: "Alakazam",
         pokemonImg: "img/PokemonCards/Alakazam.png",
         pokemonImgStore: "img/PokemonCardsWithHp/Alakazam_HP.png",
-        hp: 310,
+        hp: 160,
         energyLength: 2,
         attackPower: 120,
         stage: 3

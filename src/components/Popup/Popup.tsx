@@ -1,10 +1,11 @@
-import { useGameStore, usePokemonsStore } from "@/store/game.store"
+import { useDifficultStore, useGameStore, usePokemonsStore } from "@/store/game.store"
 import { motion } from "framer-motion"
 
 import "./Popup.scss"
 
 export default  function Popup() {
 
+    const { difficultSelected } = useDifficultStore()
     const { pokemonSelected } = usePokemonsStore()
     const {startGame, isLose, isWin } = useGameStore()
 
@@ -17,8 +18,8 @@ export default  function Popup() {
                 transition={{ delay: 0.15 }}
             >
                 <p className='popup__title'>
-                    {isLose && "You've lost!"}
-                    {isWin && "You've won!"}
+                    {isLose && "Дуэль проиграна!"}
+                    {isWin && "Дуэль выиграна!"}
                 </p>
                 {isWin && (
                     <p className='popup__win-coins'>
@@ -28,9 +29,9 @@ export default  function Popup() {
                     </p>
                 )}
                 <div className='popup__buttons'>
-                    <button className='popup__retry-btn' onClick={() => {setTimeout(() => startGame(pokemonSelected), 250)}}>
+                    <button className='popup__retry-btn' onClick={() => {setTimeout(() => startGame(pokemonSelected, difficultSelected as string), 250)}}>
                         <img src="img/Icons/replay_icon.svg" alt="Retry" draggable={false}/>
-                        <span>Retry</span>
+                        <span>Заново</span>
                     </button>
                 </div>
             </motion.div>

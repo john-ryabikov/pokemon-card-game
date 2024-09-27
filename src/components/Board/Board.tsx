@@ -1,5 +1,4 @@
-import { ENEMIES } from "@/data/pokemons.cards";
-import { useGameStore, usePokemonsStore } from "@/store/game.store";
+import { useDifficultStore, useGameStore, usePokemonsStore } from "@/store/game.store";
 import { motion } from "framer-motion"
 
 import PokemonCard from "../PokemonCard/PokemonCard";
@@ -7,13 +6,8 @@ import PokemonCard from "../PokemonCard/PokemonCard";
 export default function Board() {
 
     const { startedPokemon } = usePokemonsStore()
-
-    const { 
-        playerHP, 
-        playerEnergy, 
-        enemyHP,
-        enemyEnergy 
-    } = useGameStore()
+    const { startedEnemy } = useDifficultStore()
+    const { playerHP, playerEnergy, enemyHP, enemyEnergy } = useGameStore()
 
     return (
         <motion.div 
@@ -25,10 +19,10 @@ export default function Board() {
         >
             <PokemonCard 
                 typePlayer="enemy" 
-                card={ENEMIES[0].pokemonImg}
+                card={startedEnemy.pokemonImg}
                 energy={enemyEnergy} 
                 hp={enemyHP}
-                effectAttack={ENEMIES[0].attackEffect}
+                effectAttack={startedEnemy.attackEffect}
             />
             <PokemonCard 
                 typePlayer="player" 

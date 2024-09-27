@@ -1,27 +1,21 @@
 import { motion } from "framer-motion"
 import { useGameStore, usePokemonsStore } from "@/store/game.store"
-import { useLocation, useNavigate } from "react-router-dom"
-import { useEffect } from "react"
+import { useNavigate } from "react-router-dom"
 
 import "./Header.scss"
 
-export default function Header() {
+export default function HeaderStart() {
 
     const navigate = useNavigate()
-    const location = useLocation()
 
-    const { isLoading, isWin, gameExit } = useGameStore()
-    const { pokecoins, earnCoinsAfterWin } = usePokemonsStore()
+    const { isLoading, loadingPokemons } = useGameStore()
+    const { pokecoins } = usePokemonsStore()
 
-    useEffect(() => {
-        if (isWin) earnCoinsAfterWin(100) 
-    }, [isWin])
-
-    const exitGame = () => {
+    const difficultGame = () => {
         setTimeout(() => {
-            navigate("/")
-            if (location.pathname !== "/store") gameExit()
-        }, 150)
+            loadingPokemons(2500)
+        }, 500)
+        navigate("/difficult")
     }
 
     return (
@@ -34,8 +28,8 @@ export default function Header() {
                     exit={{ y: -90 }}
                     transition={{ delay: 0.45 }}
                 >
-                    <button className='header__btn header__btn_exit' onClick={exitGame}>
-                        <img src="img/Icons/exit_icon.svg" alt="" draggable="false"/>
+                    <button className='header__btn header__btn_diff' onClick={difficultGame}>
+                        <img src="/img/Icons/settings_icon.svg" alt="Settings" draggable="false"/>
                     </button>
                     <div className='header__coins'>
                         <img className='header__coins-icon' src="img/Icons/pokecoin_icon.svg" alt="Pokecoin" draggable="false"/>
