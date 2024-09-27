@@ -14,7 +14,7 @@ export default function Header() {
     const { pokecoins, earnCoinsAfterWin } = usePokemonsStore()
 
     useEffect(() => {
-        if (isWin) earnCoinsAfterWin(100) 
+        if (isWin) setTimeout(() => earnCoinsAfterWin(100), 100) 
     }, [isWin])
 
     const exitGame = () => {
