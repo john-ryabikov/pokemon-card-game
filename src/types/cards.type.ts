@@ -18,7 +18,9 @@ export interface Pokemon {
     upCost?: number,
     started?: boolean,
     purchased?: boolean,
-    difficult?: 'easy' | 'normal' | 'hard'  
+    difficult?: 'easy' | 'normal' | 'hard',
+    forCountTurn?: number,
+    reward?: number  
 }
 
 export interface PokemonUp {

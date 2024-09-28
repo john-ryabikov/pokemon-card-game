@@ -20,6 +20,16 @@ import { loadingGameAction } from "./actions-store/loading-game";
 import { loadingPokemonsAction } from "./actions-store/loading-pokemons";
 // import { persist } from "zustand/middleware";
 
+const useDifficultStore = create<IEnemyDifficult>()(
+    (set, get) => ({
+        enemies: ENEMIES,
+        difficultSelected: 'easy',
+        startedEnemy: ENEMIES.find(p => p.started === true) as Pokemon,
+        selectDifficult: (difficult: string) => set(selectDifficultAction(get, difficult)),
+        unlockDifficult: (difficult: string) => set({enemies: get().enemies.map(e => difficult === e.difficult ? {...e, purchased: !e.purchased} : e)})
+    })
+)
+
 const usePokemonsStore = create<IPokemonsStore>()(
     (set, get) => ({
         pokemons: POKEMONS,
@@ -28,21 +38,14 @@ const usePokemonsStore = create<IPokemonsStore>()(
         startedPokemon: POKEMONS.find(p => p.started === true) as Pokemon,
         selectPokemon: (pokemonNumber: number) => set(selectPokemonAction(get, pokemonNumber)),
         earnCoinsAfterAttack: (coins: number, enemyHP: number) => set(earnCoinsAction(get, set, coins, enemyHP)),
-        earnCoinsAfterWin: (coins: number) => set(earnWinCoinsAction(get, set, coins)),
+        earnCoinsAfterWin: () => set(earnWinCoinsAction(get, set, useDifficultStore.getState().startedEnemy.reward as number)),
         spendCoins: (pokemonCost: number) => set({ pokecoins: get().pokecoins -= pokemonCost }),
         unlockPokemon: (pokemonNumber: number) => set({pokemons: get().pokemons.map(p => pokemonNumber === p.number ? {...p, purchased: !p.purchased} : p)}),
         upgradePokemon: (pokemonNumber: number, stage: number) => set(upgradePokemonAction(get, stage, pokemonNumber))
     }),
 )
 
-const useDifficultStore = create<IEnemyDifficult>()(
-    (set, get) => ({
-        enemies: ENEMIES,
-        difficultSelected: 'easy',
-        startedEnemy: ENEMIES.find(p => p.started === true) as Pokemon,
-        selectDifficult: (difficult: string) => set(selectDifficultAction(get, difficult))
-    })
-)
+
 
 const initialGameSettings = {
     deck: ENERGY,
@@ -78,7 +81,7 @@ const useGameStore = create<IGameStore>()(
         loadingGame: (timeout: number) => set(loadingGameAction(set, get, timeout)),
         loadingPokemons: async (timeout: number) => set(await loadingPokemonsAction(get, timeout)),
         startGame: (pokemonNumber: number, difficult: string) => set(startGameAction(pokemonNumber, difficult, usePokemonsStore.getState().pokemons, useDifficultStore.getState().enemies, initialGameSettings)),
-        takeEnergy: (id: number) => set(takeEnergyAction(set, get, id, useDifficultStore.getState().startedEnemy.type)),
+        takeEnergy: (id: number) => set(takeEnergyAction(set, get, id, useDifficultStore.getState().startedEnemy.type, useDifficultStore.getState().startedEnemy.forCountTurn as number)),
         giveEnergy: (id: number) => set(giveEnergyAction(get, id)),
         playerAttack: () => set(playerAttackAction(set, get)),
         enemyAttack: () => set(enemyAttackAction(set, get)),

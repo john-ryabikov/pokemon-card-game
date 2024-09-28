@@ -1,14 +1,14 @@
 import { motion } from "framer-motion"
 import { useEffect } from "react"
-import { useDifficultStore, useGameStore } from "@/store/game.store"
+import { useGameStore } from "@/store/game.store"
 
 import Loading from "@/components/Loading/Loading"
+import DifficultBox from "@/components/DifficultBox/DifficultBox"
 
 import "./DifficultPage.scss"
 
 export default function DifficultPage({ title }: {title: string}) {
 
-    const { enemies, difficultSelected, selectDifficult } = useDifficultStore()
     const { isLoading } = useGameStore()
  
     useEffect(() => {
@@ -32,23 +32,7 @@ export default function DifficultPage({ title }: {title: string}) {
                     transition={{ delay: 0.45 }}
                 >
                     <h1 className='difficult-page__title'>Выберите сложность</h1>
-                    <div className='difficult-page__difficults-box'>
-                        {enemies.map((e, i) => (
-                            <button 
-                                key={i} 
-                                className={`difficult-page__btn ${difficultSelected === e.difficult ? "difficult-page__btn_checked" : ""}`} 
-                                onClick={() => selectDifficult(e.difficult as string)}
-                            >
-                                <span>
-                                    {e.difficult === "easy" && "Легкий"}
-                                    {e.difficult === "normal" && "Средний"}
-                                    {e.difficult === "hard" && "Сложный"}
-                                </span>
-                                {difficultSelected === e.difficult && <img src="img/Icons/checked_icon.svg" alt="Checked" draggable="false"/>}
-                            </button>
-                        ))}
-                        
-                    </div>
+                    <DifficultBox/>
                 </motion.div>
             )}   
         </motion.section>

@@ -17,6 +17,9 @@
             bottom: -70px;
             z-index: 5;
         }
+        @media only screen and (0 <= width <= 389px) {
+            width: 80px;
+        }
     }
     &__hit {
         position: absolute;
@@ -33,6 +36,9 @@
         position: relative;
         width: 130px;
         box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.6);
+        @media only screen and (0 <= width <= 389px) {
+            width: 100px;
+        }
     }
     &__hp {
         position: absolute;
@@ -44,6 +50,11 @@
         font-weight: 700;
         text-align: end;
         z-index: 3;
+        @media only screen and (0 <= width <= 389px) {
+            top: 8.5px;
+            right: 40px;
+            font-size: 6px;
+        }
     }
     &__stack-energy-icons {
         position: absolute;
@@ -54,6 +65,17 @@
         align-items: center;
         justify-content: flex-start;
         gap: 8px;
+        img {
+            width: 16px;
+            height: 16px;
+            @media only screen and (0 <= width <= 389px) {
+                width: 14px;
+                height: 14px;
+            }
+        }
+        @media only screen and (0 <= width <= 389px) {
+            right: 4px;
+        }
     }
     &__energy-deck {
         position: relative;

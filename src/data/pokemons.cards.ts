@@ -125,6 +125,8 @@ export const ENEMIES: Pokemon[] = [
     attackPower: 10,
     attackEffect: "img/Effects/electric.svg",
     difficult: "easy",
+    forCountTurn: 7,
+    reward: 100,
     started: true,
   },
   {
@@ -136,6 +138,10 @@ export const ENEMIES: Pokemon[] = [
     attackPower: 30,
     attackEffect: "img/Effects/normal.svg",
     difficult: "normal",
+    forCountTurn: 6,
+    reward: 300,
+    cost: 0,
+    purchased: false
   },
   {
     pokemonName: "Beedrill",
@@ -145,7 +151,11 @@ export const ENEMIES: Pokemon[] = [
     energyLength: 3,
     attackPower: 110,
     attackEffect: "img/Effects/plane.svg",
-    difficult: "hard"
+    difficult: "hard",
+    forCountTurn: 5,
+    reward: 500,
+    cost: 0,
+    purchased: false
   }
 ]
 

@@ -5,7 +5,7 @@ import "./Popup.scss"
 
 export default  function Popup() {
 
-    const { difficultSelected } = useDifficultStore()
+    const { difficultSelected, startedEnemy } = useDifficultStore()
     const { pokemonSelected } = usePokemonsStore()
     const {startGame, isLose, isWin } = useGameStore()
 
@@ -25,7 +25,7 @@ export default  function Popup() {
                     <p className='popup__win-coins'>
                         <span>+</span>
                         <img src="img/Icons/pokecoin_icon.svg" alt="" draggable="false"/>
-                        <span>100</span>
+                        <span>{startedEnemy.reward}</span>
                     </p>
                 )}
                 <div className='popup__buttons'>

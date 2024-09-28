@@ -6,7 +6,6 @@ import { createDeck } from "@/actions-game/game.create-deck"
 import { playerTakeEnergy } from "@/actions-game/game.player-take-energy"
 
 import Loading from "@/components/Loading/Loading"
-import Popup from "@/components/Popup/Popup";
 import Board from "@/components/Board/Board";
 import EnergyBox from "@/components/EnergyBox/EnergyBox";
 
@@ -18,7 +17,6 @@ export default function GamePage({ title }: { title: string }) {
 
     const {
         deck,
-        isGameEnd,
         isAttack,
         isEnemyAttacked,
         enemyTakedEnergy,
@@ -55,7 +53,6 @@ export default function GamePage({ title }: { title: string }) {
         >
             {isLoading ? <Loading/> : (
                 <>
-                    {isGameEnd && <Popup/>}
                     <Board/>
                     <EnergyBox ref={energyBoxRef}/>
                     <motion.div 

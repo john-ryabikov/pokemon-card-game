@@ -13,9 +13,10 @@
         align-items: center;
         justify-content: flex-start;
         width: 100%;
-        height: auto;
+        height: 100dvh;
         padding: var(--padding-mobile);
-        padding-bottom: 100px;
+        margin-top: 100px;
+        margin-bottom: 180px;
     }
     &__title {
         position: relative;
@@ -30,7 +31,7 @@
         flex-direction: column;
         align-items: flex-start;
         width: 340px;
-        height: 530px;
+        height: 100%;
         overflow-y: auto;
         scrollbar-width: none;
         background-color: rgb(10 10 10 / 50%);

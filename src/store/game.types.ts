@@ -44,7 +44,7 @@ export interface IPokemonsStore {
     startedPokemon: Pokemon,
     selectPokemon: (pokemonNumber: number) => void,
     earnCoinsAfterAttack: (coins: number, enemyHP: number) => void,
-    earnCoinsAfterWin: (coins: number) => void,
+    earnCoinsAfterWin: () => void,
     spendCoins: (pokemonCost: number) => void,
     unlockPokemon: (pokemonNumber: number) => void,
     upgradePokemon: (pokemonNumber: number, stage: number) => void
@@ -54,5 +54,6 @@ export interface IEnemyDifficult {
     enemies: Pokemon[],
     difficultSelected: 'easy' | 'normal' | 'hard' | undefined,
     startedEnemy: Pokemon,
-    selectDifficult: (difficult: string) => void
+    selectDifficult: (difficult: string) => void,
+    unlockDifficult: (difficult: string) => void
 }

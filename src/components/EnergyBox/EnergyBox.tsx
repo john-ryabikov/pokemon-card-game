@@ -1,5 +1,4 @@
 import { useGameStore } from "@/store/game.store"
-import { useShallow } from "zustand/react/shallow"
 import { forwardRef } from "react"
 import { motion } from "framer-motion"
 
@@ -7,8 +6,13 @@ const EnergyBox = forwardRef<HTMLDivElement>(function EnergyBox(props, ref) {
 
     const {} = props
 
-    const energyBox = useGameStore(useShallow((state) => (state.energyBox)))
-    const giveEnergy = useGameStore(useShallow(state => state.giveEnergy))
+    const {
+        isAttack,
+        isEnemyAttacked,
+        enemyTakedEnergy,
+        energyBox,
+        giveEnergy
+    } = useGameStore()
 
     return (
         <motion.div 
@@ -21,7 +25,11 @@ const EnergyBox = forwardRef<HTMLDivElement>(function EnergyBox(props, ref) {
             <div className={`${energyBox.length === 0 ? "game-page__energy-box-wprapper_empty" : "game-page__energy-box-wprapper"}`} ref={ref}>
                 {!energyBox.length ? "Здесь пока ничего нет" : (
                 energyBox.map((elem, i) => (
-                    <button key={i} className='game-page__energy-card'  onClick={() => giveEnergy(elem.id as number)}>
+                    <button 
+                        key={i} className='game-page__energy-card'
+                        disabled={isAttack || isEnemyAttacked || enemyTakedEnergy}  
+                        onClick={() => giveEnergy(elem.id as number)}
+                    >
                         <motion.img 
                             src={elem.cardImg} 
                             alt="Energy Card" 

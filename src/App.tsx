@@ -9,15 +9,16 @@ import Header from "./components/Header/Header";
 import HeaderStart from "./components/Header/HeaderStart";
 import PokemonStore from "./pages/PokemonStore/PokemonStore";
 import Loading from "./components/Loading/Loading";
+import DifficultPage from "./pages/Difficult/DifficultPage";
+import Popup from "./components/Popup/Popup";
 
 import "@/styles/global.scss"
-import DifficultPage from "./pages/Difficult/DifficultPage";
 
 export default function App() {
   
   const location = useLocation()
 
-  const { isLoading, loadingGame } = useGameStore()
+  const { isLoading, isGameEnd, loadingGame } = useGameStore()
 
   useEffect(() => {
     loadingGame(3000)
@@ -26,6 +27,7 @@ export default function App() {
 
   return (
     <main>
+      {isGameEnd && <Popup/>}
       {isLoading ? <Loading/> : (
         <>
           <AnimatePresence mode="wait">
