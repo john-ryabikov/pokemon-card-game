@@ -94,10 +94,10 @@
         left: 10px;
         height: 6px;
         z-index: 12;
-        background: url("img/Icons/turn-stack_icon.png") no-repeat;
+        background: url("/img/Icons/turn-stack_icon.png") no-repeat;
         @media only screen and (0 <= width <= 389px) {
             top: -10px;
-            background-image: url("img/Icons/turn-stack_icon-mob.png");
+            background-image: url("/img/Icons/turn-stack_icon-mob.png");
         }
     }
 }
