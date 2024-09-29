@@ -10,6 +10,7 @@ export interface IGameStore {
     playerHP: number,
     // Настройки выбранной сложности
     enemyTurnCount: number,
+    indicateTurn: number,
     enemyPokemonType: TypeEnergies,
     enemyEnergy: Energy[],
     enemyAttackPower: number,
@@ -29,7 +30,7 @@ export interface IGameStore {
     loadingGame: (timeout: number) => void,
     loadingPokemons: (timeout: number) => Promise<void>
     startGame: (pokemonNumber: number, difficult: string) => void,
-    takeEnergy: (id: number) => void,
+    takeEnergy: (id: number, indicateEnemy: number) => void,
     giveEnergy: (id: number) => void,
     playerAttack: () => void,
     enemyAttack: () => void,

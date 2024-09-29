@@ -6,12 +6,16 @@ export const takeEnergyAction = (
     get: () => IGameStore, 
     id: number,
     type: TypeEnergies,
-    turnCount: number
+    turnCount: number,
+    indicateEnemy: number
 ): Partial<IGameStore> => {
 
     const state = get()
 
     state.enemyTurnCount += 1
+    state.indicateTurn = indicateEnemy
+
+    
     
     const energy = state.deck.find(elem => elem.id === id) as Energy
 
@@ -23,8 +27,11 @@ export const takeEnergyAction = (
         const enemy_energy = state.deck.find(elem => elem?.type === type) as Energy
         state.enemyEnergy = [...state.enemyEnergy, enemy_energy]
         state.enemyTakedEnergy = true
+        state.indicateTurn = 0
         setTimeout(() => {
-            set({ enemyTakedEnergy : false })
+            set({ 
+                enemyTakedEnergy : false,
+            })
         }, 900)
     }
 

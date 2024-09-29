@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react"
-import { useGameStore, usePokemonsStore } from "@/store/game.store"
+import { useDifficultStore, useGameStore, usePokemonsStore } from "@/store/game.store"
 import { motion } from "framer-motion"
 
 import { createDeck } from "@/actions-game/game.create-deck"
@@ -10,15 +10,17 @@ import Board from "@/components/Board/Board";
 import EnergyBox from "@/components/EnergyBox/EnergyBox";
 
 import "./GamePage.scss"
+import { useMediaQuery } from "@/hooks/MediaQuery/useMediaQuery"
 
 export default function GamePage({ title }: { title: string }) {
 
-    const energyBoxRef = useRef<HTMLDivElement>(null)
+    const isSmallMobile = useMediaQuery("(max-width: 389px)");
 
     const {
         deck,
         isAttack,
         isEnemyAttacked,
+        indicateTurn,
         enemyTakedEnergy,
         energyBox,
         isLoading,
@@ -34,15 +36,34 @@ export default function GamePage({ title }: { title: string }) {
 
     const { earnCoinsAfterAttack } = usePokemonsStore()
 
+    const { startedEnemy } = useDifficultStore()
+
+    const energyBoxRef = useRef<HTMLDivElement>(null)
+    const indicateEnemy = useRef<HTMLDivElement>(null)
+
     useEffect(() => {
         document.title = `${title} | Pokemon Game`
+        if (indicateEnemy.current) indicateEnemy.current.style.setProperty('width', `${indicateTurn}px`)
         createDeck(deck)
         if (enemyEnergy.length === enemyEnergyLength) {
             setTimeout(() => {
                 enemyAttack()
             }, 950)
         }
-    }, [deck, enemyEnergy])
+    }, [deck, enemyEnergy, indicateTurn])
+
+    const playEnergyCard = () => {
+        playerTakeEnergy(
+            deck, 
+            takeEnergy, 
+            energyBox, 
+            gameOver, 
+            energyBoxRef, 
+            startedEnemy.forCountTurn as number, 
+            indicateEnemy.current?.offsetWidth as number,
+            isSmallMobile
+        )
+    }
 
     return (
         <motion.section 
@@ -53,7 +74,7 @@ export default function GamePage({ title }: { title: string }) {
         >
             {isLoading ? <Loading/> : (
                 <>
-                    <Board/>
+                    <Board ref={indicateEnemy}/>
                     <EnergyBox ref={energyBoxRef}/>
                     <motion.div 
                         className='game-page__actions'
@@ -63,7 +84,7 @@ export default function GamePage({ title }: { title: string }) {
                         transition={{ delay: 0.45 }}
                     >
                         <div className='game-page__btn-deck'>
-                            <button disabled={isAttack || isEnemyAttacked || enemyTakedEnergy} onClick={() => playerTakeEnergy(deck, takeEnergy, energyBox, gameOver, energyBoxRef)}>
+                            <button disabled={isAttack || isEnemyAttacked || enemyTakedEnergy} onClick={playEnergyCard}>
                                 <img className={`game-page__btn-deck-icon ${(isAttack || isEnemyAttacked || enemyTakedEnergy) ? "game-page__btn-deck-icon_disable" : ""}`} src="img/Icons/cards_icon.svg" alt="Cards Energy" draggable={false}/>
                             </button>
                             <span>x{deck.length}</span>

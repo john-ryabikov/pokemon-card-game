@@ -1,6 +1,7 @@
 import { Energy } from '@/types/cards.type'
 import { useGameStore } from '@/store/game.store'
 import { motion } from "framer-motion"
+import { ForwardedRef, forwardRef } from 'react'
 
 import StackEnergy from './StackEnergy'
 
@@ -11,16 +12,19 @@ interface Props {
     card: string,
     energy?: Energy[]
     hp?: number,
-    effectAttack?: string
+    effectAttack?: string,
+    ref?: ForwardedRef<HTMLDivElement>
 }
 
-export default function PokemonCard({ typePlayer, card, energy, hp, effectAttack } : Props ) {
+const PokemonCard = forwardRef<HTMLDivElement, Props>(function PokemonCard(props: Props, ref) {
+
+    const {typePlayer, card, energy, hp, effectAttack} = props
 
     const {isPlayerAttacked, isEnemyAttacked, playerAttackPower, enemyAttackPower} = useGameStore()
 
     return (
         <div className="pokemon-card">
-            {/* {typePlayer === "enemy" && <div className='pokemon-card__enemy-indicate'></div>} */}
+            {typePlayer === "enemy" && <div className='pokemon-card__enemy-indicate' ref={ref}></div>}
             {(typePlayer === "player" && isPlayerAttacked) && 
                 <motion.img 
                     className='pokemon-card__attack-effect' 
@@ -64,4 +68,6 @@ export default function PokemonCard({ typePlayer, card, energy, hp, effectAttack
             <StackEnergy energy={energy}/>
         </div>
     )
-}
+})
+
+export default PokemonCard

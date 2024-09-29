@@ -45,8 +45,6 @@ const usePokemonsStore = create<IPokemonsStore>()(
     }),
 )
 
-
-
 const initialGameSettings = {
     deck: ENERGY,
     // Настройки выбранного игрового покемона
@@ -57,6 +55,7 @@ const initialGameSettings = {
     playerHP: usePokemonsStore.getState().startedPokemon.hp,
     // Настройки выбранной сложности
     enemyTurnCount: 0,
+    indicateTurn: 0,
     enemyPokemonType: useDifficultStore.getState().startedEnemy.type,
     enemyEnergy: [],
     enemyEnergyLength: useDifficultStore.getState().startedEnemy.energyLength,
@@ -81,7 +80,7 @@ const useGameStore = create<IGameStore>()(
         loadingGame: (timeout: number) => set(loadingGameAction(set, get, timeout)),
         loadingPokemons: async (timeout: number) => set(await loadingPokemonsAction(get, timeout)),
         startGame: (pokemonNumber: number, difficult: string) => set(startGameAction(pokemonNumber, difficult, usePokemonsStore.getState().pokemons, useDifficultStore.getState().enemies, initialGameSettings)),
-        takeEnergy: (id: number) => set(takeEnergyAction(set, get, id, useDifficultStore.getState().startedEnemy.type, useDifficultStore.getState().startedEnemy.forCountTurn as number)),
+        takeEnergy: (id: number, indicateEnemy: number) => set(takeEnergyAction(set, get, id, useDifficultStore.getState().startedEnemy.type, useDifficultStore.getState().startedEnemy.forCountTurn as number, indicateEnemy)),
         giveEnergy: (id: number) => set(giveEnergyAction(get, id)),
         playerAttack: () => set(playerAttackAction(set, get)),
         enemyAttack: () => set(enemyAttackAction(set, get)),

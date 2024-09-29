@@ -1,9 +1,12 @@
 import { useDifficultStore, useGameStore, usePokemonsStore } from "@/store/game.store";
 import { motion } from "framer-motion"
+import { forwardRef } from "react";
 
 import PokemonCard from "../PokemonCard/PokemonCard";
 
-export default function Board() {
+const Board = forwardRef<HTMLDivElement>(function Board(props, ref) {
+
+    const {} = props
 
     const { startedPokemon } = usePokemonsStore()
     const { startedEnemy } = useDifficultStore()
@@ -23,6 +26,7 @@ export default function Board() {
                 energy={enemyEnergy} 
                 hp={enemyHP}
                 effectAttack={startedEnemy.attackEffect}
+                ref={ref}
             />
             <PokemonCard 
                 typePlayer="player" 
@@ -33,4 +37,6 @@ export default function Board() {
             />
         </motion.div>
     )
-}
+})
+
+export default Board
