@@ -72,6 +72,7 @@
         width: 70px;
         img {
             width: 100%;
+            border-radius: 3px;
         }
         @media only screen and (0 <= width <= 389px) {
             width: 54px;
