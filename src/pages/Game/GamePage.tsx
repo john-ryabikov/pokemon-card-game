@@ -78,7 +78,7 @@ export default function GamePage({ title }: { title: string }) {
                     <EnergyBox ref={energyBoxRef}/>
                     <motion.div 
                         className='game-page__actions'
-                        initial={{ y: 90 }}
+                        initial={{ y: 100 }}
                         whileInView={{ y: 0 }}
                         exit={{ y: 100 }}
                         transition={{ delay: 0.45 }}
