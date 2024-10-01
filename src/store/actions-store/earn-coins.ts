@@ -12,8 +12,8 @@ export const earnCoinsAction = (
     let i = 0
 
     const earnCoins = setInterval(() => {
-        i++
-        set({ pokecoins: state.pokecoins += 1 })
+        i += 2
+        set({ pokecoins: state.pokecoins += 2 })
         if (enemyHP < coins) {
             if (i >= enemyHP) clearInterval(earnCoins)
         } else {
