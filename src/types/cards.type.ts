@@ -17,10 +17,7 @@ export interface Pokemon {
     cost?: number,
     upCost?: number,
     started?: boolean,
-    purchased?: boolean,
-    difficult?: 'easy' | 'normal' | 'hard',
-    forCountTurn?: number,
-    reward?: number  
+    purchased?: boolean
 }
 
 export interface PokemonUp {
@@ -40,4 +37,14 @@ export interface Energy {
     type: TypeEnergies,
     cardImg: string,
     cardIcon: string
+}
+
+export interface IEnemeis {
+    difficult: 'easy' | 'normal' | 'hard',
+    enemies: Pokemon[],
+    purchased?: boolean,
+    cost?: number,
+    forCountTurn: number,
+    reward: number,
+    started?: boolean
 }

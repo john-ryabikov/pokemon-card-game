@@ -10,7 +10,7 @@ export default function Header() {
     const navigate = useNavigate()
     const location = useLocation()
 
-    const { isLoading, isWin, gameExit } = useGameStore()
+    const { isLoading, isWin, changeEnemy, gameExit } = useGameStore()
     const { pokecoins, earnCoinsAfterWin } = usePokemonsStore()
 
     useEffect(() => {
@@ -20,7 +20,8 @@ export default function Header() {
     const exitGame = () => {
         setTimeout(() => {
             navigate("/")
-            if (location.pathname !== "/store") gameExit()
+            location.pathname !== "/store" && gameExit()
+            location.pathname === "/game" && setTimeout(() => changeEnemy(), 600)
         }, 150)
     }
 

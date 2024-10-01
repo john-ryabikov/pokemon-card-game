@@ -738,60 +738,15 @@ export const POKEMONS: Pokemon[] = [
     pokemonName: "Jynx",
     pokemonImg: "img/PokemonCards/Jynx.png",
     pokemonImgStore: "img/PokemonCardsWithHp/Jynx_HP.png",
-    type: TypeEnergies.Electric,
+    type: TypeEnergies.Hydro,
     hp: 200,
     energyLength: 3,
     attackPower: 120,
-    attackEffect: "img/Effects/electric.svg",
+    attackEffect: "img/Effects/hydro.svg",
     purchased: false,
     cost: 0,
     stage: 1,
-    maxStage: 2,
-    upCost: 0,
-  }
-]
-
-export const ENEMIES: Pokemon[] = [
-  {
-    pokemonName: "Voltorb",
-    pokemonImg: "img/PokemonEnemyCards/Voltorb.png",
-    type: TypeEnergies.Electric,
-    hp: 60,
-    energyLength: 1,
-    attackPower: 10,
-    attackEffect: "img/Effects/electric.svg",
-    difficult: "easy",
-    forCountTurn: 7,
-    reward: 100,
-    started: true,
-  },
-  {
-    pokemonName: "Raticate",
-    pokemonImg: "img/PokemonEnemyCards/Raticate.png",
-    type: TypeEnergies.Normal,
-    hp: 70,
-    energyLength: 2,
-    attackPower: 30,
-    attackEffect: "img/Effects/normal.svg",
-    difficult: "normal",
-    forCountTurn: 6,
-    reward: 300,
-    cost: 0,
-    purchased: false
-  },
-  {
-    pokemonName: "Beedrill",
-    pokemonImg: "img/PokemonEnemyCards/Beedrill.png",
-    type: TypeEnergies.Plane,
-    hp: 130,
-    energyLength: 3,
-    attackPower: 110,
-    attackEffect: "img/Effects/plane.svg",
-    difficult: "hard",
-    forCountTurn: 5,
-    reward: 500,
-    cost: 0,
-    purchased: false
+    maxStage: 1
   }
 ]
 

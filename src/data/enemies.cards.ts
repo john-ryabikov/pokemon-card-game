@@ -1,45 +1,139 @@
-import { Pokemon, TypeEnergies } from "@/types/cards.type";
+import { IEnemeis, TypeEnergies } from "@/types/cards.type";
 
-export const ENEMIES: Pokemon[] = [
+export const ENEMIES: IEnemeis[] = [
     {
         difficult: "easy",
-        pokemonName: "Voltorb",
-        pokemonImg: "img/PokemonEnemyCards/Voltorb.png",
-        type: TypeEnergies.Electric,
-        hp: 60,
-        energyLength: 1,
-        attackPower: 10,
-        attackEffect: "img/Effects/electric.svg",
+        enemies: [
+            {
+                pokemonName: "Zubat",
+                pokemonImg: "img/PokemonEnemyCards/Zubat.png",
+                type: TypeEnergies.Normal,
+                hp: 40,
+                energyLength: 1,
+                attackPower: 10,
+                attackEffect: "img/Effects/normal.svg",
+            },
+            {
+                pokemonName: "Voltorb",
+                pokemonImg: "img/PokemonEnemyCards/Voltorb.png",
+                type: TypeEnergies.Electric,
+                hp: 50,
+                energyLength: 1,
+                attackPower: 10,
+                attackEffect: "img/Effects/electric.svg",
+            },
+            {
+                pokemonName: "Rattata",
+                pokemonImg: "img/PokemonEnemyCards/Rattata.png",
+                type: TypeEnergies.Normal,
+                hp: 40,
+                energyLength: 2,
+                attackPower: 20,
+                attackEffect: "img/Effects/normal.svg",
+            },
+            {
+                pokemonName: "Gastly",
+                pokemonImg: "img/PokemonEnemyCards/Gastly.png",
+                type: TypeEnergies.Psy,
+                hp: 50,
+                energyLength: 1,
+                attackPower: 20,
+                attackEffect: "img/Effects/psy.svg",
+            }
+
+        ],
         forCountTurn: 7,
         reward: 100,
         started: true,
     },
     {
         difficult: "normal",
-        pokemonName: "Raticate",
-        pokemonImg: "img/PokemonEnemyCards/Raticate.png",
-        type: TypeEnergies.Normal,
-        hp: 70,
-        energyLength: 2,
-        attackPower: 30,
-        attackEffect: "img/Effects/normal.svg",
-        forCountTurn: 6,
-        reward: 300,
+        enemies: [
+            {
+                pokemonName: "Tangela",
+                pokemonImg: "img/PokemonEnemyCards/Tangela.png",
+                type: TypeEnergies.Plane,
+                hp: 80,
+                energyLength: 1,
+                attackPower: 10,
+                attackEffect: "img/Effects/plane.svg",
+            },
+            {
+                pokemonName: "Farfetch'd",
+                pokemonImg: "img/PokemonEnemyCards/Farfetch'd.png",
+                type: TypeEnergies.Normal,
+                hp: 70,
+                energyLength: 2,
+                attackPower: 40,
+                attackEffect: "img/Effects/normal.svg",
+            },
+            {
+                pokemonName: "Raticate",
+                pokemonImg: "img/PokemonEnemyCards/Raticate.png",
+                type: TypeEnergies.Normal,
+                hp: 70,
+                energyLength: 2,
+                attackPower: 30,
+                attackEffect: "img/Effects/normal.svg",
+            },
+            {
+                pokemonName: "Haunter",
+                pokemonImg: "img/PokemonEnemyCards/Haunter.png",
+                type: TypeEnergies.Psy,
+                hp: 90,
+                energyLength: 2,
+                attackPower: 40,
+                attackEffect: "img/Effects/psy.svg",
+            }
+        ],
+        purchased: false,
         cost: 0,
-        purchased: false
+        forCountTurn: 6,
+        reward: 300
     },
     {
         difficult: "hard",
-        pokemonName: "Beedrill",
-        pokemonImg: "img/PokemonEnemyCards/Beedrill.png",
-        type: TypeEnergies.Plane,
-        hp: 130,
-        energyLength: 3,
-        attackPower: 110,
-        attackEffect: "img/Effects/plane.svg",
-        forCountTurn: 5,
-        reward: 500,
+        enemies: [
+            {
+                pokemonName: "Weezing",
+                pokemonImg: "img/PokemonEnemyCards/Weezing.png",
+                type: TypeEnergies.Plane,
+                hp: 110,
+                energyLength: 2,
+                attackPower: 50,
+                attackEffect: "img/Effects/plane.svg",
+            },
+            {
+                pokemonName: "Pinsir",
+                pokemonImg: "img/PokemonEnemyCards/Voltorb.png",
+                type: TypeEnergies.Plane,
+                hp: 120,
+                energyLength: 3,
+                attackPower: 90,
+                attackEffect: "img/Effects/plane.svg",
+            },
+            {
+                pokemonName: "Kabutops",
+                pokemonImg: "img/PokemonEnemyCards/Kabutops.png",
+                type: TypeEnergies.Strong,
+                hp: 140,
+                energyLength: 3,
+                attackPower: 100,
+                attackEffect: "img/Effects/strong.svg",
+            },
+            {
+                pokemonName: "Gengar",
+                pokemonImg: "img/PokemonEnemyCards/Gengar.png",
+                type: TypeEnergies.Psy,
+                hp: 120,
+                energyLength: 3,
+                attackPower: 110,
+                attackEffect: "img/Effects/psy.svg",
+            }
+        ],
+        purchased: false,
         cost: 0,
-        purchased: false
+        forCountTurn: 5,
+        reward: 500
     }
 ]

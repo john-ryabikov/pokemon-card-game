@@ -36,14 +36,14 @@ export default function GamePage({ title }: { title: string }) {
 
     const { earnCoinsAfterAttack } = usePokemonsStore()
 
-    const { startedEnemy } = useDifficultStore()
+    const { startedDiff } = useDifficultStore()
 
     const energyBoxRef = useRef<HTMLDivElement>(null)
     const indicateEnemy = useRef<HTMLDivElement>(null)
 
     useEffect(() => {
         document.title = `${title} | Pokemon Game`
-        if (indicateEnemy.current) indicateEnemy.current.style.setProperty('width', `${indicateTurn}px`)
+        setTimeout(() => indicateEnemy.current && indicateEnemy.current.style.setProperty('width', `${indicateTurn}px`), 250 ) 
         createDeck(deck)
         if (enemyEnergy.length === enemyEnergyLength) {
             setTimeout(() => {
@@ -59,7 +59,7 @@ export default function GamePage({ title }: { title: string }) {
             energyBox, 
             gameOver, 
             energyBoxRef, 
-            startedEnemy.forCountTurn as number, 
+            startedDiff.forCountTurn as number, 
             indicateEnemy.current?.offsetWidth as number,
             isSmallMobile
         )

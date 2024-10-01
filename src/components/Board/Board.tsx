@@ -9,8 +9,8 @@ const Board = forwardRef<HTMLDivElement>(function Board(props, ref) {
     const {} = props
 
     const { startedPokemon } = usePokemonsStore()
-    const { startedEnemy } = useDifficultStore()
-    const { playerHP, playerEnergy, enemyHP, enemyEnergy } = useGameStore()
+    const { startedDiff } = useDifficultStore()
+    const { playerHP, playerEnergy, enemyHP, enemyEnergy, randomEnemy } = useGameStore()
 
     return (
         <motion.div 
@@ -22,10 +22,10 @@ const Board = forwardRef<HTMLDivElement>(function Board(props, ref) {
         >
             <PokemonCard 
                 typePlayer="enemy" 
-                card={startedEnemy.pokemonImg}
+                card={startedDiff.enemies[randomEnemy].pokemonImg}
                 energy={enemyEnergy} 
                 hp={enemyHP}
-                effectAttack={startedEnemy.attackEffect}
+                effectAttack={startedDiff.enemies[randomEnemy].attackEffect}
                 ref={ref}
             />
             <PokemonCard 

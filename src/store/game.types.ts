@@ -1,4 +1,4 @@
-import type { Energy, Pokemon, TypeEnergies } from "@/types/cards.type";
+import type { Energy, IEnemeis, Pokemon, TypeEnergies } from "@/types/cards.type";
 
 export interface IGameStore {
     deck: Energy[],
@@ -11,7 +11,7 @@ export interface IGameStore {
     // Настройки выбранной сложности
     enemyTurnCount: number,
     indicateTurn: number,
-    enemyPokemonType: TypeEnergies,
+    enemyPokemonType: string | TypeEnergies,
     enemyEnergy: Energy[],
     enemyAttackPower: number,
     enemyEnergyLength: number,
@@ -26,10 +26,12 @@ export interface IGameStore {
     isEnemyAttacked: boolean,
     isLoading: boolean,
     error: null,
+    randomEnemy: number,
     enemyTakedEnergy: boolean,
+    changeEnemy: () => void,
     loadingGame: (timeout: number) => void,
     loadingPokemons: (timeout: number) => Promise<void>
-    startGame: (pokemonNumber: number, difficult: string) => void,
+    startGame: (pokemonNumber: number) => void,
     takeEnergy: (id: number, indicateEnemy: number) => void,
     giveEnergy: (id: number) => void,
     playerAttack: () => void,
@@ -52,9 +54,9 @@ export interface IPokemonsStore {
 }
 
 export interface IEnemyDifficult {
-    enemies: Pokemon[],
+    enemies: IEnemeis[],
     difficultSelected: 'easy' | 'normal' | 'hard' | undefined,
-    startedEnemy: Pokemon,
+    startedDiff: IEnemeis,
     selectDifficult: (difficult: string) => void,
     unlockDifficult: (difficult: string) => void
 }

@@ -1,17 +1,17 @@
-import type { Pokemon } from "@/types/cards.type";
+import type { IEnemeis } from "@/types/cards.type";
 import type { IEnemyDifficult } from "../game.types";
 
 export const selectDifficultAction = ( get: () => IEnemyDifficult, difficult: string ): Partial<IEnemyDifficult> => {
 
     const state = get()
 
-    const selectedPokemon = state.enemies.find(p => p.difficult === difficult) as Pokemon
+    const selectedDiff = state.enemies.find(p => p.difficult === difficult) as IEnemeis
 
-    state.startedEnemy = selectedPokemon
-    state.difficultSelected = selectedPokemon.difficult
+    state.startedDiff = selectedDiff
+    state.difficultSelected = selectedDiff.difficult
 
     return {
-        startedEnemy: state.startedEnemy,
+        startedDiff: state.startedDiff, 
         difficultSelected: state.difficultSelected
     }
 

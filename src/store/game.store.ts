@@ -1,6 +1,7 @@
-import { create } from "zustand";
-import { ENERGY } from "@/data/energy.cards";
-import { ENEMIES, POKEMONS } from "@/data/pokemons.cards";
+import { create } from "zustand"
+import { ENERGY } from "@/data/energy.cards"
+import { POKEMONS } from "@/data/pokemons.cards"
+import { ENEMIES } from "@/data/enemies.cards"
 
 import type { IEnemyDifficult, IGameStore, IPokemonsStore } from "./game.types";
 
@@ -9,7 +10,7 @@ import { takeEnergyAction } from "./actions-store/take-energy";
 import { giveEnergyAction } from "./actions-store/give-energy";
 import { playerAttackAction } from "./actions-store/player-attack";
 import { selectPokemonAction } from "./actions-store/select-pokemon";
-import { Pokemon } from "@/types/cards.type";
+import { IEnemeis, Pokemon } from "@/types/cards.type";
 import { enemyAttackAction } from "./actions-store/enemy-attack";
 import { startGameAction } from "./actions-store/start-game";
 import { earnCoinsAction } from "./actions-store/earn-coins";
@@ -24,11 +25,13 @@ const useDifficultStore = create<IEnemyDifficult>()(
     (set, get) => ({
         enemies: ENEMIES,
         difficultSelected: 'easy',
-        startedEnemy: ENEMIES.find(p => p.started === true) as Pokemon,
+        startedDiff: ENEMIES.find(p => p.started === true) as IEnemeis,
         selectDifficult: (difficult: string) => set(selectDifficultAction(get, difficult)),
         unlockDifficult: (difficult: string) => set({enemies: get().enemies.map(e => difficult === e.difficult ? {...e, purchased: !e.purchased} : e)})
     })
 )
+
+const startedDiff = useDifficultStore.getState().startedDiff
 
 const usePokemonsStore = create<IPokemonsStore>()(
     (set, get) => ({
@@ -38,29 +41,31 @@ const usePokemonsStore = create<IPokemonsStore>()(
         startedPokemon: POKEMONS.find(p => p.started === true) as Pokemon,
         selectPokemon: (pokemonNumber: number) => set(selectPokemonAction(get, pokemonNumber)),
         earnCoinsAfterAttack: (coins: number, enemyHP: number) => set(earnCoinsAction(get, set, coins, enemyHP)),
-        earnCoinsAfterWin: () => set(earnWinCoinsAction(get, set, useDifficultStore.getState().startedEnemy.reward as number)),
+        earnCoinsAfterWin: () => set(earnWinCoinsAction(get, set, useDifficultStore.getState().startedDiff.reward as number)),
         spendCoins: (pokemonCost: number) => set({ pokecoins: get().pokecoins -= pokemonCost }),
         unlockPokemon: (pokemonNumber: number) => set({pokemons: get().pokemons.map(p => pokemonNumber === p.number ? {...p, purchased: !p.purchased} : p)}),
         upgradePokemon: (pokemonNumber: number, stage: number) => set(upgradePokemonAction(get, stage, pokemonNumber))
     }),
 )
 
+const startedPokemon = usePokemonsStore.getState().startedPokemon
+
 const initialGameSettings = {
     deck: ENERGY,
     // Настройки выбранного игрового покемона
-    playerPokemonType: usePokemonsStore.getState().startedPokemon.type,
+    playerPokemonType: startedPokemon.type,
     playerEnergy: [],
-    playerEnergyLength: usePokemonsStore.getState().startedPokemon.energyLength,
-    playerAttackPower: usePokemonsStore.getState().startedPokemon.attackPower,
-    playerHP: usePokemonsStore.getState().startedPokemon.hp,
+    playerEnergyLength: startedPokemon.energyLength,
+    playerAttackPower: startedPokemon.attackPower,
+    playerHP: startedPokemon.hp,
     // Настройки выбранной сложности
     enemyTurnCount: 0,
     indicateTurn: 0,
-    enemyPokemonType: useDifficultStore.getState().startedEnemy.type,
+    enemyPokemonType: "",
     enemyEnergy: [],
-    enemyEnergyLength: useDifficultStore.getState().startedEnemy.energyLength,
-    enemyAttackPower: useDifficultStore.getState().startedEnemy.attackPower,
-    enemyHP: useDifficultStore.getState().startedEnemy.hp,
+    enemyEnergyLength: 0,
+    enemyAttackPower: 0,
+    enemyHP: 0,
     // Общие настройки игры
     energyBox: [],
     isAttack: false,
@@ -76,11 +81,13 @@ const useGameStore = create<IGameStore>()(
         ...initialGameSettings,
         isLoading: true,
         error: null,
+        randomEnemy: 0,
         enemyTakedEnergy: false,
+        changeEnemy: () => set({randomEnemy: Math.floor(Math.random() * (4 - 0) + 0)}),
         loadingGame: (timeout: number) => set(loadingGameAction(set, get, timeout)),
         loadingPokemons: async (timeout: number) => set(await loadingPokemonsAction(get, timeout)),
-        startGame: (pokemonNumber: number, difficult: string) => set(startGameAction(pokemonNumber, difficult, usePokemonsStore.getState().pokemons, useDifficultStore.getState().enemies, initialGameSettings)),
-        takeEnergy: (id: number, indicateEnemy: number) => set(takeEnergyAction(set, get, id, useDifficultStore.getState().startedEnemy.type, useDifficultStore.getState().startedEnemy.forCountTurn as number, indicateEnemy)),
+        startGame: (pokemonNumber: number) => set(startGameAction(pokemonNumber, get().randomEnemy, useDifficultStore.getState().difficultSelected as string, usePokemonsStore.getState().pokemons,  useDifficultStore.getState().enemies, initialGameSettings)),
+        takeEnergy: (id: number, indicateEnemy: number) => set(takeEnergyAction(set, get, id, startedDiff.enemies[get().randomEnemy].type, startedDiff.forCountTurn as number, indicateEnemy)),
         giveEnergy: (id: number) => set(giveEnergyAction(get, id)),
         playerAttack: () => set(playerAttackAction(set, get)),
         enemyAttack: () => set(enemyAttackAction(set, get)),

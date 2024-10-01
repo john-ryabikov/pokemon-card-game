@@ -14,8 +14,6 @@ export const takeEnergyAction = (
 
     state.enemyTurnCount += 1
     state.indicateTurn = indicateEnemy
-
-    
     
     const energy = state.deck.find(elem => elem.id === id) as Energy
 

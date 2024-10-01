@@ -11,16 +11,17 @@ export default function StartPage() {
 
     const navigate = useNavigate()
 
-    const { difficultSelected } = useDifficultStore()
+    const {startedDiff} = useDifficultStore()
     const { pokemonSelected } = usePokemonsStore()
     const { isLoading, startGame, loadingPokemons } = useGameStore()
 
     const playGame = () => {
-        startGame(pokemonSelected, difficultSelected as string)
+        startGame(pokemonSelected)
         setTimeout(() => {
             loadingPokemons(3500)
         }, 500)
         navigate("/game")
+        console.log(startedDiff)
     }
 
     const inStore = () => {

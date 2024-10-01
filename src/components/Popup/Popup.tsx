@@ -5,9 +5,16 @@ import "./Popup.scss"
 
 export default  function Popup() {
 
-    const { difficultSelected, startedEnemy } = useDifficultStore()
+    const { startedDiff } = useDifficultStore()
     const { pokemonSelected } = usePokemonsStore()
-    const {startGame, isLose, isWin } = useGameStore()
+    const {startGame, changeEnemy, isLose, isWin } = useGameStore()
+
+    const retryGame = () => {
+        setTimeout(() => {
+            changeEnemy()
+            startGame(pokemonSelected)
+        }, 250)
+    }
 
     return (
         <div className='popup'>
@@ -25,11 +32,11 @@ export default  function Popup() {
                     <p className='popup__win-coins'>
                         <span>+</span>
                         <img src="img/Icons/pokecoin_icon.svg" alt="" draggable="false"/>
-                        <span>{startedEnemy.reward}</span>
+                        <span>{startedDiff.reward}</span>
                     </p>
                 )}
                 <div className='popup__buttons'>
-                    <button className='popup__retry-btn' onClick={() => {setTimeout(() => startGame(pokemonSelected, difficultSelected as string), 250)}}>
+                    <button className='popup__retry-btn' onClick={retryGame}>
                         <img src="img/Icons/replay_icon.svg" alt="Retry" draggable={false}/>
                         <span>Заново</span>
                     </button>
