@@ -36,7 +36,7 @@ const EnergyBox = forwardRef<HTMLDivElement>(function EnergyBox(props, ref) {
                             draggable={false}
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
-                            transition={{ delay: 0.25 }}
+                            transition={{ delay: 0.1 }}
                             viewport={{ once: true }}
                         />
                     </button>
