@@ -19,7 +19,7 @@ export const earnCoinsAction = (
         } else {
             if (i >= coins) clearInterval(earnCoins)
         }
-    }, 1)
+    }, 20)
 
     return {
         pokecoins: state.pokecoins

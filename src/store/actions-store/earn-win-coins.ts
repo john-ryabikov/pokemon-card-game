@@ -11,10 +11,10 @@ export const earnWinCoinsAction = (
     let i = 0
     
     let earnCoins = setInterval(() => {
-        i++
-        set({ pokecoins: state.pokecoins += 1 })
+        i += 7
+        set({ pokecoins: state.pokecoins += 7 })
         if (i >= reward) clearInterval(earnCoins)
-    }, 5)
+    }, 20)
 
     return {
         pokecoins: state.pokecoins
