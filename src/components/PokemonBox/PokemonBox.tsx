@@ -1,5 +1,4 @@
 import { usePokemonsStore } from "@/store/game.store"
-import PreloadImages from "../PreloadImages/PreloadImages";
 
 export default function PokemonBox() {
 
@@ -15,7 +14,6 @@ export default function PokemonBox() {
 
     return (
         <div className='store-page__pokemons'>
-            <PreloadImages/>
             <div className='store-page__pokemons-box'>
                 {pokemons.map((p, i) => (
                     <div 

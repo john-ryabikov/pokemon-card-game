@@ -4,6 +4,7 @@ import { useGameStore, usePokemonsStore } from "@/store/game.store"
 
 import Loading from "@/components/Loading/Loading"
 import PokemonBox from "@/components/PokemonBox/PokemonBox"
+import PreloadImages from "@/components/PreloadImages/PreloadImages"
 
 import "./PokemonStore.scss"
 
@@ -32,6 +33,7 @@ export default function PokemonStore({ title }: { title: string }) {
             exit={{ opacity: 0 }}
             transition={{ delay: 0.45 }}
         >
+            <PreloadImages/>
             {isLoading ? <Loading/> : (
                 <>
                     <motion.div 
