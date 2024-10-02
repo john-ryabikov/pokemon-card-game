@@ -55,7 +55,7 @@ export interface IPokemonsStore {
 
 export interface IEnemyDifficult {
     enemies: IEnemeis[],
-    difficultSelected: 'easy' | 'normal' | 'hard' | undefined,
+    difficultSelected: 'easy' | 'normal' | 'hard' | 'very-hard' | undefined,
     startedDiff: IEnemeis,
     selectDifficult: (difficult: string) => void,
     unlockDifficult: (difficult: string) => void
