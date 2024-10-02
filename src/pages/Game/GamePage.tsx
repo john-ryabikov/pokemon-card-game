@@ -9,7 +9,6 @@ import { playerTakeEnergy } from "@/actions-game/game.player-take-energy"
 import Loading from "@/components/Loading/Loading"
 import Board from "@/components/Board/Board";
 import EnergyBox from "@/components/EnergyBox/EnergyBox";
-import PreloadImages from "@/components/PreloadImages/PreloadImages"
 
 import "./GamePage.scss"
 
@@ -74,7 +73,6 @@ export default function GamePage({ title }: { title: string }) {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.45 }}
         >
-            <PreloadImages/>
             {isLoading ? <Loading/> : (
                 <>
                     <Board ref={indicateEnemy}/>

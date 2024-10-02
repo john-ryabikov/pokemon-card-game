@@ -47,6 +47,24 @@ body {
   color: #ffffff;
 }
 
+body::after {
+  position: absolute;
+  width: 0; 
+  height: 0; 
+  overflow: hidden; 
+  z-index: -9999; 
+  content:
+  // other icons 
+    url("/img/Icons/cards_icon.svg")
+    url("/img/Icons/exit_icon.svg")
+    url("/img/Icons/main_logo.png")
+    url("/img/Icons/replay_icon.svg")
+    url("/img/Icons/pokecoin_icon.svg")
+    url("/img/Icons/settings_icon.svg")
+    url("/img/Icons/checked_icon.svg")
+  ;
+}
+
 #root {
   position: relative;
   display: flex;
