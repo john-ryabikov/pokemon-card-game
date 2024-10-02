@@ -79,7 +79,7 @@ const initialGameSettings = {
 const useGameStore = create<IGameStore>()(
     (set, get) => ({
         ...initialGameSettings,
-        isLoading: true,
+        isLoading: false,
         error: null,
         randomEnemy: 0,
         enemyTakedEnergy: false,

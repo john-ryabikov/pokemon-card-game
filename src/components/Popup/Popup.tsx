@@ -7,13 +7,14 @@ export default  function Popup() {
 
     const { startedDiff } = useDifficultStore()
     const { pokemonSelected } = usePokemonsStore()
-    const {startGame, changeEnemy, isLose, isWin } = useGameStore()
+    const { startGame, changeEnemy, loadingGame, isLose, isWin } = useGameStore()
 
     const retryGame = () => {
         setTimeout(() => {
             changeEnemy()
             startGame(pokemonSelected)
-        }, 250)
+            loadingGame(2500)
+        }, 450)
     }
 
     return (
@@ -38,7 +39,7 @@ export default  function Popup() {
                 <div className='popup__buttons'>
                     <button className='popup__retry-btn' onClick={retryGame}>
                         <img src="img/Icons/replay_icon.svg" alt="Retry" draggable={false}/>
-                        <span>Заново</span>
+                        <span>Повторить</span>
                     </button>
                 </div>
             </motion.div>

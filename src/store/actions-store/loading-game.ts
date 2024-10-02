@@ -8,9 +8,13 @@ export const loadingGameAction = (
     
     const state = get()
 
+    state.isLoading = true
+
     setTimeout(() => {
         set({ isLoading: !state.isLoading })
     }, timeout)
 
-    return state
+    return {
+        isLoading: state.isLoading
+    }
 } 
