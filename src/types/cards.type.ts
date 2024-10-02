@@ -40,7 +40,7 @@ export interface Energy {
 }
 
 export interface IEnemeis {
-    difficult: 'easy' | 'normal' | 'hard',
+    difficult: 'easy' | 'normal' | 'hard' | 'very-hard',
     enemies: Pokemon[],
     purchased?: boolean,
     cost?: number,

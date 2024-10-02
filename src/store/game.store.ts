@@ -31,7 +31,7 @@ const useDifficultStore = create<IEnemyDifficult>()(
     })
 )
 
-const startedDiff = useDifficultStore.getState().startedDiff
+// const startedDiff = useDifficultStore.getState().startedDiff
 
 const usePokemonsStore = create<IPokemonsStore>()(
     (set, get) => ({
@@ -87,7 +87,7 @@ const useGameStore = create<IGameStore>()(
         loadingGame: (timeout: number) => set(loadingGameAction(set, get, timeout)),
         loadingPokemons: async (timeout: number) => set(await loadingPokemonsAction(get, timeout)),
         startGame: (pokemonNumber: number) => set(startGameAction(pokemonNumber, get().randomEnemy, useDifficultStore.getState().difficultSelected as string, usePokemonsStore.getState().pokemons,  useDifficultStore.getState().enemies, initialGameSettings)),
-        takeEnergy: (id: number, indicateEnemy: number) => set(takeEnergyAction(set, get, id, startedDiff.enemies[get().randomEnemy].type, startedDiff.forCountTurn as number, indicateEnemy)),
+        takeEnergy: (id: number, indicateEnemy: number, startedDiff: IEnemeis) => set(takeEnergyAction(set, get, id, get().randomEnemy, startedDiff, indicateEnemy)),
         giveEnergy: (id: number) => set(giveEnergyAction(get, id)),
         playerAttack: () => set(playerAttackAction(set, get)),
         enemyAttack: () => set(enemyAttackAction(set, get)),

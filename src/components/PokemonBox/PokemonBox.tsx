@@ -8,6 +8,7 @@ export default function PokemonBox() {
         setTimeout(() => {
             unlockPokemon(pokemonNumber); 
             spendCoins(pokemonCost)
+            selectPokemon(pokemonNumber)
         }, 400)
     }
 

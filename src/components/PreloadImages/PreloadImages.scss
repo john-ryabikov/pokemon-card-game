@@ -1,0 +1,10 @@
+.preload-imgs {
+    position: absolute;
+    width: 0; 
+    height: 0; 
+    overflow: hidden; 
+    z-index: -9999;
+    div {
+        display: none;
+    } 
+}

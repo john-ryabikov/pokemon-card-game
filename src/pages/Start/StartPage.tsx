@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom"
 import { useEffect } from "react"
-import { useDifficultStore, useGameStore, usePokemonsStore } from "@/store/game.store"
+import { useGameStore, usePokemonsStore } from "@/store/game.store"
 import { motion } from "framer-motion"
 
 import Loading from "@/components/Loading/Loading"
@@ -11,7 +11,6 @@ export default function StartPage() {
 
     const navigate = useNavigate()
 
-    const {startedDiff} = useDifficultStore()
     const { pokemonSelected } = usePokemonsStore()
     const { isLoading, startGame, loadingPokemons } = useGameStore()
 
@@ -21,7 +20,6 @@ export default function StartPage() {
             loadingPokemons(3500)
         }, 500)
         navigate("/game")
-        console.log(startedDiff)
     }
 
     const inStore = () => {

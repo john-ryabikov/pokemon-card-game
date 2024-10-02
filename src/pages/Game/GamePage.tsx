@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react"
 import { useDifficultStore, useGameStore, usePokemonsStore } from "@/store/game.store"
+import { useMediaQuery } from "@/hooks/MediaQuery/useMediaQuery"
 import { motion } from "framer-motion"
 
 import { createDeck } from "@/actions-game/game.create-deck"
@@ -10,7 +11,6 @@ import Board from "@/components/Board/Board";
 import EnergyBox from "@/components/EnergyBox/EnergyBox";
 
 import "./GamePage.scss"
-import { useMediaQuery } from "@/hooks/MediaQuery/useMediaQuery"
 
 export default function GamePage({ title }: { title: string }) {
 
@@ -61,7 +61,8 @@ export default function GamePage({ title }: { title: string }) {
             energyBoxRef, 
             startedDiff.forCountTurn as number, 
             indicateEnemy.current?.offsetWidth as number,
-            isSmallMobile
+            isSmallMobile,
+            startedDiff
         )
     }
 

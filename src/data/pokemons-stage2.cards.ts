@@ -131,9 +131,9 @@ export const POKEMONS_2: PokemonUp[] = [
     },
     {
         number: 13,
-        pokemonName: "Clefairy",
+        pokemonName: "Clefable",
         pokemonImg: "img/PokemonCards/Clefairy.png",
-        pokemonImgStore: "img/PokemonCardsWithHp/Clefairy_HP.png",
+        pokemonImgStore: "img/PokemonCardsWithHp/Clefable_HP.png",
         hp: 100,
         energyLength: 3,
         attackPower: 60,

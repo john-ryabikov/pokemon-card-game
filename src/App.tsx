@@ -11,6 +11,7 @@ import PokemonStore from "./pages/PokemonStore/PokemonStore";
 import Loading from "./components/Loading/Loading";
 import DifficultPage from "./pages/Difficult/DifficultPage";
 import Popup from "./components/Popup/Popup";
+import PreloadImages from "./components/PreloadImages/PreloadImages";
 
 import "@/styles/global.scss"
 
@@ -27,6 +28,7 @@ export default function App() {
 
   return (
     <main>
+      <PreloadImages/>
       {isGameEnd && <Popup/>}
       {isLoading ? <Loading/> : (
         <>

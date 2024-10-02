@@ -36,6 +36,7 @@ export default function DifficultBox() {
                             {e.difficult === "easy" && "Легкий"}
                             {e.difficult === "normal" && "Средний"}
                             {e.difficult === "hard" && "Сложный"}
+                            {e.difficult === "very-hard" && "Мастер"}
                         </span>
                         {difficultSelected === e.difficult && <img src="img/Icons/checked_icon.svg" alt="Checked" draggable="false"/>}
                     </button>

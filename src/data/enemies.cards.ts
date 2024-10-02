@@ -105,7 +105,7 @@ export const ENEMIES: IEnemeis[] = [
             },
             {
                 pokemonName: "Pinsir",
-                pokemonImg: "img/PokemonEnemyCards/Voltorb.png",
+                pokemonImg: "img/PokemonEnemyCards/Pinsir.png",
                 type: TypeEnergies.Plane,
                 hp: 120,
                 energyLength: 3,
@@ -135,5 +135,50 @@ export const ENEMIES: IEnemeis[] = [
         cost: 0,
         forCountTurn: 5,
         reward: 500
+    },
+    {
+        difficult: "very-hard",
+        enemies: [
+            {
+                pokemonName: "Gyarados",
+                pokemonImg: "img/PokemonEnemyCards/Gyarados.png",
+                type: TypeEnergies.Hydro,
+                hp: 200,
+                energyLength: 4,
+                attackPower: 200,
+                attackEffect: "img/Effects/hydro.svg",
+            },
+            {
+                pokemonName: "Aerodactyl",
+                pokemonImg: "img/PokemonEnemyCards/Aerodactyl.png",
+                type: TypeEnergies.Normal,
+                hp: 160,
+                energyLength: 2,
+                attackPower: 100,
+                attackEffect: "img/Effects/normal.svg",
+            },
+            {
+                pokemonName: "Zapdos",
+                pokemonImg: "img/PokemonEnemyCards/Zapdos.png",
+                type: TypeEnergies.Electric,
+                hp: 200,
+                energyLength: 4,
+                attackPower: 180,
+                attackEffect: "img/Effects/electric.svg",
+            },
+            {
+                pokemonName: "Mewtwo",
+                pokemonImg: "img/PokemonEnemyCards/Mewtwo.png",
+                type: TypeEnergies.Psy,
+                hp: 220,
+                energyLength: 3,
+                attackPower: 160,
+                attackEffect: "img/Effects/psy.svg",
+            }
+        ],
+        purchased: false,
+        cost: 0,
+        forCountTurn: 6,
+        reward: 1000
     }
 ]

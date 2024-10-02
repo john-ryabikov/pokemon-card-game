@@ -32,7 +32,7 @@ export interface IGameStore {
     loadingGame: (timeout: number) => void,
     loadingPokemons: (timeout: number) => Promise<void>
     startGame: (pokemonNumber: number) => void,
-    takeEnergy: (id: number, indicateEnemy: number) => void,
+    takeEnergy: (id: number, indicateEnemy: number, startedDiff: IEnemeis ) => void,
     giveEnergy: (id: number) => void,
     playerAttack: () => void,
     enemyAttack: () => void,
