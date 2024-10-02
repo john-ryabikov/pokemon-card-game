@@ -12,8 +12,9 @@ export default function PreloadImages() {
             <div className='preload-imgs__pokemons'>
                 {POKEMONS.map((p, i) => (
                     <div key={i}>
-                        <img  src={p.pokemonImg}/>
-                        <img  src={p.pokemonImgStore}/>
+                        <img src={p.pokemonImg}/>
+                        <img src={p.pokemonImgStore}/>
+                        <img src={p.attackEffect}/>
                     </div>
                 ))}
             </div>
@@ -46,7 +47,11 @@ export default function PreloadImages() {
             </div>
             <div className='preload-imgs__energy-cards'>
                 {ENERGY.map((en, i) => (
-                    <img key={i} src={en.cardImg}/>
+                    <div key={i}>
+                        <img src={en.cardImg}/>
+                        <img src={en.cardIcon}/>
+                    </div>
+                    
                 ))}
             </div>
         </div>
