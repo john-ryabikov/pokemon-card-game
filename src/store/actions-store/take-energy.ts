@@ -33,7 +33,7 @@ export const takeEnergyAction = (
         setTimeout(() => set({enemyTakedEnergy: false}), 900)
     }
 
-    setTimeout(() => set({isPlayerTurn: !state.isPlayerTurn}), 500)
+    setTimeout(() => set({isPlayerTurn: !state.isPlayerTurn}), 350)
 
     return {
         deck: energyDeckFiltered,
