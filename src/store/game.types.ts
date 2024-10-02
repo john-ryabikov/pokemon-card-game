@@ -16,7 +16,7 @@ export interface IGameStore {
     enemyAttackPower: number,
     enemyEnergyLength: number,
     enemyHP: number,
-    // Общие настройки игры
+    // Общие настройки игры (в сбросе)
     energyBox: Energy[],
     isGameEnd: boolean,
     isLose: boolean,
@@ -24,7 +24,9 @@ export interface IGameStore {
     isAttack: boolean,
     isPlayerAttacked: boolean,
     isEnemyAttacked: boolean,
+    // Общие настройки игры (без сброса)
     isLoading: boolean,
+    isPlayerTurn: boolean,
     error: null,
     randomEnemy: number,
     enemyTakedEnergy: boolean,

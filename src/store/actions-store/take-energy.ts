@@ -12,6 +12,8 @@ export const takeEnergyAction = (
 
     const state = get()
 
+    state.isPlayerTurn = true
+
     // прибавляем к ходу вражеского покемона и пополняем индикатор каждый 1-й раз
     state.enemyTurnCount += 1
     state.indicateTurn = indicateEnemy
@@ -28,12 +30,10 @@ export const takeEnergyAction = (
         state.enemyEnergy = [...state.enemyEnergy, enemy_energy]
         state.enemyTakedEnergy = true
         state.indicateTurn = 0
-        setTimeout(() => {
-            set({ 
-                enemyTakedEnergy : false,
-            })
-        }, 900)
+        setTimeout(() => set({enemyTakedEnergy: false}), 900)
     }
+
+    setTimeout(() => set({isPlayerTurn: !state.isPlayerTurn}), 500)
 
     return {
         deck: energyDeckFiltered,

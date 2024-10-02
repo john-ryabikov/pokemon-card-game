@@ -68,18 +68,19 @@ const initialGameSettings = {
     enemyHP: 0,
     // Общие настройки игры
     energyBox: [],
-    isAttack: false,
-    isPlayerAttacked: false,
-    isEnemyAttacked: false,
     isGameEnd: false,
     isLose: false,
     isWin: false,
+    isAttack: false,
+    isPlayerAttacked: false,
+    isEnemyAttacked: false
 }
 
 const useGameStore = create<IGameStore>()(
     (set, get) => ({
         ...initialGameSettings,
         isLoading: false,
+        isPlayerTurn: false,
         error: null,
         randomEnemy: 0,
         enemyTakedEnergy: false,

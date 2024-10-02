@@ -19,6 +19,7 @@ export default function GamePage({ title }: { title: string }) {
     const {
         deck,
         isAttack,
+        isPlayerTurn,
         isEnemyAttacked,
         indicateTurn,
         enemyTakedEnergy,
@@ -66,6 +67,8 @@ export default function GamePage({ title }: { title: string }) {
         )
     }
 
+    const button_status = isAttack || isEnemyAttacked || enemyTakedEnergy || isPlayerTurn
+
     return (
         <motion.section 
             className='game-page'
@@ -84,9 +87,14 @@ export default function GamePage({ title }: { title: string }) {
                         exit={{ y: 100 }}
                         transition={{ delay: 0.45 }}
                     >
-                        <div className='game-page__btn-deck'>
-                            <button disabled={isAttack || isEnemyAttacked || enemyTakedEnergy} onClick={playEnergyCard}>
-                                <img className={`game-page__btn-deck-icon ${(isAttack || isEnemyAttacked || enemyTakedEnergy) ? "game-page__btn-deck-icon_disable" : ""}`} src="img/Icons/cards_icon.svg" alt="Cards Energy" draggable={false}/>
+                        <div className='game-page__btn-deck-cont'>
+                            <button disabled={button_status} className={`game-page__btn-deck ${button_status ? "game-page__btn-deck_lock" : ""}`} onClick={playEnergyCard}>
+                                <img 
+                                    className={`game-page__btn-deck-icon ${button_status ? "game-page__btn-deck-icon_disable" : ""}`} 
+                                    src="img/Icons/cards_icon.svg" 
+                                    alt="Cards Energy" 
+                                    draggable={false}
+                                />
                             </button>
                             <span>x{deck.length}</span>
                         </div>

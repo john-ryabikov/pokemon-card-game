@@ -90,7 +90,7 @@
         width: 100%;
         height: 120px;
     }
-    &__btn-deck {
+    &__btn-deck-cont {
         position: relative;
         display: flex;
         flex-direction: row;
@@ -98,6 +98,11 @@
         justify-content: flex-start;
         gap: 4px;
         font-family: 'Sonic Logo';
+    }
+    &__btn-deck {
+        &_lock {
+            pointer-events: none;
+        }
     }
     &__btn-deck-icon {
         transition: all 0.4s;
