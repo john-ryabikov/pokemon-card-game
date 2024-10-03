@@ -27,12 +27,17 @@ export interface IGameStore {
     // Общие настройки игры (без сброса)
     isLoading: boolean,
     isFirstOpen: boolean,
+    isFirstOpenStore: boolean | null,
+    isFirstOpenBoard: boolean | null,
+    isFirstOpenDiff: boolean | null,
     isPlayerTurn: boolean,
     error: null,
     randomEnemy: number,
     enemyTakedEnergy: boolean,
     // Общие функции игры
     changeFirstOpen: () => void,
+    changeFirst: (firsted: string) => void,
+    deleteFirst: (firsted: string) => void,
     changeEnemy: () => void,
     loadingGame: (timeout: number) => void,
     loadingPokemons: (timeout: number) => Promise<void>

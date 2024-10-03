@@ -8,13 +8,12 @@ export default function HeaderStart() {
 
     const navigate = useNavigate()
 
-    const { isLoading, loadingPokemons } = useGameStore()
+    const { isLoading, isFirstOpenDiff, changeFirst, loadingPokemons } = useGameStore()
     const { pokecoins } = usePokemonsStore()
 
     const difficultGame = () => {
-        setTimeout(() => {
-            loadingPokemons(2500)
-        }, 500)
+        setTimeout(() => loadingPokemons(2500), 500)
+        if (isFirstOpenDiff !== null) setTimeout(() => changeFirst("diff-open"), 2800)
         navigate("/difficult")
     }
 

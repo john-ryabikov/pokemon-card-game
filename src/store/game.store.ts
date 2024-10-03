@@ -19,6 +19,8 @@ import { earnWinCoinsAction } from "./actions-store/earn-win-coins";
 import { selectDifficultAction } from "./actions-store/select-difficult";
 import { loadingGameAction } from "./actions-store/loading-game";
 import { loadingPokemonsAction } from "./actions-store/loading-pokemons";
+import { changeFirstAction } from "./actions-store/change-first";
+import { deleteFirstAction } from "./actions-store/delete-first";
 // import { persist } from "zustand/middleware";
 
 const useDifficultStore = create<IEnemyDifficult>()(
@@ -30,8 +32,6 @@ const useDifficultStore = create<IEnemyDifficult>()(
         unlockDifficult: (difficult: string) => set({enemies: get().enemies.map(e => difficult === e.difficult ? {...e, purchased: !e.purchased} : e)})
     })
 )
-
-// const startedDiff = useDifficultStore.getState().startedDiff
 
 const usePokemonsStore = create<IPokemonsStore>()(
     (set, get) => ({
@@ -81,15 +81,20 @@ const useGameStore = create<IGameStore>()(
         ...initialGameSettings,
         isLoading: false,
         isFirstOpen: true,
+        isFirstOpenStore: false,
+        isFirstOpenBoard: false,
+        isFirstOpenDiff: false,
         isPlayerTurn: false,
         error: null,
         randomEnemy: 0,
         enemyTakedEnergy: false,
         changeFirstOpen: () => set({isFirstOpen: false}),
+        changeFirst: (firsted: string) => changeFirstAction(set, firsted),
+        deleteFirst: (firsted: string) => deleteFirstAction(set, firsted),
         changeEnemy: () => set({randomEnemy: Math.floor(Math.random() * (4 - 0) + 0)}),
         loadingGame: (timeout: number) => set(loadingGameAction(set, get, timeout)),
         loadingPokemons: async (timeout: number) => set(await loadingPokemonsAction(get, timeout)),
-        startGame: (pokemonNumber: number) => set(startGameAction(pokemonNumber, get().randomEnemy, useDifficultStore.getState().difficultSelected as string, usePokemonsStore.getState().pokemons,  useDifficultStore.getState().enemies, initialGameSettings)),
+        startGame: (pokemonNumber: number) => set(startGameAction(pokemonNumber, get().randomEnemy, useDifficultStore.getState().difficultSelected as string, usePokemonsStore.getState().pokemons, useDifficultStore.getState().enemies, initialGameSettings)),
         takeEnergy: (id: number, indicateEnemy: number, startedDiff: IEnemeis) => set(takeEnergyAction(set, get, id, get().randomEnemy, startedDiff, indicateEnemy)),
         giveEnergy: (id: number) => set(giveEnergyAction(get, id)),
         playerAttack: () => set(playerAttackAction(set, get)),

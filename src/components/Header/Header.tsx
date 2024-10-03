@@ -29,7 +29,7 @@ export default function Header() {
         <>
             {!isLoading && (
                 <motion.header 
-                    className='header'
+                    className={`header ${location.pathname !== "/game" ? "header_popup" : ""}`}
                     initial={{ y: -90 }}
                     animate={{ y: 0 }}
                     exit={{ y: -90 }}

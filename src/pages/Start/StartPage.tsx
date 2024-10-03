@@ -12,20 +12,26 @@ export default function StartPage() {
     const navigate = useNavigate()
 
     const { pokemonSelected } = usePokemonsStore()
-    const { isLoading, startGame, loadingPokemons } = useGameStore()
+
+    const { 
+        isLoading, 
+        isFirstOpenStore, 
+        isFirstOpenBoard, 
+        changeFirst, 
+        startGame, 
+        loadingPokemons
+    } = useGameStore()
 
     const playGame = () => {
         startGame(pokemonSelected)
-        setTimeout(() => {
-            loadingPokemons(3500)
-        }, 500)
+        setTimeout(() => loadingPokemons(3500), 500)
+        if (isFirstOpenBoard !== null) setTimeout(() => changeFirst("board-open"), 4800)
         navigate("/game")
     }
 
     const inStore = () => {
-        setTimeout(() => {
-            loadingPokemons(2500)
-        }, 500)
+        setTimeout(() => loadingPokemons(2500), 500)
+        if (isFirstOpenStore !== null) setTimeout(() => changeFirst("store-open"), 3800)
         navigate("/store")
     }
 
