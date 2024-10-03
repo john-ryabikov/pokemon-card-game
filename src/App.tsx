@@ -21,12 +21,13 @@ export default function App() {
 
   const { isLoading, isFirstOpen, isFirstOpenStore, isFirstOpenDiff, isFirstOpenBoard, isGameEnd, loadingGame } = useGameStore()
 
+  const popup_status = isGameEnd || isFirstOpen || isFirstOpenStore || isFirstOpenDiff || isFirstOpenBoard
+
   useEffect(() => {
     loadingGame(3000)
     return () => {}
   },[])
 
-  const popup_status = isGameEnd || isFirstOpen || isFirstOpenStore || isFirstOpenDiff || isFirstOpenBoard
   return (
     <main>
       <PreloadImages/>

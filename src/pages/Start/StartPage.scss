@@ -13,6 +13,11 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        @media only screen and (0 <= width <= 389px) {
+            img {
+                width: 290px;
+            }
+        }
     }
     &__logo-title {
         position: relative;
@@ -26,6 +31,9 @@
             -3px 0 3px #4470F1, 
             0 -3px 3px #4470F1;
         color: #f1e20a;
+        @media only screen and (0 <= width <= 389px) {
+            font-size: 26px;
+        }
     }
     &__btns {
         position: relative;
