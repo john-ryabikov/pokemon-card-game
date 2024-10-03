@@ -10,6 +10,9 @@
     width: 100%;
     height: 90px;
     z-index: 99;
+    &_start {
+        z-index: 97;
+    }
     &__btn {
         position: relative;
         display: flex;

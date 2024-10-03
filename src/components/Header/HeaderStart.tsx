@@ -22,7 +22,7 @@ export default function HeaderStart() {
         <>
             {!isLoading && (
                 <motion.header 
-                    className='header'
+                    className='header header_start'
                     initial={{ y: -90 }}
                     animate={{ y: 0 }}
                     exit={{ y: -90 }}

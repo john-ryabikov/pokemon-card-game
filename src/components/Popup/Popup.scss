@@ -26,6 +26,35 @@
         position: relative;
         font-family: 'Sonic Logo';
         font-size: 28px;
+        &_small {
+            font-size: 18px; 
+        }
+    }
+    &__text {
+        position: relative;
+        font-family: "Lack", sans-serif;
+        font-weight: 400;
+        font-size: 12px;
+        color: rgba(255, 255, 255, 0.7);
+        text-align: center;
+        line-height: 144%;
+        b {
+            font-family: 'Sonic Logo';
+            color: #ffffff;
+        }
+        img {
+            position: relative;
+            top: 4px;
+            display: inline-block;
+            width: 16px;
+        }
+    }
+    &__started-pokemon {
+        position: relative;
+        width: 180px;
+        @media only screen and (0 <= width <= 389px) {
+            width: 120px;
+        }
     }
     &__win-coins {
         position: relative;
@@ -72,6 +101,11 @@
         span {
             font-family: 'Sonic Logo';
             font-size: 16px;
+        }
+        &_ok {
+            border-bottom: 2px solid #7c0909;
+            background-color: #e5001c;
+            margin-top: 30px;
         }
     }
 }

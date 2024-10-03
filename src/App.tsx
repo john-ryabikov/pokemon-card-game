@@ -19,7 +19,7 @@ export default function App() {
   
   const location = useLocation()
 
-  const { isLoading, isGameEnd, loadingGame } = useGameStore()
+  const { isLoading, isFirstOpen, isGameEnd, loadingGame } = useGameStore()
 
   useEffect(() => {
     loadingGame(3000)
@@ -29,9 +29,9 @@ export default function App() {
   return (
     <main>
       <PreloadImages/>
-      {isGameEnd && <Popup/>}
       {isLoading ? <Loading/> : (
         <>
+          {(isGameEnd || isFirstOpen) && <Popup/>}
           <AnimatePresence mode="wait">
             {location.pathname !== "/" && (<Header key={"header-game"}/>)}
             {location.pathname === "/" && (<HeaderStart key={"header-start"}/>)}

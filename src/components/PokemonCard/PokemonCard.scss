@@ -34,6 +34,7 @@
         font-size: 24px;
         font-weight: 700;
         color: #FF0000;
+        z-index: 20;
     }
     &__card-img {
         position: relative;
@@ -52,7 +53,7 @@
         font-size: 8px;
         font-weight: 700;
         text-align: end;
-        z-index: 3;
+        z-index: 10;
         @media only screen and (0 <= width <= 389px) {
             top: 8.5px;
             right: 25px;

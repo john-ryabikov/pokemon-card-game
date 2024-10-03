@@ -37,7 +37,7 @@ const PokemonCard = forwardRef<HTMLDivElement, Props>(function PokemonCard(props
             {(typePlayer === "enemy" && isPlayerAttacked) && 
                 <motion.span 
                     className='pokemon-card__hit'
-                    initial={{x: 10, y: 0, opacity: 1 }}
+                    initial={{x: 10, y: 0, opacity: 1}}
                     whileInView={{x: 10, y: -10, opacity: 0 }}
                     transition={{delay: 0.15, duration: 0.5}}
                 >

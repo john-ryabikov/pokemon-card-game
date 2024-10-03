@@ -80,10 +80,12 @@ const useGameStore = create<IGameStore>()(
     (set, get) => ({
         ...initialGameSettings,
         isLoading: false,
+        isFirstOpen: true,
         isPlayerTurn: false,
         error: null,
         randomEnemy: 0,
         enemyTakedEnergy: false,
+        changeFirstOpen: () => set({isFirstOpen: false}),
         changeEnemy: () => set({randomEnemy: Math.floor(Math.random() * (4 - 0) + 0)}),
         loadingGame: (timeout: number) => set(loadingGameAction(set, get, timeout)),
         loadingPokemons: async (timeout: number) => set(await loadingPokemonsAction(get, timeout)),
