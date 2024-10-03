@@ -10,7 +10,7 @@ export default function Header() {
     const navigate = useNavigate()
     const location = useLocation()
 
-    const { isLoading, isWin, changeEnemy, gameExit } = useGameStore()
+    const { isLoading, isFirstOpenBoard, isFirstOpenStore, isWin, changeEnemy, gameExit } = useGameStore()
     const { pokecoins, earnCoinsAfterWin } = usePokemonsStore()
 
     useEffect(() => {
@@ -29,7 +29,7 @@ export default function Header() {
         <>
             {!isLoading && (
                 <motion.header 
-                    className={`header ${location.pathname !== "/game" ? "header_popup" : ""}`}
+                    className={`header ${(isFirstOpenBoard || isFirstOpenStore) ? "header_popup" : ""}`}
                     initial={{ y: -90 }}
                     animate={{ y: 0 }}
                     exit={{ y: -90 }}

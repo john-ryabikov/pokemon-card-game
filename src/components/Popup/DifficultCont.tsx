@@ -28,7 +28,7 @@ export default function DifficultCont() {
                 На начальном этапе тебе доступен<br/>
                 <b>Легкий</b> уровень сложности.<br/><br/>
                 
-                Зарабатывай <b>Покекоины</b> <img src="img/Icons/pokecoin_icon.svg" alt="Bulbasaur" draggable="false"/><br/>        
+                Зарабатывай <b>ПокеКоины</b> <img src="img/Icons/pokecoin_icon.svg" alt="PokeCoin" draggable="false"/><br/>        
                 и открывай остальные уровни.
             </p>
             <button 

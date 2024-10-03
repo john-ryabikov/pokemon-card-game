@@ -60,7 +60,7 @@ export default function StartPage() {
                 </>
                 ) : <Loading/> 
             }
-            <span className='start-page__version'>Version: 0.0.4</span>
+            <span className='start-page__version'>Version: 0.0.5</span>
         </motion.section>     
     )
   }

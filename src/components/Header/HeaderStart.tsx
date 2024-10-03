@@ -13,7 +13,7 @@ export default function HeaderStart() {
 
     const difficultGame = () => {
         setTimeout(() => loadingPokemons(2500), 500)
-        if (isFirstOpenDiff !== null) setTimeout(() => changeFirst("diff-open"), 2800)
+        if (isFirstOpenDiff !== null) setTimeout(() => changeFirst("diff-open"), 3800)
         navigate("/difficult")
     }
 

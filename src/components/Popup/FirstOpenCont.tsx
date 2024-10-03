@@ -16,7 +16,7 @@ export default function FirstOpenCont() {
             <p className='popup__text'>
                 Приветсвуем тебя в простой карточной игре,<br/>
                 где твоим Покемонам предстоит сразиться в дуэли<br/> 
-                с вражескими Покемонами и заработать<br/>на свой счет <b>Покекоины</b> <img src="img/Icons/pokecoin_icon.svg" alt="Bulbasaur" draggable="false"/><br/><br/>            
+                с вражескими Покемонами и заработать<br/>на свой счет <b>ПокеКоины</b> <img src="img/Icons/pokecoin_icon.svg" alt="Bulbasaur" draggable="false"/><br/><br/>            
                 С их помощью можно будет приобрести новые <br/> 
                 или улучшать карточки Покемонов в Магазине.<br/><br/>
                 <b>Ваш первый стартовый Покемон</b>
