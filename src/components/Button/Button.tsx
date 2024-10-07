@@ -1,5 +1,5 @@
 import "./Button.scss"
-import button_push_SFX from "@public/sounds/sfx/button_push.wav"
+import button_push_SFX from "/sounds/sfx/button_push.wav"
 
 interface Props {
     children: React.ReactNode,
