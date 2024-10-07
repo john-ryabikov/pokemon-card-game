@@ -3,6 +3,8 @@ import { useGameStore, usePokemonsStore } from "@/store/game.store"
 import { useLocation, useNavigate } from "react-router-dom"
 import { useEffect } from "react"
 
+import Button from "../Button/Button"
+
 import "./Header.scss"
 
 export default function Header() {
@@ -35,9 +37,9 @@ export default function Header() {
                     exit={{ y: -90 }}
                     transition={{ delay: 0.45 }}
                 >
-                    <button className='header__btn header__btn_exit' onClick={exitGame}>
+                    <Button subClass={'exit'} actionFn={exitGame}>
                         <img src="img/Icons/exit_icon.svg" alt="" draggable="false"/>
-                    </button>
+                    </Button>
                     <div className='header__coins'>
                         <img className='header__coins-icon' src="img/Icons/pokecoin_icon.svg" alt="Pokecoin" draggable="false"/>
                         <span className='header__coins-total'>{pokecoins}</span>

@@ -1,5 +1,6 @@
 import { useGameStore } from "@/store/game.store"
 import { motion } from "framer-motion"
+import Button from "../Button/Button"
 
 export default function BoardCont() {
 
@@ -53,12 +54,12 @@ export default function BoardCont() {
                     <p className='popup__title popup__title_small'>Желаем удачи!</p>
                 </div>
             </div>
-            <button 
-                className='popup__retry-btn popup__retry-btn_ok' 
-                onClick={() => setTimeout(() => deleteFirst('board-closed'), 450)}
+            <Button 
+                subClass='popup-ok' 
+                actionFn={() => setTimeout(() => deleteFirst('board-closed'), 450)}
             >
                 <span>Ок</span>
-            </button>
+            </Button>
         </motion.div>    
     )
 }

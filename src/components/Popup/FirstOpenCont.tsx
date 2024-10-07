@@ -1,9 +1,10 @@
 import { useGameStore } from "@/store/game.store"
 import { motion } from "framer-motion"
+import Button from "../Button/Button"
 
 export default function FirstOpenCont() {
 
-    const { changeFirstOpen } = useGameStore()
+    const { deleteFirst } = useGameStore()
 
     return (
         <motion.div 
@@ -22,12 +23,12 @@ export default function FirstOpenCont() {
                 <b>Ваш первый стартовый Покемон</b>
             </p>
             <img className='popup__started-pokemon' src="img/PokemonCardsWithHp/Bulbasaur_HP.png" alt="Bulbasaur" draggable="false"/>
-            <button 
-                className='popup__retry-btn popup__retry-btn_ok' 
-                onClick={() => setTimeout(() => changeFirstOpen(), 450)}
+            <Button 
+                subClass='popup-ok' 
+                actionFn={() => setTimeout(() => deleteFirst('start-closed'), 450)}
             >
                 <span>Погнали!</span>
-            </button>
+            </Button>
         </motion.div>    
     )
 }

@@ -80,7 +80,7 @@ const useGameStore = create<IGameStore>()(
     (set, get) => ({
         ...initialGameSettings,
         isLoading: false,
-        isFirstOpen: true,
+        isFirstOpen: false,
         isFirstOpenStore: false,
         isFirstOpenBoard: false,
         isFirstOpenDiff: false,
@@ -88,7 +88,6 @@ const useGameStore = create<IGameStore>()(
         error: null,
         randomEnemy: 0,
         enemyTakedEnergy: false,
-        changeFirstOpen: () => set({isFirstOpen: false}),
         changeFirst: (firsted: string) => changeFirstAction(set, firsted),
         deleteFirst: (firsted: string) => deleteFirstAction(set, firsted),
         changeEnemy: () => set({randomEnemy: Math.floor(Math.random() * (4 - 0) + 0)}),

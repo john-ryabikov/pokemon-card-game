@@ -14,6 +14,9 @@ export const changeFirstAction = (
         break;
         case 'diff-open':
             set({isFirstOpenDiff: true})
-        break;        
+        break;
+        case 'start-open':
+            set({isFirstOpen: true})
+        break         
     }
 } 

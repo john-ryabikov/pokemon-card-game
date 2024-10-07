@@ -19,12 +19,13 @@ export default function App() {
   
   const location = useLocation()
 
-  const { isLoading, isFirstOpen, isFirstOpenStore, isFirstOpenDiff, isFirstOpenBoard, isGameEnd, loadingGame } = useGameStore()
+  const { isLoading, isFirstOpen, isFirstOpenStore, isFirstOpenDiff, isFirstOpenBoard, isGameEnd, changeFirst, loadingGame } = useGameStore()
 
   const popup_status = isGameEnd || isFirstOpen || isFirstOpenStore || isFirstOpenDiff || isFirstOpenBoard
 
   useEffect(() => {
     loadingGame(3000)
+    isFirstOpen !== null && setTimeout(() => changeFirst('start-open'), 4000)
     return () => {}
   },[])
 

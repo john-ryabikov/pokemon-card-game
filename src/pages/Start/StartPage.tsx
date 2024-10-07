@@ -4,9 +4,9 @@ import { useGameStore, usePokemonsStore } from "@/store/game.store"
 import { motion } from "framer-motion"
 
 import Loading from "@/components/Loading/Loading"
+import Button from "@/components/Button/Button"
 
 import "./StartPage.scss"
-import Button from "@/components/Button/Button"
 
 export default function StartPage() {
 

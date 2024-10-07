@@ -1,5 +1,6 @@
 import { useDifficultStore, useGameStore, usePokemonsStore } from "@/store/game.store"
 import { motion } from "framer-motion"
+import Button from "../Button/Button"
 
 export default function EndGameCont() {
 
@@ -34,10 +35,10 @@ export default function EndGameCont() {
                 </p>
             )}
             <div className='popup__buttons'>
-                <button className='popup__retry-btn' onClick={retryGame}>
+                <Button subClass='retry' actionFn={retryGame}>
                     <img src="img/Icons/replay_icon.svg" alt="Retry" draggable={false}/>
                     <span>Повторить</span>
-                </button>
+                </Button>
             </div>
         </motion.div>
     )

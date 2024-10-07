@@ -14,6 +14,9 @@ export const deleteFirstAction = (
         break;
         case 'diff-closed':
             set({isFirstOpenDiff: null})
-        break;        
+        break;
+        case 'start-closed':
+            set({isFirstOpen: null})
+        break         
     }
 } 

@@ -26,7 +26,7 @@ export interface IGameStore {
     isEnemyAttacked: boolean,
     // Общие настройки игры (без сброса)
     isLoading: boolean,
-    isFirstOpen: boolean,
+    isFirstOpen: boolean | null,
     isFirstOpenStore: boolean | null,
     isFirstOpenBoard: boolean | null,
     isFirstOpenDiff: boolean | null,
@@ -35,7 +35,6 @@ export interface IGameStore {
     randomEnemy: number,
     enemyTakedEnergy: boolean,
     // Общие функции игры
-    changeFirstOpen: () => void,
     changeFirst: (firsted: string) => void,
     deleteFirst: (firsted: string) => void,
     changeEnemy: () => void,

@@ -42,36 +42,14 @@
         align-items: center;
         gap: 20px;
     }
-    &__btn {
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        border-bottom: 2px solid #7c0909;
-        background-color: #e5001c;
-        border-radius: 10px;
-        width: 190px;
-        height: 60px;
-        font-family: 'Sonic Logo';
-        font-size: 16px;
-        text-align: center;
-        color: #fff;
-        transition: all 0.15s;
-        &:active {
-            transform: scale(0.92, 0.92);
-        }
-        &_store {
-            background-color: #1c3ca1;
-            border-bottom: 2px solid #121727;
-        }
-    }
     &__version {
         position: absolute;
-        bottom: 20px;
+        bottom: 14px;
+        font-family: 'Lack';
         left: 0;
         text-align: center;
         width: 100%;
         opacity: 0.4;
+        font-size: 12px;
     }
 }

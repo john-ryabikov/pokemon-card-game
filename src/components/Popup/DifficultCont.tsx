@@ -1,5 +1,6 @@
 import { useGameStore } from "@/store/game.store"
 import { motion } from "framer-motion"
+import Button from "../Button/Button"
 
 export default function DifficultCont() {
 
@@ -31,12 +32,12 @@ export default function DifficultCont() {
                 Зарабатывай <b>ПокеКоины</b> <img src="img/Icons/pokecoin_icon.svg" alt="PokeCoin" draggable="false"/><br/>        
                 и открывай остальные уровни.
             </p>
-            <button 
-                className='popup__retry-btn popup__retry-btn_ok' 
-                onClick={() => setTimeout(() => deleteFirst('diff-closed'), 450)}
+            <Button 
+                subClass='popup-ok' 
+                actionFn={() => setTimeout(() => deleteFirst('diff-closed'), 450)}
             >
                 <span>Ок</span>
-            </button>
+            </Button>
         </motion.div>    
     )
 }

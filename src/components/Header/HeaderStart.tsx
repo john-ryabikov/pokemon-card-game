@@ -2,6 +2,8 @@ import { motion } from "framer-motion"
 import { useGameStore, usePokemonsStore } from "@/store/game.store"
 import { useNavigate } from "react-router-dom"
 
+import Button from "../Button/Button"
+
 import "./Header.scss"
 
 export default function HeaderStart() {
@@ -27,9 +29,9 @@ export default function HeaderStart() {
                     exit={{ y: -90 }}
                     transition={{ delay: 0.45 }}
                 >
-                    <button className='header__btn header__btn_diff' onClick={difficultGame}>
+                    <Button subClass={'diff'} actionFn={difficultGame}>
                         <img src="/img/Icons/settings_icon.svg" alt="Settings" draggable="false"/>
-                    </button>
+                    </Button>
                     <div className='header__coins'>
                         <img className='header__coins-icon' src="img/Icons/pokecoin_icon.svg" alt="Pokecoin" draggable="false"/>
                         <span className='header__coins-total'>{pokecoins}</span>
