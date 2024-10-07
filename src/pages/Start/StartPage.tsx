@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom"
 import { useEffect } from "react"
 import { useGameStore, usePokemonsStore } from "@/store/game.store"
 import { motion } from "framer-motion"
+import popup_view_SFX from "/sounds/sfx/popup_view.wav"
 
 import Loading from "@/components/Loading/Loading"
 import Button from "@/components/Button/Button"
@@ -23,16 +24,24 @@ export default function StartPage() {
         loadingPokemons
     } = useGameStore()
 
+    const popup_view = new Audio(popup_view_SFX)
+
     const playGame = () => {
         startGame(pokemonSelected)
         setTimeout(() => loadingPokemons(3500), 500)
-        if (isFirstOpenBoard !== null) setTimeout(() => changeFirst("board-open"), 4800)
+        if (isFirstOpenBoard !== null) setTimeout(() => {
+            popup_view.play()
+            changeFirst("board-open")
+        }, 4800)
         navigate("/game")
     }
 
     const inStore = () => {
         setTimeout(() => loadingPokemons(2500), 500)
-        if (isFirstOpenStore !== null) setTimeout(() => changeFirst("store-open"), 3800)
+        if (isFirstOpenStore !== null) setTimeout(() => {
+            changeFirst("store-open")
+            popup_view.play()
+        }, 3800)
         navigate("/store")
     }
 
