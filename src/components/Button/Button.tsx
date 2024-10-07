@@ -6,10 +6,10 @@ interface Props {
     actionFn: () => void
 }
 
+const sound_eff = new Audio('sounds/sfx/button_push.wav')
+
 const buttonPush = () => {
-    const sound_eff = new Audio('sounds/sfx/button_push.wav')
-    sound_eff.autoplay = true
-    if (sound_eff.autoplay) sound_eff.play()
+    sound_eff.play()
 }
 
 export default function Button({children, subClass, actionFn}: Props) {
