@@ -1,0 +1,31 @@
+.game-button {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Sonic Logo';
+    border-radius: 10px;
+    transition: all 0.15s;
+    &:active {
+        transform: scale(0.92, 0.92);
+    }
+    &_board {
+        width: 190px;
+        height: 60px;
+        font-size: 16px;
+        text-align: center;
+        color: #fff;
+        background-color: #e5001c;
+        border-bottom: 2px solid #7c0909;
+    }
+    &_store {
+        width: 190px;
+        height: 60px;
+        font-size: 16px;
+        text-align: center;
+        color: #fff;
+        background-color: #1c3ca1;
+        border-bottom: 2px solid #121727;
+    }
+}

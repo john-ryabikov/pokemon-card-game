@@ -6,6 +6,7 @@ import { motion } from "framer-motion"
 import Loading from "@/components/Loading/Loading"
 
 import "./StartPage.scss"
+import Button from "@/components/Button/Button"
 
 export default function StartPage() {
 
@@ -54,8 +55,12 @@ export default function StartPage() {
                         <h1 className='start-page__logo-title'>Duel Dash</h1>
                     </div>
                     <div className='start-page__btns'>
-                        <button className='start-page__btn' onClick={playGame}>Начать игру</button>
-                        <button className='start-page__btn start-page__btn_store' onClick={inStore}>Магазин</button>
+                        <Button subClass={'board'} actionFn={playGame}>
+                            Начать игру
+                        </Button>
+                        <Button subClass={'store'} actionFn={inStore}>
+                            Магазин
+                        </Button>
                     </div>
                 </>
                 ) : <Loading/> 
