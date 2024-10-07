@@ -1,5 +1,6 @@
 import { useGameStore } from "@/store/game.store"
 import { motion } from "framer-motion"
+import Button from "../Button/Button"
 
 export default function StoreCont() {
 
@@ -29,12 +30,12 @@ export default function StoreCont() {
                 При выборе Покемона обращай внимание<br/> 
                 на его количество здоровья, силу атаки и количество<br/> требуемого типа энергии.
             </p>
-            <button 
-                className='popup__retry-btn popup__retry-btn_ok' 
-                onClick={() => setTimeout(() => deleteFirst('store-closed'), 450)}
+            <Button 
+                subClass='popup-ok' 
+                actionFn={() => setTimeout(() => deleteFirst('store-closed'), 450)}
             >
                 <span>Ок</span>
-            </button>
+            </Button>
         </motion.div>    
     )
 }

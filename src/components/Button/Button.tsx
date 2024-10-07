@@ -15,10 +15,9 @@ export default function Button({children, subClass, actionFn}: Props) {
   return (
     <button
         className={`game-button ${subClass ? `game-button_${subClass}` : ""}`}
-        // onTouchStart={buttonPush}
         onClick={()=> {
-            actionFn()
             buttonPush()
+            actionFn()
         }}
     >   
       {children}
