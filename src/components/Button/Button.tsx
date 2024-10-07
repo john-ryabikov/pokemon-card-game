@@ -7,7 +7,7 @@ interface Props {
 }
 
 const buttonPush = () => {
-    const sound_eff = new Audio('/sounds/sfx/button_push.wav')
+    const sound_eff = new Audio('sounds/sfx/button_push.wav')
     sound_eff.autoplay = true
     if (sound_eff.autoplay) sound_eff.play()
 }
