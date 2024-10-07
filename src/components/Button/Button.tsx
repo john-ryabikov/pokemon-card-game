@@ -1,4 +1,5 @@
 import "./Button.scss"
+import button_push_SFX from "sounds/sfx/button_push.wav"
 
 interface Props {
     children: React.ReactNode,
@@ -6,8 +7,9 @@ interface Props {
     actionFn: () => void
 }
 
+const sound_eff = new Audio(button_push_SFX)
+
 const buttonPush = () => {
-    const sound_eff = new Audio('sounds/sfx/button_push.wav')
     sound_eff.play()
 }
 
