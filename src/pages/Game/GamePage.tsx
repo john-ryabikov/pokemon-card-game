@@ -88,7 +88,11 @@ export default function GamePage({ title }: { title: string }) {
                         transition={{ delay: 0.45 }}
                     >
                         <div className='game-page__btn-deck-cont'>
-                            <button disabled={button_status} className={`game-page__btn-deck ${button_status ? "game-page__btn-deck_lock" : ""}`} onClick={playEnergyCard}>
+                            <button 
+                                className={`game-page__btn-deck ${button_status ? "game-page__btn-deck_lock" : ""}`} 
+                                onClick={playEnergyCard}
+                                disabled={button_status} 
+                            >
                                 <img 
                                     className={`game-page__btn-deck-icon ${button_status ? "game-page__btn-deck-icon_disable" : ""}`} 
                                     src="img/Icons/cards_icon.svg" 
@@ -99,12 +103,12 @@ export default function GamePage({ title }: { title: string }) {
                             <span>x{deck.length}</span>
                         </div>
                         <button 
-                            disabled={!isAttack} 
                             className={`game-page__btn-deck-attack ${!isAttack ? "game-page__btn-deck-attack_disable" : ""}`}
                             onClick={() => {
                                 playerAttack()
                                 earnCoinsAfterAttack(playerAttackPower, enemyHP)
                             }}
+                            disabled={!isAttack} 
                         >
                             <span>Атака</span>
                         </button>
