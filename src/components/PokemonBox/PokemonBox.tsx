@@ -35,9 +35,9 @@ export default function PokemonBox() {
                                 </Button>
                             </div>
                         )}
-                        <button onClick={() => selectPokemon(p.number as number)}>
+                        <Button actionFn={() => selectPokemon(p.number as number)}>
                             <img className={`store-page__pokemon-img ${p.purchased === false ? "store-page__pokemon-img_lock" : ""}`} src={p.pokemonImgStore} alt={p.pokemonName}/>
-                        </button>
+                        </Button>
                     </div>
                 ))}
             </div>

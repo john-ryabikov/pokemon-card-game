@@ -18,7 +18,7 @@ export default function Popup({ status }: { status: boolean }) {
     const { isFirstOpen, isFirstOpenStore, isFirstOpenDiff, isFirstOpenBoard, isGameEnd } = useGameStore()
 
     useEffect(() => {
-        if (status !== null) popup_view.play()
+        status !== null && popup_view.play()
     }, [])
 
     return (

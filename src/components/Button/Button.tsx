@@ -3,7 +3,7 @@ import button_push_SFX from "/sounds/sfx/button_push.wav"
 
 interface Props {
     children: React.ReactNode,
-    subClass: string,
+    subClass?: string,
     unClick?: boolean,
     actionFn: () => void
 }
