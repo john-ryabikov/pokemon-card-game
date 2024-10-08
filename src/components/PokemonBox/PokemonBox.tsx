@@ -1,4 +1,5 @@
 import { usePokemonsStore } from "@/store/game.store"
+import Button from "../Button/Button";
 
 export default function PokemonBox() {
 
@@ -26,9 +27,12 @@ export default function PokemonBox() {
                                     <img src='img/Icons/pokecoin_icon.svg' alt="" draggable="false"/>
                                     <span>{p.cost as number}</span>
                                 </p>
-                                <button className={`store-page__buy-pokemon-btn ${(p.cost && pokecoins < p.cost) ? "store-page__buy-pokemon-btn_lock" : ""}`} onClick={() => buyPokemon(p.number as number, p.cost as number)}>
+                                <Button 
+                                    subClass={(p.cost && pokecoins < p.cost) ? "buy-pokemon-lock" : "buy-pokemon"}
+                                    actionFn={() => buyPokemon(p.number as number, p.cost as number)}
+                                >
                                     <span>Открыть</span>
-                                </button>
+                                </Button>
                             </div>
                         )}
                         <button onClick={() => selectPokemon(p.number as number)}>

@@ -3,7 +3,8 @@ import button_push_SFX from "/sounds/sfx/button_push.wav"
 
 interface Props {
     children: React.ReactNode,
-    subClass?: string,
+    subClass: string,
+    unClick?: boolean,
     actionFn: () => void
 }
 
@@ -13,7 +14,7 @@ const buttonPush = () => {
     sound_eff.play()
 }
 
-export default function Button({children, subClass, actionFn}: Props) {
+export default function Button({children, subClass, actionFn, unClick}: Props) {
   return (
     <button
         className={`game-button ${subClass ? `game-button_${subClass}` : ""}`}
@@ -21,6 +22,7 @@ export default function Button({children, subClass, actionFn}: Props) {
             buttonPush()
             actionFn()
         }}
+        disabled={unClick && true}
     >   
       {children}
     </button>

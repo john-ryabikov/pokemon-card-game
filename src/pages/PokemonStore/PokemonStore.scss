@@ -98,33 +98,6 @@
             width: 18px;
         }
     }
-    &__buy-pokemon-btn {
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        background-color: #1c3ca1;
-        border-bottom: 2px solid #121727;
-        border-radius: 10px;
-        height: 40px;
-        font-family: 'Sonic Logo';
-        font-size: 12px;
-        text-align: center;
-        color: #fff;
-        padding-left: 14px;
-        padding-right: 14px;
-        transition: all 0.15s;
-        &:active {
-            transform: scale(0.92, 0.92);
-        }
-        &_lock {
-            pointer-events: none;
-            span {
-                opacity: 0.25;
-            }
-        }
-    }
     &__pokemon-img {
         &_lock {
             pointer-events: none;
@@ -154,34 +127,6 @@
         img {
             position: relative;
             width: 24px;
-        }
-    }
-    &__btn-up {
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        background-color: #dd820a;
-        border-bottom: 2px solid #53271c;
-        border-radius: 10px;
-        width: 160px;
-        height: 60px;
-        font-family: 'Sonic Logo';
-        font-size: 16px;
-        text-align: center;
-        color: #fff;
-        padding-left: 14px;
-        padding-right: 14px;
-        transition: all 0.15s;
-        &:active {
-            transform: scale(0.92, 0.92);
-        }
-        &_lock {
-            pointer-events: none;
-            span {
-                opacity: 0.25;
-            }
         }
     }
 }

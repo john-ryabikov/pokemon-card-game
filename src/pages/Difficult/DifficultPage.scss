@@ -39,41 +39,6 @@
         align-items: center;
         justify-content: center;
     }
-    &__btn {
-        position: relative;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-        gap: 6px;
-        border-radius: 10px;
-        width: 200px;
-        height: 60px;
-        background-color: #1c3ca1;
-        border-bottom: 2px solid #121727;
-        font-family: 'Sonic Logo';
-        font-size: 16px;
-        text-align: center;
-        color: #fff;
-        transition: all 0.15s;
-        &:active {
-            transform: scale(0.92, 0.92);
-        }
-        img {
-            position: absolute;
-            top: 50%;
-            right: 10px;
-            transform: translateY(-50%);
-            width: 24px;
-        }
-        &_checked {
-            border-bottom: 2px solid #7c0909;
-            background-color: #e5001c;
-        }
-        &:disabled {
-            opacity: 0.3;
-        }
-    }
     &__buy-diff {
         position: absolute;
         top: 50%;
@@ -104,33 +69,6 @@
         img {
             position: relative;
             width: 18px;
-        }
-    }
-    &__buy-diff-btn {
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        background-color: #1c3ca1;
-        border-bottom: 2px solid #121727;
-        border-radius: 10px;
-        height: 40px;
-        font-family: 'Sonic Logo';
-        font-size: 12px;
-        text-align: center;
-        color: #fff;
-        padding-left: 14px;
-        padding-right: 14px;
-        transition: all 0.15s;
-        &:active {
-            transform: scale(0.92, 0.92);
-        }
-        &_lock {
-            pointer-events: none;
-            span {
-                opacity: 0.25;
-            }
         }
     }
 }

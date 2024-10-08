@@ -1,4 +1,5 @@
 import { useDifficultStore, usePokemonsStore } from "@/store/game.store"
+import Button from "../Button/Button"
 
 export default function DifficultBox() {
 
@@ -22,15 +23,18 @@ export default function DifficultBox() {
                                 <img src='img/Icons/pokecoin_icon.svg' alt="" draggable="false"/>
                                 <span>{e.cost as number}</span>
                             </p>
-                            <button className={`difficult-page__buy-diff-btn ${(e.cost && pokecoins < e.cost) ? "store-page__buy-pokemon-btn_lock" : ""}`} onClick={() => buyDifficult(e.difficult as string, e.cost as number)}>
+                            <Button 
+                                subClass={(e.cost && pokecoins < e.cost) ? "buy-diff-lock" : "buy-diff"} 
+                                actionFn={() => buyDifficult(e.difficult as string, e.cost as number)}
+                            >
                                 <span>Открыть</span>
-                            </button>
+                            </Button>
                         </div>
                     )}
-                    <button 
-                        className={`difficult-page__btn ${difficultSelected === e.difficult ? "difficult-page__btn_checked" : ""}`}
-                        disabled={e.purchased === false } 
-                        onClick={() => selectDifficult(e.difficult as string)}
+                    <Button 
+                        subClass={difficultSelected === e.difficult ? "diff-btn-checked" : "diff-btn"}
+                        actionFn={() => selectDifficult(e.difficult as string)}
+                        unClick={e.purchased === false} 
                     >
                         <span>
                             {e.difficult === "easy" && "Легкий"}
@@ -39,7 +43,7 @@ export default function DifficultBox() {
                             {e.difficult === "very-hard" && "Мастер"}
                         </span>
                         {difficultSelected === e.difficult && <img src="img/Icons/checked_icon.svg" alt="Checked" draggable="false"/>}
-                    </button>
+                    </Button>
                 </div>
             ))}
         </div>

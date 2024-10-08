@@ -2,7 +2,6 @@ import { Route, Routes, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import { useGameStore } from "./store/game.store";
 import { useEffect } from "react";
-import popup_view_SFX from "/sounds/sfx/popup_view.wav"
 
 import StartPage from "./pages/Start/StartPage";
 import GamePage from "./pages/Game/GamePage";
@@ -24,14 +23,9 @@ export default function App() {
 
   const popup_status = isGameEnd || isFirstOpen || isFirstOpenStore || isFirstOpenDiff || isFirstOpenBoard
 
-  const popup_view = new Audio(popup_view_SFX)
-
   useEffect(() => {
     loadingGame(3000)
-    if (isFirstOpen !== null) setTimeout(() => {
-      document.addEventListener('DOMContentLoaded', () => popup_view.play())
-      changeFirst('start-open')
-    }, 4000)
+    if (isFirstOpen !== null) setTimeout(() => changeFirst('start-open'), 4000)
     return () => {}
   },[])
 
@@ -40,7 +34,7 @@ export default function App() {
       <PreloadImages/>
       {isLoading ? <Loading/> : (
         <>
-          {popup_status && <Popup/>}
+          {popup_status && <Popup status={popup_status}/>}
           <AnimatePresence mode="wait">
             {location.pathname !== "/" && (<Header key={"header-game"}/>)}
             {location.pathname === "/" && (<HeaderStart key={"header-start"}/>)}

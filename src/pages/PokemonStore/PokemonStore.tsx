@@ -58,7 +58,7 @@ export default function PokemonStore({ title }: { title: string }) {
                                 <span>{startedPokemon.upCost}</span>
                             </p>
                             <Button
-                                subClass={(startedPokemon.upCost && pokecoins < startedPokemon.upCost) ? "up-hide" : "up"}
+                                subClass={(startedPokemon.upCost && pokecoins < startedPokemon.upCost) ? "up-lock" : "up"}
                                 actionFn={pokemonUp}
                             >
                                 <span>Улучшить</span>
