@@ -1,6 +1,7 @@
 import { motion } from "framer-motion"
 import { useGameStore, usePokemonsStore } from "@/store/game.store"
 import { useNavigate } from "react-router-dom"
+import popup_view_SFX from "/sounds/sfx/popup_view.wav"
 
 import Button from "../Button/Button"
 
@@ -13,9 +14,14 @@ export default function HeaderStart() {
     const { isLoading, isFirstOpenDiff, changeFirst, loadingPokemons } = useGameStore()
     const { pokecoins } = usePokemonsStore()
 
+    const popup_view = new Audio(popup_view_SFX)
+
     const difficultGame = () => {
         setTimeout(() => loadingPokemons(2500), 500)
-        if (isFirstOpenDiff !== null) setTimeout(() => changeFirst("diff-open"), 3800)
+        if (isFirstOpenDiff !== null) setTimeout(() => {
+            popup_view.play()
+            changeFirst("diff-open")
+        }, 3800)
         navigate("/difficult")
     }
 

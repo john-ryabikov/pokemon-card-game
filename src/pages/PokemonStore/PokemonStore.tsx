@@ -4,6 +4,7 @@ import { useGameStore, usePokemonsStore } from "@/store/game.store"
 
 import Loading from "@/components/Loading/Loading"
 import PokemonBox from "@/components/PokemonBox/PokemonBox"
+import Button from "@/components/Button/Button"
 
 import "./PokemonStore.scss"
 
@@ -56,12 +57,12 @@ export default function PokemonStore({ title }: { title: string }) {
                                 <img src='img/Icons/pokecoin_icon.svg' alt="" draggable="false"/>
                                 <span>{startedPokemon.upCost}</span>
                             </p>
-                            <button
-                                className={`store-page__btn-up ${(startedPokemon.upCost && pokecoins < startedPokemon.upCost) ? "store-page__btn-up_lock" : ""}`}
-                                onClick={pokemonUp}
+                            <Button
+                                subClass={(startedPokemon.upCost && pokecoins < startedPokemon.upCost) ? "up-hide" : "up"}
+                                actionFn={pokemonUp}
                             >
                                 <span>Улучшить</span>
-                            </button>
+                            </Button>
                         </motion.div>
                     )}
                 </>

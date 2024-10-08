@@ -53,9 +53,9 @@
         height: 60px;
         margin-top: 30px;
         background-color: #e5001c;
+        border-bottom: 2px solid #7c0909;
         font-size: 16px;
         color: #fff;
-        border-bottom: 2px solid #7c0909;
         @media only screen and (0 <= width <= 389px) {
             margin-top: 0;
         }
@@ -74,6 +74,26 @@
         img {
             position: relative;
             width: 24px;
+        }
+    }
+    &_up {
+        width: 160px;
+        height: 60px;
+        background-color: #dd820a;
+        border-bottom: 2px solid #53271c;
+        font-size: 16px;
+        color: #fff;
+    }
+    &_up-lock {
+        width: 160px;
+        height: 60px;
+        background-color: #dd820a;
+        border-bottom: 2px solid #53271c;
+        font-size: 16px;
+        color: #fff;
+        pointer-events: none;
+        span {
+            opacity: 0.25;
         }
     }
 }
