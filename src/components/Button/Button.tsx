@@ -8,22 +8,22 @@ interface Props {
     actionFn: () => void
 }
 
-const sound_eff = new Audio(button_push_SFX)
-
-const buttonPush = () => {
-    sound_eff.play()
-}
-
 export default function Button({children, subClass, actionFn, unClick}: Props) {
+  
+  const buttonPush = () => {
+    const sound_eff = new Audio(button_push_SFX)
+    sound_eff.play()
+  }
+
   return (
     <button
-        className={`game-button ${subClass ? `game-button_${subClass}` : ""}`}
-        onClick={()=> {
-            buttonPush()
-            actionFn()
-        }}
-        disabled={unClick && true}
-    >   
+      className={`game-button ${subClass ? `game-button_${subClass}` : ""}`}
+      onClick={()=> {
+          buttonPush()
+          actionFn()
+      }}
+      disabled={unClick && true}
+    >
       {children}
     </button>
   )

@@ -4,9 +4,7 @@ import { forwardRef } from "react";
 
 import PokemonCard from "../PokemonCard/PokemonCard";
 
-const Board = forwardRef<HTMLDivElement>(function Board(props, ref) {
-
-    const {} = props
+const Board = forwardRef<HTMLDivElement>(function Board({}, ref) {
 
     const { startedPokemon } = usePokemonsStore()
     const { startedDiff } = useDifficultStore()
@@ -26,6 +24,7 @@ const Board = forwardRef<HTMLDivElement>(function Board(props, ref) {
                 energy={enemyEnergy} 
                 hp={enemyHP}
                 effectAttack={startedDiff.enemies[randomEnemy].attackEffect}
+                attackEnemySFX={startedDiff.enemies[randomEnemy].attackSound}
                 ref={ref}
             />
             <PokemonCard 
@@ -34,6 +33,7 @@ const Board = forwardRef<HTMLDivElement>(function Board(props, ref) {
                 energy={playerEnergy} 
                 hp={playerHP} 
                 effectAttack={startedPokemon.attackEffect}
+                attackPlayerSFX={startedPokemon.attackSound}
             />
         </motion.div>
     )

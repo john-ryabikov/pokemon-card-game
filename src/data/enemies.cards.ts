@@ -12,6 +12,7 @@ export const ENEMIES: IEnemeis[] = [
                 energyLength: 1,
                 attackPower: 10,
                 attackEffect: "img/Effects/normal.svg",
+                attackSound: "sounds/sfx/attack/normal_attack.mp3"
             },
             {
                 pokemonName: "Voltorb",
@@ -21,6 +22,7 @@ export const ENEMIES: IEnemeis[] = [
                 energyLength: 1,
                 attackPower: 10,
                 attackEffect: "img/Effects/electric.svg",
+                attackSound: "sounds/sfx/attack/electric_attack.mp3"
             },
             {
                 pokemonName: "Rattata",
@@ -30,6 +32,7 @@ export const ENEMIES: IEnemeis[] = [
                 energyLength: 2,
                 attackPower: 20,
                 attackEffect: "img/Effects/normal.svg",
+                attackSound: "sounds/sfx/attack/normal_attack.mp3"
             },
             {
                 pokemonName: "Gastly",
@@ -39,6 +42,7 @@ export const ENEMIES: IEnemeis[] = [
                 energyLength: 1,
                 attackPower: 20,
                 attackEffect: "img/Effects/psy.svg",
+                attackSound: "sounds/sfx/attack/psy_attack.mp3"
             }
 
         ],
@@ -57,6 +61,7 @@ export const ENEMIES: IEnemeis[] = [
                 energyLength: 1,
                 attackPower: 10,
                 attackEffect: "img/Effects/plane.svg",
+                attackSound: "sounds/sfx/attack/plane_attack.wav"
             },
             {
                 pokemonName: "Farfetch'd",
@@ -66,6 +71,7 @@ export const ENEMIES: IEnemeis[] = [
                 energyLength: 2,
                 attackPower: 40,
                 attackEffect: "img/Effects/normal.svg",
+                attackSound: "sounds/sfx/attack/normal_attack.mp3"
             },
             {
                 pokemonName: "Raticate",
@@ -75,6 +81,7 @@ export const ENEMIES: IEnemeis[] = [
                 energyLength: 2,
                 attackPower: 30,
                 attackEffect: "img/Effects/normal.svg",
+                attackSound: "sounds/sfx/attack/normal_attack.mp3"
             },
             {
                 pokemonName: "Haunter",
@@ -84,6 +91,7 @@ export const ENEMIES: IEnemeis[] = [
                 energyLength: 2,
                 attackPower: 40,
                 attackEffect: "img/Effects/psy.svg",
+                attackSound: "sounds/sfx/attack/psy_attack.mp3"
             }
         ],
         purchased: false,
@@ -102,6 +110,7 @@ export const ENEMIES: IEnemeis[] = [
                 energyLength: 2,
                 attackPower: 50,
                 attackEffect: "img/Effects/plane.svg",
+                attackSound: "sounds/sfx/attack/plane_attack.wav"
             },
             {
                 pokemonName: "Pinsir",
@@ -111,6 +120,7 @@ export const ENEMIES: IEnemeis[] = [
                 energyLength: 3,
                 attackPower: 90,
                 attackEffect: "img/Effects/plane.svg",
+                attackSound: "sounds/sfx/attack/plane_attack.wav"
             },
             {
                 pokemonName: "Kabutops",
@@ -120,6 +130,7 @@ export const ENEMIES: IEnemeis[] = [
                 energyLength: 3,
                 attackPower: 100,
                 attackEffect: "img/Effects/strong.svg",
+                attackSound: "sounds/sfx/attack/strong_attack.mp3"
             },
             {
                 pokemonName: "Gengar",
@@ -129,6 +140,7 @@ export const ENEMIES: IEnemeis[] = [
                 energyLength: 3,
                 attackPower: 110,
                 attackEffect: "img/Effects/psy.svg",
+                attackSound: "sounds/sfx/attack/psy_attack.mp3"
             }
         ],
         purchased: false,
@@ -147,6 +159,7 @@ export const ENEMIES: IEnemeis[] = [
                 energyLength: 4,
                 attackPower: 200,
                 attackEffect: "img/Effects/hydro.svg",
+                attackSound: "sounds/sfx/attack/hydro_attack.mp3"
             },
             {
                 pokemonName: "Aerodactyl",
@@ -156,6 +169,7 @@ export const ENEMIES: IEnemeis[] = [
                 energyLength: 2,
                 attackPower: 100,
                 attackEffect: "img/Effects/normal.svg",
+                attackSound: "sounds/sfx/attack/normal_attack.mp3"
             },
             {
                 pokemonName: "Zapdos",
@@ -165,6 +179,7 @@ export const ENEMIES: IEnemeis[] = [
                 energyLength: 4,
                 attackPower: 180,
                 attackEffect: "img/Effects/electric.svg",
+                attackSound: "sounds/sfx/attack/electric_attack.mp3"
             },
             {
                 pokemonName: "Mewtwo",
@@ -174,6 +189,7 @@ export const ENEMIES: IEnemeis[] = [
                 energyLength: 3,
                 attackPower: 160,
                 attackEffect: "img/Effects/psy.svg",
+                attackSound: "sounds/sfx/attack/psy_attack.mp3"
             }
         ],
         purchased: false,

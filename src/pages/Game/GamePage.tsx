@@ -2,6 +2,7 @@ import { useEffect, useRef } from "react"
 import { useDifficultStore, useGameStore, usePokemonsStore } from "@/store/game.store"
 import { useMediaQuery } from "@/hooks/MediaQuery/useMediaQuery"
 import { motion } from "framer-motion"
+import take_card_SFX from "/sounds/sfx/deck.mp3"
 
 import { createDeck } from "@/actions-game/game.create-deck"
 import { playerTakeEnergy } from "@/actions-game/game.player-take-energy"
@@ -54,6 +55,8 @@ export default function GamePage({ title }: { title: string }) {
     }, [deck, enemyEnergy, indicateTurn])
 
     const playEnergyCard = () => {
+        const take_card = new Audio(take_card_SFX)
+        take_card.play()
         playerTakeEnergy(
             deck, 
             takeEnergy, 
@@ -97,7 +100,7 @@ export default function GamePage({ title }: { title: string }) {
                                     className={`game-page__btn-deck-icon ${button_status ? "game-page__btn-deck-icon_disable" : ""}`} 
                                     src="img/Icons/cards_icon.svg" 
                                     alt="Cards Energy" 
-                                    draggable={false}
+                                    draggable="false"
                                 />
                             </button>
                             <span>x{deck.length}</span>

@@ -12,6 +12,7 @@ export interface Pokemon {
     energyLength: number,
     attackPower: number,
     attackEffect: string,
+    attackSound?: string,
     stage?: number,
     maxStage?: number,
     cost?: number,

@@ -2,10 +2,8 @@ import { useGameStore } from "@/store/game.store"
 import { forwardRef } from "react"
 import { motion } from "framer-motion"
 
-const EnergyBox = forwardRef<HTMLDivElement>(function EnergyBox(props, ref) {
-
-    const {} = props
-
+const EnergyBox = forwardRef<HTMLDivElement>(function EnergyBox({}, ref) {
+    
     const {
         isAttack,
         isEnemyAttacked,

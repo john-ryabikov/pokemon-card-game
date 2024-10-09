@@ -154,4 +154,23 @@
             width: 24px;
         }
     }
+    &_attack-player {
+        width: 120px;
+        height: 60px;
+        background-color: #e5001c;
+        border-bottom: 2px solid #7c0909;
+        font-size: 16px;
+        color: #fff;
+        text-align: center;
+    }
+    &_attack-player-lock {
+        width: 120px;
+        height: 60px;
+        background-color: #272727;
+        border-bottom: 2px solid #3F3E3E;
+        color: #313131;
+        pointer-events: none;
+        font-size: 16px;
+        text-align: center;
+    }
 }
