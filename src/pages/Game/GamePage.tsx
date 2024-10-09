@@ -17,6 +17,8 @@ export default function GamePage({ title }: { title: string }) {
 
     const isSmallMobile = useMediaQuery("(max-width: 389px)");
 
+    const take_card = new Audio(take_card_SFX)
+
     const {
         deck,
         isAttack,
@@ -55,7 +57,6 @@ export default function GamePage({ title }: { title: string }) {
     }, [deck, enemyEnergy, indicateTurn])
 
     const playEnergyCard = () => {
-        const take_card = new Audio(take_card_SFX)
         take_card.play()
         playerTakeEnergy(
             deck, 
