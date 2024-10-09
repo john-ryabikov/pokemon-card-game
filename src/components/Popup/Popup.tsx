@@ -11,11 +11,13 @@ import BoardCont from "./BoardCont"
 
 import "./Popup.scss"
 
-export default function Popup({ status }: { status: boolean }) {
+export default function Popup() {
 
     const popup_view = new Audio(popup_view_SFX)
 
     const { isFirstOpen, isFirstOpenStore, isFirstOpenDiff, isFirstOpenBoard, isGameEnd } = useGameStore()
+
+    const status = isFirstOpen || isFirstOpenStore || isFirstOpenDiff || isFirstOpenBoard
 
     useEffect(() => {
         status !== null && popup_view.play()

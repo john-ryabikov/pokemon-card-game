@@ -1,6 +1,10 @@
 import { useDifficultStore, useGameStore, usePokemonsStore } from "@/store/game.store"
 import { motion } from "framer-motion"
+import lose_SFX from "/sounds/sfx/lose.wav"
+import win_SFX from "/sounds/sfx/win.mp3"
+
 import Button from "../Button/Button"
+import { useEffect } from "react"
 
 export default function EndGameCont() {
 
@@ -8,11 +12,20 @@ export default function EndGameCont() {
     const { pokemonSelected } = usePokemonsStore()
     const { startGame, changeEnemy, loadingGame, isLose, isWin } = useGameStore()
 
+    const sound_popup = new Audio()
+    sound_popup.src = isLose ? lose_SFX : win_SFX
+
+    useEffect(() => {
+        sound_popup.currentTime = 0
+        sound_popup.play()
+    }, [isLose])
+
     const retryGame = () => {
         setTimeout(() => {
             changeEnemy()
             startGame(pokemonSelected)
             loadingGame(2500)
+            sound_popup.pause()
         }, 450)
     }
 
@@ -29,8 +42,8 @@ export default function EndGameCont() {
             </p>
             {isWin && (
                 <p className='popup__win-coins'>
-                    <span>+</span>
                     <img src="img/Icons/pokecoin_icon.svg" alt="" draggable="false"/>
+                    <span>+</span>
                     <span>{startedDiff.reward}</span>
                 </p>
             )}

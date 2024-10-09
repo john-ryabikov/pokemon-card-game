@@ -1,5 +1,6 @@
 import "./Button.scss"
 import button_push_SFX from "/sounds/sfx/button_push.wav"
+import upgrade_SFX from "/sounds/sfx/upgrade.mp3"
 
 interface Props {
     children: React.ReactNode,
@@ -11,7 +12,8 @@ interface Props {
 export default function Button({children, subClass, actionFn, unClick}: Props) {
   
   const buttonPush = () => {
-    const sound_eff = new Audio(button_push_SFX)
+    const sound_eff = new Audio()
+    sound_eff.src = subClass === "up" ? upgrade_SFX : button_push_SFX
     sound_eff.play()
   }
 

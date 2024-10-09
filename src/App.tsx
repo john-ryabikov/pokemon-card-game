@@ -34,7 +34,7 @@ export default function App() {
       <PreloadImages/>
       {isLoading ? <Loading/> : (
         <>
-          {popup_status && <Popup status={popup_status}/>}
+          {popup_status && <Popup/>}
           <AnimatePresence mode="wait">
             {location.pathname !== "/" && (<Header key={"header-game"}/>)}
             {location.pathname === "/" && (<HeaderStart key={"header-start"}/>)}
