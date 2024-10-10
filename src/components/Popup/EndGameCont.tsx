@@ -10,22 +10,25 @@ export default function EndGameCont() {
 
     const { startedDiff } = useDifficultStore()
     const { pokemonSelected } = usePokemonsStore()
-    const { startGame, changeEnemy, loadingGame, isLose, isWin } = useGameStore()
+    const { isSounds, startGame, changeEnemy, loadingGame, isLose, isWin } = useGameStore()
 
     const sound_popup = new Audio()
     sound_popup.src = isLose ? lose_SFX : win_SFX
 
-    useEffect(() => {
+    const onWinOrLose = () => {
+        
         sound_popup.currentTime = 0
         sound_popup.play()
-    }, [isLose])
+    }
+
+    useEffect(() => {isSounds && onWinOrLose()}, [isLose])
 
     const retryGame = () => {
         setTimeout(() => {
             changeEnemy()
             startGame(pokemonSelected)
             loadingGame(2500)
-            sound_popup.pause()
+            isSounds && sound_popup.pause()
         }, 450)
     }
 

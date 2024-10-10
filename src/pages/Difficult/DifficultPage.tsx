@@ -4,7 +4,7 @@ import { useGameStore } from "@/store/game.store"
 
 import Loading from "@/components/Loading/Loading"
 import DifficultBox from "@/components/DifficultBox/DifficultBox"
-import Button from "@/components/Button/Button"
+import SoundBox from "@/components/SoundBox/SoundBox"
 
 import "./DifficultPage.scss"
 
@@ -31,12 +31,7 @@ export default function DifficultPage({ title }: {title: string}) {
                     transition={{ delay: 0.45 }}
                 >
                     <DifficultBox/>
-                    <Button 
-                        subClass="sound"
-                        actionFn={() => {}}
-                    >
-                        <span>On</span>
-                    </Button>
+                    <SoundBox/>
                 </motion.div>
             )}   
         </motion.section>

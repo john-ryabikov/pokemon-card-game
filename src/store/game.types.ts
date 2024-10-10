@@ -25,6 +25,7 @@ export interface IGameStore {
     isPlayerAttacked: boolean,
     isEnemyAttacked: boolean,
     // Общие настройки игры (без сброса)
+    isSounds: boolean,
     isLoading: boolean,
     isFirstOpen: boolean | null,
     isFirstOpenStore: boolean | null,
@@ -46,7 +47,8 @@ export interface IGameStore {
     playerAttack: () => void,
     enemyAttack: () => void,
     gameOver: () => void,
-    gameExit: () => void
+    gameExit: () => void,
+    changeSounds: () => void
 }
 
 export interface IPokemonsStore {

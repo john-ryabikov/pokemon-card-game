@@ -79,6 +79,7 @@ const initialGameSettings = {
 const useGameStore = create<IGameStore>()(
     (set, get) => ({
         ...initialGameSettings,
+        isSounds: true,
         isLoading: false,
         isFirstOpen: false,
         isFirstOpenStore: false,
@@ -99,7 +100,8 @@ const useGameStore = create<IGameStore>()(
         playerAttack: () => set(playerAttackAction(set, get)),
         enemyAttack: () => set(enemyAttackAction(set, get)),
         gameOver: () => set(gameOverAction(get)),
-        gameExit: () => setTimeout(() => set({ isWin: false, isGameEnd: false, isLose: false }), 450) 
+        gameExit: () => setTimeout(() => set({ isWin: false, isGameEnd: false, isLose: false }), 450),
+        changeSounds: () => set({isSounds: !get().isSounds}) 
     }),
 )
 

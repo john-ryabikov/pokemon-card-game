@@ -25,6 +25,7 @@ export default function GamePage({ title }: { title: string }) {
         indicateTurn,
         enemyTakedEnergy,
         energyBox,
+        isSounds,
         isLoading,
         enemyEnergy,
         enemyEnergyLength,
@@ -51,7 +52,7 @@ export default function GamePage({ title }: { title: string }) {
     }, [deck, enemyEnergy, indicateTurn])
 
     const playEnergyCard = () => {
-        onTakeEnergyCard()
+        isSounds && onTakeEnergyCard()
         playerTakeEnergy(
             deck, 
             takeEnergy, 

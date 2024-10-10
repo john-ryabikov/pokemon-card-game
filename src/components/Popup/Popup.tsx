@@ -12,11 +12,11 @@ import "./Popup.scss"
 
 export default function Popup() {
 
-    const { isFirstOpen, isFirstOpenStore, isFirstOpenDiff, isFirstOpenBoard, isGameEnd } = useGameStore()
+    const { isSounds, isFirstOpen, isFirstOpenStore, isFirstOpenDiff, isFirstOpenBoard, isGameEnd } = useGameStore()
 
     const status = isFirstOpenStore || isFirstOpenDiff || isFirstOpenBoard
 
-    useEffect(() => onViewPopup(status), [])
+    useEffect(() => {isSounds && onViewPopup(status)}, [])
 
     return (
         <div className='popup'>

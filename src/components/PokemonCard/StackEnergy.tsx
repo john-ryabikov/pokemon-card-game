@@ -2,6 +2,7 @@ import type { Energy } from "@/types/cards.type"
 import { motion } from "framer-motion"
 import { useEffect } from "react"
 import { onGiveEnergyToPokemon } from "@/actions-game/game.play-sounds"
+import { useGameStore } from "@/store/game.store"
 
 interface Props {
     energy?: Energy[]
@@ -9,7 +10,9 @@ interface Props {
 
 export default function StackEnergy({ energy }: Props) {
 
-    useEffect(() => onGiveEnergyToPokemon(energy as Energy[]), [energy])
+    const { isSounds } = useGameStore()
+
+    useEffect(() => {isSounds && onGiveEnergyToPokemon(energy as Energy[])}, [energy])
 
     return (
         <div className='pokemon-card__stack-energy-icons'>

@@ -23,10 +23,10 @@ const PokemonCard = forwardRef<HTMLDivElement, Props>(function PokemonCard(props
 
     const {typePlayer, card, energy, hp, effectAttack, attackPlayerSFX, attackEnemySFX} = props
 
-    const {isPlayerAttacked, isEnemyAttacked, playerAttackPower, enemyAttackPower} = useGameStore()
+    const {isSounds, isPlayerAttacked, isEnemyAttacked, playerAttackPower, enemyAttackPower} = useGameStore()
 
     useEffect(() => {
-        onPokemonAttack(attackPlayerSFX as string, attackEnemySFX as string, isPlayerAttacked, isEnemyAttacked)
+        isSounds && onPokemonAttack(attackPlayerSFX as string, attackEnemySFX as string, isPlayerAttacked, isEnemyAttacked)
     }, [isPlayerAttacked, isEnemyAttacked])
 
     return (
