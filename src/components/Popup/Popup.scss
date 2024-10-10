@@ -40,6 +40,17 @@
         overflow-y: auto;
         background-color: rgb(10 10 10 / 50%);
         border-radius: 12px;
+        &::-webkit-scrollbar {
+            -webkit-appearance: none;
+            width: 3px;
+            padding-top: 5px;
+        }
+        
+        &::-webkit-scrollbar-thumb {
+            border-radius: 5px;
+            background-color: rgb(126, 125, 125);
+            -webkit-box-shadow: 0 0 1px white;
+        }
     }
     &__text-wrap {
         position: absolute;

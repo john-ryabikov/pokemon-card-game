@@ -2,10 +2,10 @@ import { useEffect, useRef } from "react"
 import { useDifficultStore, useGameStore, usePokemonsStore } from "@/store/game.store"
 import { useMediaQuery } from "@/hooks/MediaQuery/useMediaQuery"
 import { motion } from "framer-motion"
-import take_card_SFX from "/sounds/sfx/deck.mp3"
 
 import { createDeck } from "@/actions-game/game.create-deck"
 import { playerTakeEnergy } from "@/actions-game/game.player-take-energy"
+import { onTakeEnergyCard } from "@/actions-game/game.play-sounds"
 
 import Loading from "@/components/Loading/Loading"
 import Board from "@/components/Board/Board";
@@ -16,8 +16,6 @@ import "./GamePage.scss"
 export default function GamePage({ title }: { title: string }) {
 
     const isSmallMobile = useMediaQuery("(max-width: 389px)");
-
-    const take_card = new Audio(take_card_SFX)
 
     const {
         deck,
@@ -49,15 +47,11 @@ export default function GamePage({ title }: { title: string }) {
         document.title = `${title} | Pokemon Game`
         setTimeout(() => indicateEnemy.current && indicateEnemy.current.style.setProperty('width', `${indicateTurn}px`), 250 ) 
         createDeck(deck)
-        if (enemyEnergy.length === enemyEnergyLength) {
-            setTimeout(() => {
-                enemyAttack()
-            }, 950)
-        }
+        enemyEnergy.length === enemyEnergyLength && setTimeout(() => enemyAttack(), 950)
     }, [deck, enemyEnergy, indicateTurn])
 
     const playEnergyCard = () => {
-        take_card.play()
+        onTakeEnergyCard()
         playerTakeEnergy(
             deck, 
             takeEnergy, 

@@ -1,10 +1,10 @@
 import { useDifficultStore, useGameStore, usePokemonsStore } from "@/store/game.store"
 import { motion } from "framer-motion"
+import { useEffect } from "react"
 import lose_SFX from "/sounds/sfx/lose.wav"
 import win_SFX from "/sounds/sfx/win.mp3"
 
 import Button from "../Button/Button"
-import { useEffect } from "react"
 
 export default function EndGameCont() {
 

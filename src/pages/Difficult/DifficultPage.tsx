@@ -4,6 +4,7 @@ import { useGameStore } from "@/store/game.store"
 
 import Loading from "@/components/Loading/Loading"
 import DifficultBox from "@/components/DifficultBox/DifficultBox"
+import Button from "@/components/Button/Button"
 
 import "./DifficultPage.scss"
 
@@ -11,9 +12,7 @@ export default function DifficultPage({ title }: {title: string}) {
 
     const { isLoading } = useGameStore()
  
-    useEffect(() => {
-        document.title = `Pokemon Game | ${title}`
-    }, [])
+    useEffect(() => {document.title = `Pokemon Game | ${title}`}, [])
 
     return (
         <motion.section 
@@ -31,8 +30,13 @@ export default function DifficultPage({ title }: {title: string}) {
                     exit={{ opacity: 0 }}
                     transition={{ delay: 0.45 }}
                 >
-                    <h1 className='difficult-page__title'>Выберите сложность</h1>
                     <DifficultBox/>
+                    <Button 
+                        subClass="sound"
+                        actionFn={() => {}}
+                    >
+                        <span>On</span>
+                    </Button>
                 </motion.div>
             )}   
         </motion.section>

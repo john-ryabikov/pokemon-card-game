@@ -15,6 +15,7 @@ export default function DifficultBox() {
 
     return (
         <div className='difficult-page__difficults-box'>
+            <h1 className='difficult-page__title'>Выберите сложность</h1>
             {enemies.map((e, i) => (
                 <div key={i} className='difficult-page__diff'>
                     {e.purchased === false && (

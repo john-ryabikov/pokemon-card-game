@@ -1,4 +1,4 @@
-import { Route, Routes, useLocation } from "react-router-dom";
+import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import { useGameStore } from "./store/game.store";
 import { useEffect } from "react";
@@ -19,13 +19,20 @@ export default function App() {
   
   const location = useLocation()
 
+  const navigate = useNavigate()
+
   const { isLoading, isFirstOpen, isFirstOpenStore, isFirstOpenDiff, isFirstOpenBoard, isGameEnd, changeFirst, loadingGame } = useGameStore()
 
   const popup_status = isGameEnd || isFirstOpen || isFirstOpenStore || isFirstOpenDiff || isFirstOpenBoard
 
-  useEffect(() => {
+  const onStartGame = () => {
     loadingGame(3000)
     if (isFirstOpen !== null) setTimeout(() => changeFirst('start-open'), 4000)
+  }
+
+  useEffect(() => {
+    onStartGame()
+    navigate('/', { replace: true });
     return () => {}
   },[])
 

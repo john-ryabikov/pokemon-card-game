@@ -36,9 +36,7 @@ export default function StartPage() {
         navigate("/store")
     }
 
-    useEffect(() => {
-        document.title = `Pokemon Game`
-    }, [])
+    useEffect(() => {document.title = `Pokemon Game`}, [])
 
     return (
         <motion.section 
@@ -51,7 +49,7 @@ export default function StartPage() {
             {!isLoading ? (
                 <>
                     <div className='start-page__logo'>
-                        <img className='start-page__logo-img' src="img/Icons/main_logo.png" alt="Pokemon" draggable={false}/>
+                        <img className='start-page__logo-img' src="img/Icons/main_logo.png" alt="Pokemon" draggable="false"/>
                         <h1 className='start-page__logo-title'>Duel Dash</h1>
                     </div>
                     <div className='start-page__btns'>
@@ -65,7 +63,7 @@ export default function StartPage() {
                 </>
                 ) : <Loading/> 
             }
-            <span className='start-page__version'>Version: 0.0.5</span>
+            <span className='start-page__version'>Version: 0.0.6</span>
         </motion.section>     
     )
   }

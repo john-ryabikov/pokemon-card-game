@@ -2,6 +2,7 @@ import { Energy } from '@/types/cards.type'
 import { useGameStore } from '@/store/game.store'
 import { motion } from "framer-motion"
 import { ForwardedRef, forwardRef, useEffect } from 'react'
+import { onPokemonAttack } from '@/actions-game/game.play-sounds'
 
 import StackEnergy from './StackEnergy'
 
@@ -24,12 +25,8 @@ const PokemonCard = forwardRef<HTMLDivElement, Props>(function PokemonCard(props
 
     const {isPlayerAttacked, isEnemyAttacked, playerAttackPower, enemyAttackPower} = useGameStore()
 
-    const soundPLayerAttack = new Audio(attackPlayerSFX)
-    const soundEnemyAttack = new Audio(attackEnemySFX)
-
     useEffect(() => {
-        isPlayerAttacked && soundPLayerAttack.play()
-        isEnemyAttacked && soundEnemyAttack.play()
+        onPokemonAttack(attackPlayerSFX as string, attackEnemySFX as string, isPlayerAttacked, isEnemyAttacked)
     }, [isPlayerAttacked, isEnemyAttacked])
 
     return (

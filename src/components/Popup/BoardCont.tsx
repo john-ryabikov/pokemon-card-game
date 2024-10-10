@@ -13,15 +13,16 @@ export default function BoardCont() {
             whileInView={{ y: 0 }}
             transition={{ delay: 0.15 }}
         >
-            <p className='popup__title popup__title_small'>Первая дуэль!</p>
+            <p className='popup__title popup__title_small'>Правила игры!</p>
             <div className='popup__text-wrapper'>
                 <div className='popup__text-wrap'>
                     <p className='popup__text'>
                         Твоя задача - победить вражеского Покемона.<br/><br/>
 
                         Добывай карточку энергии и ищи подходящую<br/>
-                        для своего игрового Покемона. В каждой новой дуэли<br/> 
-                        карточки будут выпадать в <b>случайном</b> порядке.<br/><br/>
+                        для своего игрового Покемона. В каждой новой<br/> 
+                        дуэли карточки будут выпадать<br/>
+                        в <b>случайном</b> порядке.<br/><br/>
 
                         Как только ты полностью заполнишь энергию<br/>
                         своего Покемона, то <b>обязательно</b> должен<br/>

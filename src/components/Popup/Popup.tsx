@@ -1,7 +1,6 @@
 import { useGameStore } from "@/store/game.store"
 import { useEffect } from "react"
-
-import popup_view_SFX from "/sounds/sfx/popup_view.wav"
+import { onViewPopup } from "@/actions-game/game.play-sounds"
 
 import EndGameCont from "./EndGameCont"
 import FirstOpenCont from "./FirstOpenCont"
@@ -13,15 +12,11 @@ import "./Popup.scss"
 
 export default function Popup() {
 
-    const popup_view = new Audio(popup_view_SFX)
-
     const { isFirstOpen, isFirstOpenStore, isFirstOpenDiff, isFirstOpenBoard, isGameEnd } = useGameStore()
 
-    const status = isFirstOpen || isFirstOpenStore || isFirstOpenDiff || isFirstOpenBoard
+    const status = isFirstOpenStore || isFirstOpenDiff || isFirstOpenBoard
 
-    useEffect(() => {
-        status !== null && popup_view.play()
-    }, [])
+    useEffect(() => onViewPopup(status), [])
 
     return (
         <div className='popup'>
