@@ -17,6 +17,9 @@ export const changeFirstAction = (
         break;
         case 'start-open':
             set({isFirstOpen: true})
-        break         
+        break;
+        case 'author-open':
+            set({isAuthorOpen: true})
+        break           
     }
 } 

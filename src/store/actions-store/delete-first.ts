@@ -17,6 +17,9 @@ export const deleteFirstAction = (
         break;
         case 'start-closed':
             set({isFirstOpen: null})
-        break         
+        break;
+        case 'author-closed':
+            set({isAuthorOpen: false})
+        break          
     }
 } 

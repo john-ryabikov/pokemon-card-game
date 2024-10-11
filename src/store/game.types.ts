@@ -31,6 +31,7 @@ export interface IGameStore {
     isFirstOpenStore: boolean | null,
     isFirstOpenBoard: boolean | null,
     isFirstOpenDiff: boolean | null,
+    isAuthorOpen: boolean,
     isPlayerTurn: boolean,
     error: null,
     randomEnemy: number,

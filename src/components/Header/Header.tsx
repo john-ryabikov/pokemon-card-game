@@ -12,7 +12,15 @@ export default function Header() {
     const navigate = useNavigate()
     const location = useLocation()
 
-    const { isLoading, isFirstOpenBoard, isFirstOpenStore, isFirstOpenDiff, isWin, changeEnemy, gameExit } = useGameStore()
+    const { 
+        isLoading, 
+        isFirstOpenBoard, 
+        isFirstOpenStore, 
+        isFirstOpenDiff,
+        isWin, 
+        changeEnemy, 
+        gameExit 
+    } = useGameStore()
     const { pokecoins, earnCoinsAfterWin } = usePokemonsStore()
 
     useEffect(() => {
@@ -38,7 +46,7 @@ export default function Header() {
                     transition={{ delay: 0.45 }}
                 >
                     <Button subClass={'exit'} actionFn={exitGame}>
-                        <img src="img/Icons/exit_icon.svg" alt="" draggable="false"/>
+                        <img src="img/Icons/exit_icon.svg" alt="Exit" draggable="false"/>
                     </Button>
                     <div className='header__coins'>
                         <img className='header__coins-icon' src="img/Icons/pokecoin_icon.svg" alt="Pokecoin" draggable="false"/>

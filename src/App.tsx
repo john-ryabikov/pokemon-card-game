@@ -21,9 +21,9 @@ export default function App() {
 
   const navigate = useNavigate()
 
-  const { isLoading, isFirstOpen, isFirstOpenStore, isFirstOpenDiff, isFirstOpenBoard, isGameEnd, changeFirst, loadingGame } = useGameStore()
+  const { isLoading, isFirstOpen, isFirstOpenStore, isFirstOpenDiff, isFirstOpenBoard, isGameEnd, isAuthorOpen, changeFirst, loadingGame } = useGameStore()
 
-  const popup_status = isGameEnd || isFirstOpen || isFirstOpenStore || isFirstOpenDiff || isFirstOpenBoard
+  const popup_status = isGameEnd || isFirstOpen || isFirstOpenStore || isFirstOpenDiff || isFirstOpenBoard || isAuthorOpen
 
   const onStartGame = () => {
     loadingGame(3000)

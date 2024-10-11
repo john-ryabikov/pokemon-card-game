@@ -16,7 +16,6 @@ export default function EndGameCont() {
     sound_popup.src = isLose ? lose_SFX : win_SFX
 
     const onWinOrLose = () => {
-        
         sound_popup.currentTime = 0
         sound_popup.play()
     }

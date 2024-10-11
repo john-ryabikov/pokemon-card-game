@@ -59,6 +59,12 @@ export default function StartPage() {
                         <Button subClass={'store'} actionFn={inStore}>
                             Магазин
                         </Button>
+                        <Button subClass={'rules'} actionFn={() => setTimeout(() => changeFirst('board-open'), 450)}>
+                            Об игре
+                        </Button>
+                        <Button subClass={'author'} actionFn={() => setTimeout(() => changeFirst('author-open'), 450)}>
+                            Об авторе
+                        </Button>
                     </div>
                 </>
                 ) : <Loading/> 

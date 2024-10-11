@@ -85,6 +85,7 @@ const useGameStore = create<IGameStore>()(
         isFirstOpenStore: false,
         isFirstOpenBoard: false,
         isFirstOpenDiff: false,
+        isAuthorOpen: false,
         isPlayerTurn: false,
         error: null,
         randomEnemy: 0,

@@ -1,5 +1,6 @@
 import { useGameStore } from "@/store/game.store"
 import { motion } from "framer-motion"
+
 import Button from "../Button/Button"
 
 export default function DifficultCont() {
