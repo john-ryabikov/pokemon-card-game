@@ -10,7 +10,7 @@ const loadAudio = (url: string, res: () => void) => {
 
 export const loadingGameAction = (
     set: (partial: IGameStore | Partial<IGameStore> | ((state: IGameStore) => IGameStore | Partial<IGameStore>), replace?: boolean | undefined) => void,
-    // timeout: number
+    timeout: number,
     media: string[]
 ) => {
 
@@ -20,7 +20,6 @@ export const loadingGameAction = (
         const promises = media.map((a) => new Promise<void>(async (res, _rej) => loadAudio(a, res)))
         Promise.all(promises)
         set({ isLoading: false })
-    }, 3000)
-    // setTimeout(() => set({ isLoading: !state.isLoading }), timeout)
+    }, timeout)
 
 } 

@@ -27,7 +27,7 @@ export default function App() {
   const popup_status = isGameEnd || isFirstOpen || isFirstOpenStore || isFirstOpenDiff || isFirstOpenBoard || isAuthorOpen
 
   const onStartGame = () => {
-    loadingGame(audios)
+    loadingGame(audios, 3000)
     if (isFirstOpen !== null) setTimeout(() => changeFirst('start-open'), 4000)
   }
 
