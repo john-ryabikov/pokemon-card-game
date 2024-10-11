@@ -5,6 +5,7 @@ import lose_SFX from "/sounds/sfx/lose.wav"
 import win_SFX from "/sounds/sfx/win.mp3"
 
 import Button from "../Button/Button"
+import { audios } from "@/data/audio..sfx"
 
 export default function EndGameCont() {
 
@@ -26,7 +27,7 @@ export default function EndGameCont() {
         setTimeout(() => {
             changeEnemy()
             startGame(pokemonSelected)
-            loadingGame(2500)
+            loadingGame(audios)
             isSounds && sound_popup.pause()
         }, 450)
     }

@@ -14,6 +14,7 @@ import Popup from "./components/Popup/Popup";
 import PreloadImages from "./components/PreloadImages/PreloadImages";
 
 import "@/styles/global.scss"
+import { audios } from "./data/audio..sfx";
 
 export default function App() {
   
@@ -26,7 +27,7 @@ export default function App() {
   const popup_status = isGameEnd || isFirstOpen || isFirstOpenStore || isFirstOpenDiff || isFirstOpenBoard || isAuthorOpen
 
   const onStartGame = () => {
-    loadingGame(3000)
+    loadingGame(audios)
     if (isFirstOpen !== null) setTimeout(() => changeFirst('start-open'), 4000)
   }
 

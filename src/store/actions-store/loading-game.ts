@@ -1,20 +1,26 @@
 import type { IGameStore } from "../game.types";
+// import { audios } from "@/data/audio..sfx";
+
+const loadAudio = (url: string, res: () => void) => {
+    const audio = new Audio();
+    audio.src = url;
+    audio.onload = () => res();
+    audio.onerror = () => res();
+};
 
 export const loadingGameAction = (
     set: (partial: IGameStore | Partial<IGameStore> | ((state: IGameStore) => IGameStore | Partial<IGameStore>), replace?: boolean | undefined) => void,
-    get: () => IGameStore, 
-    timeout: number
-): Partial<IGameStore> => {
-    
-    const state = get()
+    // timeout: number
+    media: string[]
+) => {
 
-    state.isLoading = true
+    set({ isLoading: true })
 
     setTimeout(() => {
-        set({ isLoading: !state.isLoading })
-    }, timeout)
+        const promises = media.map((a) => new Promise<void>(async (res, _rej) => loadAudio(a, res)))
+        Promise.all(promises)
+        set({ isLoading: false })
+    }, 3000)
+    // setTimeout(() => set({ isLoading: !state.isLoading }), timeout)
 
-    return {
-        isLoading: state.isLoading
-    }
 } 
