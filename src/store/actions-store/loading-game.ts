@@ -26,9 +26,4 @@ export const loadingGameAction = async (
         }
     })
 
-    // setTimeout(() => {
-    //     Promise.all(promises)
-    //     set({ isLoading: false })
-    // }, timeout)
-
 } 

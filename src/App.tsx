@@ -28,7 +28,7 @@ export default function App() {
 
   const onStartGame = () => {
     loadingGame(audios)
-    if (isFirstOpen !== null) setTimeout(() => changeFirst('start-open'), 1000)
+    if (isFirstOpen !== null && !isLoading) setTimeout(() => changeFirst('start-open'), 2000)
   }
 
   useEffect(() => {
