@@ -1,6 +1,7 @@
 import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import { useGameStore } from "./store/game.store";
+import { audios } from "./data/audio..sfx";
 import { useEffect } from "react";
 
 import StartPage from "./pages/Start/StartPage";
@@ -14,7 +15,6 @@ import Popup from "./components/Popup/Popup";
 import PreloadImages from "./components/PreloadImages/PreloadImages";
 
 import "@/styles/global.scss"
-import { audios } from "./data/audio..sfx";
 
 export default function App() {
   
@@ -27,7 +27,7 @@ export default function App() {
   const popup_status = isGameEnd || isFirstOpen || isFirstOpenStore || isFirstOpenDiff || isFirstOpenBoard || isAuthorOpen
 
   const onStartGame = () => {
-    loadingGame(audios, 3000)
+    loadingGame(audios)
     if (isFirstOpen !== null) setTimeout(() => changeFirst('start-open'), 4000)
   }
 

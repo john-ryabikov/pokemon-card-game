@@ -40,7 +40,7 @@ export interface IGameStore {
     changeFirst: (firsted: string) => void,
     deleteFirst: (firsted: string) => void,
     changeEnemy: () => void,
-    loadingGame: (media: string[], timeout: number) => void,
+    loadingGame: (media: string[]) => void,
     loadingPokemons: (timeout: number) => Promise<void>
     startGame: (pokemonNumber: number) => void,
     takeEnergy: (id: number, indicateEnemy: number, startedDiff: IEnemeis ) => void,
