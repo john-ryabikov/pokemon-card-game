@@ -16,11 +16,9 @@ export const loadingGameAction = async (
 
     set({ isLoading: true })
 
-    const promises = media.map((a) => new Promise<void>(async (resolve) => loadAudio(a, resolve)))
+    const promises = media.map((a) => new Promise<void>(async (resolve) => await loadAudio(a, resolve)))
 
-    await Promise.all(promises)
-
-    set({ isLoading: false })
+    await Promise.all(promises).then((res) => res && set({ isLoading: false }))
 
     if (state.isFirstOpen !== null && !state.isLoading) setTimeout(() => state.changeFirst('start-open'), 1000)
 
