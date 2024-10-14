@@ -45,9 +45,9 @@ export default function EndGameCont() {
             </p>
             {isWin && (
                 <p className='popup__win-coins'>
-                    <img src="img/Icons/pokecoin_icon.svg" alt="" draggable="false"/>
                     <span>+</span>
                     <span>{startedDiff.reward}</span>
+                    <img src="img/Icons/pokecoin_icon.svg" alt="" draggable="false"/>
                 </p>
             )}
             <div className='popup__buttons'>

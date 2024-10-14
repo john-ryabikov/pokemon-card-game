@@ -1,8 +1,9 @@
 import type { IGameStore } from "../game.types";
 
-const loadAudio = async (url: string) => {
+const loadAudio = async (url: string, res: () => void) => {
     const audio = new Audio()
     audio.src = url
+    audio.oncanplay = () => res()
 };
 
 export const loadingGameAction = async (
@@ -15,7 +16,7 @@ export const loadingGameAction = async (
 
     set({ isLoading: true })
 
-    const promises = media.map((a) => new Promise(async (resolve) => setTimeout(() => resolve(loadAudio(a)), 3000)))
+    const promises = media.map((a) => new Promise<void>(async (resolve) => loadAudio(a, resolve)))
 
     await Promise.all(promises)
 
