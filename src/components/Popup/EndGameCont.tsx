@@ -27,7 +27,7 @@ export default function EndGameCont() {
         setTimeout(() => {
             changeEnemy()
             startGame(pokemonSelected)
-            loadingGame(audios)
+            loadingGame(audios, 2500)
             isSounds && sound_popup.pause()
         }, 450)
     }
