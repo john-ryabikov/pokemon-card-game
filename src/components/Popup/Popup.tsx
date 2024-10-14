@@ -15,7 +15,7 @@ export default function Popup() {
 
     const { isSounds, isFirstOpen, isFirstOpenStore, isFirstOpenDiff, isFirstOpenBoard, isGameEnd, isAuthorOpen } = useGameStore()
 
-    const status = isFirstOpenStore || isFirstOpenDiff || isFirstOpenBoard || isAuthorOpen
+    const status = isFirstOpenStore || isFirstOpenDiff || isFirstOpenBoard
 
     useEffect(() => {isSounds && onViewPopup(status)}, [])
 

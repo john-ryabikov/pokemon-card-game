@@ -1,11 +1,15 @@
 import { motion } from "framer-motion"
 import { useGameStore } from "@/store/game.store"
+import { useEffect } from "react"
+import { onViewPopup } from "@/actions-game/game.play-sounds"
 
 import Button from "../Button/Button"
 
 export default function AuthorCont() {
 
-    const { deleteFirst } = useGameStore()
+    const { isSounds, isAuthorOpen, deleteFirst } = useGameStore()
+
+    useEffect(() => {isSounds && onViewPopup(isAuthorOpen)}, [])
 
     return (
         <motion.div 

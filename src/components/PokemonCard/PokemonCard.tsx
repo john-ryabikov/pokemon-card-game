@@ -11,7 +11,7 @@ import './PokemonCard.scss'
 interface Props {
     typePlayer: "player" | "enemy",
     card: string,
-    energy?: Energy[]
+    energy: Energy[]
     hp?: number,
     effectAttack?: string,
     ref?: ForwardedRef<HTMLDivElement>,

@@ -5,7 +5,7 @@ import { onGiveEnergyToPokemon } from "@/actions-game/game.play-sounds"
 import { useGameStore } from "@/store/game.store"
 
 interface Props {
-    energy?: Energy[]
+    energy: Energy[]
 } 
 
 export default function StackEnergy({ energy }: Props) {
@@ -16,7 +16,7 @@ export default function StackEnergy({ energy }: Props) {
 
     return (
         <div className='pokemon-card__stack-energy-icons'>
-            {energy?.map((energy, i) => {
+            {energy.map((energy, i) => {
                 return (
                     <motion.img 
                         key={i} 
