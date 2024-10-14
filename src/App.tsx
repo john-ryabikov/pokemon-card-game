@@ -27,8 +27,8 @@ export default function App() {
   const popup_status = isGameEnd || isFirstOpen || isFirstOpenStore || isFirstOpenDiff || isFirstOpenBoard || isAuthorOpen
 
   const onStartGame = () => {
-    loadingGame(audios, 3500)
-    if (isFirstOpen !== null) setTimeout(() => changeFirst('start-open'), 5000)
+    loadingGame(audios)
+    if (isFirstOpen !== null) setTimeout(() => changeFirst('start-open'), 1000)
   }
 
   useEffect(() => {

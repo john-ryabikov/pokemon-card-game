@@ -1,17 +1,17 @@
 import { useDifficultStore, useGameStore, usePokemonsStore } from "@/store/game.store"
 import { motion } from "framer-motion"
 import { useEffect } from "react"
+
 import lose_SFX from "/sounds/sfx/lose.wav"
 import win_SFX from "/sounds/sfx/win.mp3"
 
 import Button from "../Button/Button"
-import { audios } from "@/data/audio..sfx"
 
 export default function EndGameCont() {
 
     const { startedDiff } = useDifficultStore()
     const { pokemonSelected } = usePokemonsStore()
-    const { isSounds, startGame, changeEnemy, loadingGame, isLose, isWin } = useGameStore()
+    const { isSounds, startGame, changeEnemy, loadingPokemons, isLose, isWin } = useGameStore()
 
     const sound_popup = new Audio()
     sound_popup.src = isLose ? lose_SFX : win_SFX
@@ -27,7 +27,7 @@ export default function EndGameCont() {
         setTimeout(() => {
             changeEnemy()
             startGame(pokemonSelected)
-            loadingGame(audios, 2500)
+            loadingPokemons(2500)
             isSounds && sound_popup.pause()
         }, 450)
     }
