@@ -47,7 +47,7 @@ export const ENEMIES: IEnemeis[] = [
 
         ],
         forCountTurn: 7,
-        reward: 100,
+        reward: 300,
         started: true,
     },
     {
@@ -97,7 +97,7 @@ export const ENEMIES: IEnemeis[] = [
         purchased: false,
         cost: 35000,
         forCountTurn: 6,
-        reward: 300
+        reward: 600
     },
     {
         difficult: "hard",
@@ -146,7 +146,7 @@ export const ENEMIES: IEnemeis[] = [
         purchased: false,
         cost: 75000,
         forCountTurn: 5,
-        reward: 500
+        reward: 1200
     },
     {
         difficult: "very-hard",
@@ -195,6 +195,6 @@ export const ENEMIES: IEnemeis[] = [
         purchased: false,
         cost: 150000,
         forCountTurn: 6,
-        reward: 1000
+        reward: 2500
     }
 ]
