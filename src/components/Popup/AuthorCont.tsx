@@ -31,7 +31,7 @@ export default function AuthorCont() {
 
                 Ссылка на разработчика этого проекта:<br/><br/>
 
-                <a href="https://vk.com/john_ryabikov" target="_blank" rel="nofollow">https://vk.com/john_ryabikov</a>
+                <a href="https://just-site.ru" target="_blank" rel="nofollow">https://just-site.ru</a>
             </p>
             <Button 
                 subClass='popup-ok' 
