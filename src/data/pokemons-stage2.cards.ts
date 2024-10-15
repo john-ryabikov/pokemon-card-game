@@ -10,7 +10,7 @@ export const POKEMONS_2: PokemonUp[] = [
         energyLength: 3,
         attackPower: 80,
         stage: 2,
-        upCost: 0
+        upCost: 130000
     },
     {
         number: 2,
@@ -21,7 +21,7 @@ export const POKEMONS_2: PokemonUp[] = [
         energyLength: 3,
         attackPower: 90,
         stage: 2,
-        upCost: 0
+        upCost: 130000
     },
     {
         number: 3,
@@ -32,7 +32,7 @@ export const POKEMONS_2: PokemonUp[] = [
         energyLength: 2,
         attackPower: 50,
         stage: 2,
-        upCost: 0
+        upCost: 130000
     },
     {
         number: 4,
@@ -43,7 +43,7 @@ export const POKEMONS_2: PokemonUp[] = [
         energyLength: 1,
         attackPower: 30,
         stage: 2,
-        upCost: 0
+        upCost: 130000
     },
     {
         number: 5,
@@ -54,7 +54,7 @@ export const POKEMONS_2: PokemonUp[] = [
         energyLength: 1,
         attackPower: 20,
         stage: 2,
-        upCost: 0
+        upCost: 100000
     },
     {
         number: 6,
@@ -65,7 +65,7 @@ export const POKEMONS_2: PokemonUp[] = [
         energyLength: 2,
         attackPower: 20,
         stage: 2,
-        upCost: 0
+        upCost: 110000
     },
     {
         number: 7,
@@ -116,7 +116,7 @@ export const POKEMONS_2: PokemonUp[] = [
         energyLength: 3,
         attackPower: 90,
         stage: 2,
-        upCost: 0
+        upCost: 135000
     },
     {
         number: 12,
@@ -127,7 +127,7 @@ export const POKEMONS_2: PokemonUp[] = [
         energyLength: 2,
         attackPower: 50,
         stage: 2,
-        upCost: 0
+        upCost: 125000
     },
     {
         number: 13,
@@ -168,7 +168,7 @@ export const POKEMONS_2: PokemonUp[] = [
         energyLength: 2,
         attackPower: 30,
         stage: 2,
-        upCost: 0
+        upCost: 90000
 },
 {
         number: 17,
@@ -249,7 +249,7 @@ export const POKEMONS_2: PokemonUp[] = [
         energyLength: 2,
         attackPower: 30,
         stage: 2,
-        upCost: 0
+        upCost: 90000
     },
     {
         number: 25,
@@ -260,7 +260,7 @@ export const POKEMONS_2: PokemonUp[] = [
         energyLength: 1,
         attackPower: 30,
         stage: 2,
-        upCost: 0
+        upCost: 150000
     },
     {
         number: 26,
@@ -271,7 +271,7 @@ export const POKEMONS_2: PokemonUp[] = [
         energyLength: 2,
         attackPower: 50,
         stage: 2,
-        upCost: 0
+        upCost: 135000
     },
     {
         number: 27,
@@ -282,7 +282,7 @@ export const POKEMONS_2: PokemonUp[] = [
         energyLength: 2,
         attackPower: 30,
         stage: 2,
-        upCost: 0
+        upCost: 110000
     },
     {
         number: 28,
@@ -303,7 +303,7 @@ export const POKEMONS_2: PokemonUp[] = [
         energyLength: 2,
         attackPower: 60,
         stage: 2,
-        upCost: 0,
+        upCost: 140000,
     },
     {
         number: 30,

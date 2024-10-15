@@ -14,8 +14,8 @@ export const POKEMONS: Pokemon[] = [
     attackSound: "sounds/sfx/attack/plane_attack.wav",
     stage: 1,
     maxStage: 3,
-    upCost: 0,
-    started: true,
+    upCost: 25000,
+    started: true
   },
   {
     number: 2,
@@ -28,11 +28,11 @@ export const POKEMONS: Pokemon[] = [
     attackPower: 30,
     attackEffect: "img/Effects/burn.svg",
     attackSound: "sounds/sfx/attack/flame_attack.mp3",
-    cost: 0,
+    purchased: false,
+    cost: 10000,
     stage: 1,
     maxStage: 3,
-    upCost: 0,
-    purchased: false
+    upCost: 25000
     
   },
   {
@@ -47,10 +47,10 @@ export const POKEMONS: Pokemon[] = [
     attackEffect: "img/Effects/hydro.svg",
     attackSound: "sounds/sfx/attack/hydro_attack.mp3",
     purchased: false,
+    cost: 10000,
     stage: 1,
     maxStage: 3,
-    upCost: 0,
-    cost: 0
+    upCost: 25000
   },
   {
     number: 4,
@@ -64,10 +64,10 @@ export const POKEMONS: Pokemon[] = [
     attackEffect: "img/Effects/plane.svg",
     attackSound: "sounds/sfx/attack/plane_attack.wav",
     purchased: false,
-    cost: 0,
+    cost: 6000,
     stage: 1,
     maxStage: 3,
-    upCost: 0,
+    upCost: 20000
   },
   {
     number: 5,
@@ -81,10 +81,10 @@ export const POKEMONS: Pokemon[] = [
     attackEffect: "img/Effects/normal.svg",
     attackSound: "sounds/sfx/attack/normal_attack.mp3",
     purchased: false,
-    cost: 0,
+    cost: 8000,
     stage: 1,
     maxStage: 3,
-    upCost: 0,
+    upCost: 25000
   },
   {
     number: 6,
@@ -98,10 +98,10 @@ export const POKEMONS: Pokemon[] = [
     attackEffect: "img/Effects/plane.svg",
     attackSound: "sounds/sfx/attack/plane_attack.wav",
     purchased: false,
-    cost: 0,
+    cost: 5000,
     stage: 1,
     maxStage: 3,
-    upCost: 0,
+    upCost: 18000
   },
   {
     number: 7,
@@ -115,10 +115,10 @@ export const POKEMONS: Pokemon[] = [
     attackEffect: "img/Effects/normal.svg",
     attackSound: "sounds/sfx/attack/normal_attack.mp3",
     purchased: false,
-    cost: 0,
+    cost: 8000,
     stage: 1,
     maxStage: 2,
-    upCost: 0,
+    upCost: 60000
   },
   {
     number: 8,
@@ -132,10 +132,10 @@ export const POKEMONS: Pokemon[] = [
     attackEffect: "img/Effects/normal.svg",
     attackSound: "sounds/sfx/attack/normal_attack.mp3",
     purchased: false,
-    cost: 0,
+    cost: 9000,
     stage: 1,
     maxStage: 2,
-    upCost: 0,
+    upCost: 80000
   },
   {
     number: 9,
@@ -149,10 +149,10 @@ export const POKEMONS: Pokemon[] = [
     attackEffect: "img/Effects/electric.svg",
     attackSound: "sounds/sfx/attack/electric_attack.mp3",
     purchased: false,
-    cost: 0,
+    cost: 15000,
     stage: 1,
     maxStage: 2,
-    upCost: 0,
+    upCost: 80000
   },
   {
     number: 10,
@@ -166,10 +166,10 @@ export const POKEMONS: Pokemon[] = [
     attackEffect: "img/Effects/strong.svg",
     attackSound: "sounds/sfx/attack/strong_attack.mp3",
     purchased: false,
-    cost: 0,
+    cost: 10000,
     stage: 1,
     maxStage: 2,
-    upCost: 0,
+    upCost: 45000
   },
   {
     number: 11,
@@ -183,10 +183,10 @@ export const POKEMONS: Pokemon[] = [
     attackEffect: "img/Effects/plane.svg",
     attackSound: "sounds/sfx/attack/plane_attack.wav",
     purchased: false,
-    cost: 0,
+    cost: 5000,
     stage: 1,
     maxStage: 3,
-    upCost: 0,
+    upCost: 20000
   },
   {
     number: 12,
@@ -200,10 +200,10 @@ export const POKEMONS: Pokemon[] = [
     attackEffect: "img/Effects/plane.svg",
     attackSound: "sounds/sfx/attack/plane_attack.wav",
     purchased: false,
-    cost: 0,
+    cost: 3000,
     stage: 1,
     maxStage: 3,
-    upCost: 0,
+    upCost: 25000
   },
   {
     number: 13,
@@ -217,10 +217,10 @@ export const POKEMONS: Pokemon[] = [
     attackEffect: "img/Effects/psy.svg",
     attackSound: "sounds/sfx/attack/psy_attack.mp3",
     purchased: false,
-    cost: 0,
+    cost: 8000,
     stage: 1,
     maxStage: 2,
-    upCost: 0,
+    upCost: 25000
   },
   {
     number: 14,
@@ -234,10 +234,10 @@ export const POKEMONS: Pokemon[] = [
     attackEffect: "img/Effects/burn.svg",
     attackSound: "sounds/sfx/attack/flame_attack.mp3",
     purchased: false,
-    cost: 0,
+    cost: 6000,
     stage: 1,
     maxStage: 2,
-    upCost: 0,
+    upCost: 70000
   },
   {
     number: 15,
@@ -251,10 +251,10 @@ export const POKEMONS: Pokemon[] = [
     attackEffect: "img/Effects/normal.svg",
     attackSound: "sounds/sfx/attack/normal_attack.mp3",
     purchased: false,
-    cost: 0,
+    cost: 6000,
     stage: 1,
     maxStage: 2,
-    upCost: 0,
+    upCost: 30000
   },
   {
     number: 16,
@@ -268,10 +268,10 @@ export const POKEMONS: Pokemon[] = [
     attackEffect: "img/Effects/plane.svg",
     attackSound: "sounds/sfx/attack/plane_attack.wav",
     purchased: false,
-    cost: 0,
+    cost: 6000,
     stage: 1,
     maxStage: 3,
-    upCost: 0,
+    upCost: 15000
   },
   {
     number: 17,
@@ -285,10 +285,10 @@ export const POKEMONS: Pokemon[] = [
     attackEffect: "img/Effects/plane.svg",
     attackSound: "sounds/sfx/attack/plane_attack.wav",
     purchased: false,
-    cost: 0,
+    cost: 8000,
     stage: 1,
     maxStage: 2,
-    upCost: 0,
+    upCost: 50000
   },
   {
     number: 18,
@@ -302,10 +302,10 @@ export const POKEMONS: Pokemon[] = [
     attackEffect: "img/Effects/plane.svg",
     attackSound: "sounds/sfx/attack/plane_attack.wav",
     purchased: false,
-    cost: 0,
+    cost: 10000,
     stage: 1,
     maxStage: 2,
-    upCost: 0,
+    upCost: 30000
   },
   {
     number: 19,
@@ -319,10 +319,10 @@ export const POKEMONS: Pokemon[] = [
     attackEffect: "img/Effects/strong.svg",
     attackSound: "sounds/sfx/attack/strong_attack.mp3",
     purchased: false,
-    cost: 0,
+    cost: 10000,
     stage: 1,
     maxStage: 2,
-    upCost: 0,
+    upCost: 60000
   },
   {
     number: 20,
@@ -336,10 +336,10 @@ export const POKEMONS: Pokemon[] = [
     attackEffect: "img/Effects/normal.svg",
     attackSound: "sounds/sfx/attack/normal_attack.mp3",
     purchased: false,
-    cost: 0,
+    cost: 8000,
     stage: 1,
     maxStage: 2,
-    upCost: 0,
+    upCost: 30000
   },
   {
     number: 21,
@@ -353,10 +353,10 @@ export const POKEMONS: Pokemon[] = [
     attackEffect: "img/Effects/hydro.svg",
     attackSound: "sounds/sfx/attack/hydro_attack.mp3",
     purchased: false,
-    cost: 0,
+    cost: 6000,
     stage: 1,
     maxStage: 2,
-    upCost: 0,
+    upCost: 70000
   },
   {
     number: 22,
@@ -370,10 +370,10 @@ export const POKEMONS: Pokemon[] = [
     attackEffect: "img/Effects/strong.svg",
     attackSound: "sounds/sfx/attack/strong_attack.mp3",
     purchased: false,
-    cost: 0,
+    cost: 7000,
     stage: 1,
     maxStage: 2,
-    upCost: 0,
+    upCost: 85000
   },
   {
     number: 23,
@@ -387,10 +387,10 @@ export const POKEMONS: Pokemon[] = [
     attackEffect: "img/Effects/burn.svg",
     attackSound: "sounds/sfx/attack/flame_attack.mp3",
     purchased: false,
-    cost: 0,
+    cost: 15000,
     stage: 1,
     maxStage: 2,
-    upCost: 0,
+    upCost: 120000
   },
   {
     number: 24,
@@ -404,10 +404,10 @@ export const POKEMONS: Pokemon[] = [
     attackEffect: "img/Effects/hydro.svg",
     attackSound: "sounds/sfx/attack/hydro_attack.mp3",
     purchased: false,
-    cost: 0,
+    cost: 5000,
     stage: 1,
     maxStage: 3,
-    upCost: 0,
+    upCost: 10000
   },
   {
     number: 25,
@@ -421,10 +421,10 @@ export const POKEMONS: Pokemon[] = [
     attackEffect: "img/Effects/psy.svg",
     attackSound: "sounds/sfx/attack/psy_attack.mp3",
     purchased: false,
-    cost: 0,
+    cost: 10000,
     stage: 1,
     maxStage: 3,
-    upCost: 0,
+    upCost: 40000
   },
   {
     number: 26,
@@ -438,10 +438,10 @@ export const POKEMONS: Pokemon[] = [
     attackEffect: "img/Effects/strong.svg",
     attackSound: "sounds/sfx/attack/strong_attack.mp3",
     purchased: false,
-    cost: 0,
+    cost: 10000,
     stage: 1,
     maxStage: 3,
-    upCost: 0,
+    upCost: 40000
   },
   {
     number: 27,
@@ -455,10 +455,10 @@ export const POKEMONS: Pokemon[] = [
     attackEffect: "img/Effects/plane.svg",
     attackSound: "sounds/sfx/attack/plane_attack.wav",
     purchased: false,
-    cost: 0,
+    cost: 5000,
     stage: 1,
     maxStage: 3,
-    upCost: 0,
+    upCost: 20000
   },
   {
     number: 28,
@@ -472,10 +472,10 @@ export const POKEMONS: Pokemon[] = [
     attackEffect: "img/Effects/hydro.svg",
     attackSound: "sounds/sfx/attack/hydro_attack.mp3",
     purchased: false,
-    cost: 0,
+    cost: 8000,
     stage: 1,
     maxStage: 2,
-    upCost: 0,
+    upCost: 35000
   },
   {
     number: 29,
@@ -489,10 +489,10 @@ export const POKEMONS: Pokemon[] = [
     attackEffect: "img/Effects/strong.svg",
     attackSound: "sounds/sfx/attack/strong_attack.mp3",
     purchased: false,
-    cost: 0,
+    cost: 10000,
     stage: 1,
     maxStage: 3,
-    upCost: 0,
+    upCost: 40000
   },
   {
     number: 30,
@@ -506,10 +506,10 @@ export const POKEMONS: Pokemon[] = [
     attackEffect: "img/Effects/burn.svg",
     attackSound: "sounds/sfx/attack/flame_attack.mp3",
     purchased: false,
-    cost: 0,
+    cost: 10000,
     stage: 1,
     maxStage: 2,
-    upCost: 0,
+    upCost: 45000
   },
   {
     number: 31,
@@ -523,10 +523,10 @@ export const POKEMONS: Pokemon[] = [
     attackEffect: "img/Effects/psy.svg",
     attackSound: "sounds/sfx/attack/psy_attack.mp3",
     purchased: false,
-    cost: 0,
+    cost: 10000,
     stage: 1,
     maxStage: 2,
-    upCost: 0,
+    upCost: 85000
   },
   {
     number: 32,
@@ -540,10 +540,10 @@ export const POKEMONS: Pokemon[] = [
     attackEffect: "img/Effects/electric.svg",
     attackSound: "sounds/sfx/attack/electric_attack.mp3",
     purchased: false,
-    cost: 0,
+    cost: 6000,
     stage: 1,
     maxStage: 2,
-    upCost: 0,
+    upCost: 35000
   },
   {
     number: 33,
@@ -557,10 +557,10 @@ export const POKEMONS: Pokemon[] = [
     attackEffect: "img/Effects/normal.svg",
     attackSound: "sounds/sfx/attack/normal_attack.mp3",
     purchased: false,
-    cost: 0,
+    cost: 10000,
     stage: 1,
     maxStage: 2,
-    upCost: 0,
+    upCost: 65000
   },
   {
     number: 34,
@@ -574,10 +574,10 @@ export const POKEMONS: Pokemon[] = [
     attackEffect: "img/Effects/hydro.svg",
     attackSound: "sounds/sfx/attack/hydro_attack.mp3",
     purchased: false,
-    cost: 0,
+    cost: 8000,
     stage: 1,
     maxStage: 2,
-    upCost: 0,
+    upCost: 50000
   },
   {
     number: 35,
@@ -591,10 +591,10 @@ export const POKEMONS: Pokemon[] = [
     attackEffect: "img/Effects/plane.svg",
     attackSound: "sounds/sfx/attack/plane_attack.wav",
     purchased: false,
-    cost: 0,
+    cost: 10000,
     stage: 1,
     maxStage: 2,
-    upCost: 0,
+    upCost: 85000
   },
   {
     number: 36,
@@ -608,10 +608,10 @@ export const POKEMONS: Pokemon[] = [
     attackEffect: "img/Effects/hydro.svg",
     attackSound: "sounds/sfx/attack/hydro_attack.mp3",
     purchased: false,
-    cost: 0,
+    cost: 10000,
     stage: 1,
     maxStage: 2,
-    upCost: 0,
+    upCost: 45000
   },
   {
     number: 37,
@@ -625,7 +625,7 @@ export const POKEMONS: Pokemon[] = [
     attackEffect: "img/Effects/strong.svg",
     attackSound: "sounds/sfx/attack/strong_attack.mp3",
     purchased: false,
-    cost: 0,
+    cost: 70000,
     stage: 1,
     maxStage: 1
   },
@@ -641,10 +641,10 @@ export const POKEMONS: Pokemon[] = [
     attackEffect: "img/Effects/psy.svg",
     attackSound: "sounds/sfx/attack/psy_attack.mp3",
     purchased: false,
-    cost: 0,
+    cost: 10000,
     stage: 1,
     maxStage: 2,
-    upCost: 0,
+    upCost: 85000
   },
   {
     number: 39,
@@ -658,10 +658,10 @@ export const POKEMONS: Pokemon[] = [
     attackEffect: "img/Effects/hydro.svg",
     attackSound: "sounds/sfx/attack/hydro_attack.mp3",
     purchased: false,
-    cost: 0,
+    cost: 15000,
     stage: 1,
     maxStage: 2,
-    upCost: 0,
+    upCost: 110000
   },
   {
     number: 40,
@@ -675,10 +675,10 @@ export const POKEMONS: Pokemon[] = [
     attackEffect: "img/Effects/plane.svg",
     attackSound: "sounds/sfx/attack/plane_attack.wav",
     purchased: false,
-    cost: 0,
+    cost: 8000,
     stage: 1,
     maxStage: 2,
-    upCost: 0,
+    upCost: 80000
   },
   {
     number: 41,
@@ -692,10 +692,10 @@ export const POKEMONS: Pokemon[] = [
     attackEffect: "img/Effects/strong.svg",
     attackSound: "sounds/sfx/attack/strong_attack.mp3",
     purchased: false,
-    cost: 0,
+    cost: 8000,
     stage: 1,
     maxStage: 2,
-    upCost: 0,
+    upCost: 95000
   },
   {
     number: 42,
@@ -709,7 +709,7 @@ export const POKEMONS: Pokemon[] = [
     attackEffect: "img/Effects/strong.svg",
     attackSound: "sounds/sfx/attack/strong_attack.mp3",
     purchased: false,
-    cost: 0,
+    cost: 75000,
     stage: 1,
     maxStage: 1
   },
@@ -725,7 +725,7 @@ export const POKEMONS: Pokemon[] = [
     attackEffect: "img/Effects/strong.svg",
     attackSound: "sounds/sfx/attack/strong_attack.mp3",
     purchased: false,
-    cost: 0,
+    cost: 80000,
     stage: 1,
     maxStage: 1
   },
@@ -741,7 +741,7 @@ export const POKEMONS: Pokemon[] = [
     attackEffect: "img/Effects/normal.svg",
     attackSound: "sounds/sfx/attack/normal_attack.mp3",
     purchased: false,
-    cost: 0,
+    cost: 70000,
     stage: 1,
     maxStage: 1
   },
@@ -757,10 +757,10 @@ export const POKEMONS: Pokemon[] = [
     attackEffect: "img/Effects/strong.svg",
     attackSound: "sounds/sfx/attack/strong_attack.mp3",
     purchased: false,
-    cost: 0,
+    cost: 15000,
     stage: 1,
     maxStage: 2,
-    upCost: 0,
+    upCost: 85000
   },
   {
     number: 46,
@@ -774,10 +774,10 @@ export const POKEMONS: Pokemon[] = [
     attackEffect: "img/Effects/hydro.svg",
     attackSound: "sounds/sfx/attack/hydro_attack.mp3",
     purchased: false,
-    cost: 0,
+    cost: 8000,
     stage: 1,
     maxStage: 2,
-    upCost: 0,
+    upCost: 50000
   },
   {
     number: 47,
@@ -791,7 +791,7 @@ export const POKEMONS: Pokemon[] = [
     attackEffect: "img/Effects/hydro.svg",
     attackSound: "sounds/sfx/attack/hydro_attack.mp3",
     purchased: false,
-    cost: 0,
+    cost: 120000,
     stage: 1,
     maxStage: 1
   }

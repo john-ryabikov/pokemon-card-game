@@ -95,7 +95,7 @@ export const ENEMIES: IEnemeis[] = [
             }
         ],
         purchased: false,
-        cost: 0,
+        cost: 35000,
         forCountTurn: 6,
         reward: 300
     },
@@ -144,7 +144,7 @@ export const ENEMIES: IEnemeis[] = [
             }
         ],
         purchased: false,
-        cost: 0,
+        cost: 75000,
         forCountTurn: 5,
         reward: 500
     },
@@ -193,7 +193,7 @@ export const ENEMIES: IEnemeis[] = [
             }
         ],
         purchased: false,
-        cost: 0,
+        cost: 150000,
         forCountTurn: 6,
         reward: 1000
     }
