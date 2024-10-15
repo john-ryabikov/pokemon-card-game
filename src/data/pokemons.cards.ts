@@ -12,6 +12,7 @@ export const POKEMONS: Pokemon[] = [
     attackPower: 20,
     attackEffect: "img/Effects/plane.svg",
     attackSound: "sounds/sfx/attack/plane_attack.wav",
+    purchased: true,
     stage: 1,
     maxStage: 3,
     upCost: 25000,

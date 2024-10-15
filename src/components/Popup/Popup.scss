@@ -104,6 +104,10 @@
     &__indicate-enemy {
         position: relative;
     }
+    &__pokemon-info {
+        position: relative;
+        width: 200px;
+    }
     &__win-coins {
         position: relative;
         display: flex;

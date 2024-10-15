@@ -21,6 +21,7 @@ export default function PokemonBox() {
                         key={i} 
                         className={`store-page__pokemon ${pokemonSelected === p.number ? "store-page__pokemon_selected" : ""}`} 
                     >
+                        {(p.upCost && p.purchased === true) && <img className="store-page__pokemon-up-this" src="img/Icons/up-this_icon.svg" alt="Up" draggable="false"/>}
                         {p.purchased === false && (
                             <div className='store-page__buy-pokemon'>
                                 <p className='store-page__buy-pokemon-price'>
