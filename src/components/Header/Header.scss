@@ -16,7 +16,15 @@
     &_popup {
         z-index: 97;
     }
-    &__coins {
+    &__indicators {
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 20px;
+    }
+    &__indicator {
         position: relative;
         display: flex;
         flex-direction: row;
@@ -31,14 +39,14 @@
         padding-right: 12px;
         transition: all 0.15s;
     }
-    &__coins-icon {
+    &__indicator-icon {
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
         left: -10px;
         width: 32px;
     }
-    &__coins-total {
+    &__indicator-total {
         position: relative;
         font-family: 'Sonic Logo';
         font-size: 14px;

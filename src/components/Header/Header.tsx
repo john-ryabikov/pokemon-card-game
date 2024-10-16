@@ -4,6 +4,7 @@ import { useLocation, useNavigate } from "react-router-dom"
 import { useEffect } from "react"
 
 import Button from "../Button/Button"
+import Indicator from "./Indicator"
 
 import "./Header.scss"
 
@@ -21,7 +22,8 @@ export default function Header() {
         changeEnemy, 
         gameExit 
     } = useGameStore()
-    const { pokecoins, earnCoinsAfterWin } = usePokemonsStore()
+
+    const { earnCoinsAfterWin } = usePokemonsStore()
 
     useEffect(() => {
         if (isWin) setTimeout(() => earnCoinsAfterWin(), 100) 
@@ -48,9 +50,9 @@ export default function Header() {
                     <Button subClass={'exit'} actionFn={exitGame}>
                         <img src="img/Icons/exit_icon.svg" alt="Exit" draggable="false"/>
                     </Button>
-                    <div className='header__coins'>
-                        <img className='header__coins-icon' src="img/Icons/pokecoin_icon.svg" alt="Pokecoin" draggable="false"/>
-                        <span className='header__coins-total'>{pokecoins}</span>
+                    <div className='header__indicators'>
+                        <Indicator type="coins"/>
+                        <Indicator type="mana"/>
                     </div>
                 </motion.header>
             )}

@@ -1,8 +1,9 @@
 import { motion } from "framer-motion"
-import { useGameStore, usePokemonsStore } from "@/store/game.store"
+import { useGameStore } from "@/store/game.store"
 import { useNavigate } from "react-router-dom"
 
 import Button from "../Button/Button"
+import Indicator from "./Indicator"
 
 import "./Header.scss"
 
@@ -11,7 +12,6 @@ export default function HeaderStart() {
     const navigate = useNavigate()
 
     const { isLoading, isFirstOpenDiff, changeFirst, loadingPokemons } = useGameStore()
-    const { pokecoins } = usePokemonsStore()
 
     const difficultGame = () => {
         setTimeout(() => loadingPokemons(2500), 500)
@@ -32,9 +32,9 @@ export default function HeaderStart() {
                     <Button subClass={'diff'} actionFn={difficultGame}>
                         <img src="/img/Icons/settings_icon.svg" alt="Settings" draggable="false"/>
                     </Button>
-                    <div className='header__coins'>
-                        <img className='header__coins-icon' src="img/Icons/pokecoin_icon.svg" alt="Pokecoin" draggable="false"/>
-                        <span className='header__coins-total'>{pokecoins}</span>
+                    <div className='header__indicators'>
+                        <Indicator type="coins"/>
+                        <Indicator type="mana"/>
                     </div>
                 </motion.header>
             )}
