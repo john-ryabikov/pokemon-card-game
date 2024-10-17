@@ -22,6 +22,8 @@ export default function App() {
 
   const navigate = useNavigate()
 
+  // const { mana, addMana } = useGameMana()
+
   const { isLoading, isFirstOpen, isFirstOpenStore, isFirstOpenDiff, isFirstOpenBoard, isGameEnd, isAuthorOpen, loadingGame } = useGameStore()
 
   const popup_status = isGameEnd || isFirstOpen || isFirstOpenStore || isFirstOpenDiff || isFirstOpenBoard || isAuthorOpen
@@ -31,6 +33,7 @@ export default function App() {
   }
 
   useEffect(() => {
+    // if (mana !== 10) addMana()
     onStartGame()
     navigate('/', { replace: true });
     return () => {}

@@ -42,9 +42,9 @@ export default function Header() {
             {!isLoading && (
                 <motion.header 
                     className={`header ${(isFirstOpenBoard || isFirstOpenStore || isFirstOpenDiff) ? "header_popup" : ""}`}
-                    initial={{ y: -90 }}
+                    initial={{ y: -120 }}
                     animate={{ y: 0 }}
-                    exit={{ y: -90 }}
+                    exit={{ y: -120 }}
                     transition={{ delay: 0.45 }}
                 >
                     <Button subClass={'exit'} actionFn={exitGame}>

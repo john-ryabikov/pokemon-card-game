@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom"
 import { useEffect } from "react"
-import { useGameStore, usePokemonsStore } from "@/store/game.store"
+import { useGameMana, useGameStore, usePokemonsStore } from "@/store/game.store"
 import { motion } from "framer-motion"
 
 import Loading from "@/components/Loading/Loading"
@@ -11,6 +11,8 @@ import "./StartPage.scss"
 export default function StartPage() {
 
     const navigate = useNavigate()
+
+    const { mana, deleteMana, startTimer, resetTimer } = useGameMana()
 
     const { pokemonSelected } = usePokemonsStore()
 
@@ -24,8 +26,15 @@ export default function StartPage() {
     } = useGameStore()
 
     const playGame = () => {
+        setTimeout(() => {
+            loadingPokemons(3500)
+            deleteMana()
+            if (mana === 10) startTimer()
+            if (mana < 10) resetTimer()
+        }, 500)
+
         startGame(pokemonSelected)
-        setTimeout(() => loadingPokemons(3500), 500)
+        
         if (isFirstOpenBoard !== null) setTimeout(() => changeFirst("board-open"), 4800)
         navigate("/game")
     }
@@ -53,8 +62,8 @@ export default function StartPage() {
                         <h1 className='start-page__logo-title'>Duel Dash</h1>
                     </div>
                     <div className='start-page__btns'>
-                        <Button subClass={'board'} actionFn={playGame}>
-                            Начать игру
+                        <Button subClass={mana === 0 ?'board-lock' : 'board'} actionFn={playGame}>
+                            Начать дуэль
                         </Button>
                         <Button subClass={'store'} actionFn={inStore}>
                             Магазин

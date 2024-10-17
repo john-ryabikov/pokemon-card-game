@@ -19,6 +19,17 @@
         background-color: #e5001c;
         border-bottom: 2px solid #7c0909;
     }
+    &_board-lock {
+        width: 180px;
+        height: 60px;
+        font-size: 16px;
+        text-align: center;
+        color: #fff;
+        background-color: #e5001c;
+        border-bottom: 2px solid #7c0909;
+        pointer-events: none;
+        opacity: 0.185;
+    }
     &_store, &_rules, &_author {
         width: 180px;
         height: 60px;
@@ -73,7 +84,25 @@
         border-bottom: 2px solid #121727;
         img {
             position: relative;
-            width: 24px;
+            width: 30px;
+        }
+    }
+    &_retry-lock {
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        width: 170px;
+        height: 60px;
+        font-size: 16px;
+        color: #fff;
+        background-color: #1c3ca1;
+        border-bottom: 2px solid #121727;
+        pointer-events: none;
+        opacity: 0.185;
+        img {
+            position: relative;
+            width: 30px;
         }
     }
     &_up {

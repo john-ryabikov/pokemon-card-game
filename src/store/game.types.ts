@@ -76,9 +76,12 @@ export interface IEnemyDifficult {
 export interface IGameMana {
     mana: number,
     maxMana: number,
+    timer: null | NodeJS.Timeout | void,
     isEnoughMana: boolean,
     lastTime: number,
     deleteMana: () => void,
     addMana: () => void,
-    addManaLive: (mana: number) => void
+    startTimer: () => void,
+    resetTimer: () => void,
+    stopTimer: () => void
 }

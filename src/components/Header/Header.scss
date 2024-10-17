@@ -40,6 +40,9 @@
         padding-left: 32px;
         padding-right: 12px;
         transition: all 0.15s;
+        &:last-child {
+            padding-left: 26px;
+        }
     }
     &__indicator-icon {
         position: absolute;

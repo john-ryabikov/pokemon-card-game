@@ -1,4 +1,4 @@
-import { useDifficultStore, useGameStore, usePokemonsStore } from "@/store/game.store"
+import { useDifficultStore, useGameMana, useGameStore, usePokemonsStore } from "@/store/game.store"
 import { motion } from "framer-motion"
 import { useEffect } from "react"
 
@@ -9,8 +9,12 @@ import Button from "../Button/Button"
 
 export default function EndGameCont() {
 
+    const {mana, deleteMana, resetTimer } = useGameMana()
+
     const { startedDiff } = useDifficultStore()
+
     const { pokemonSelected } = usePokemonsStore()
+
     const { isSounds, startGame, changeEnemy, loadingPokemons, isLose, isWin } = useGameStore()
 
     const sound_popup = new Audio()
@@ -25,6 +29,8 @@ export default function EndGameCont() {
 
     const retryGame = () => {
         setTimeout(() => {
+            deleteMana()
+            resetTimer()
             changeEnemy()
             startGame(pokemonSelected)
             loadingPokemons(2500)
@@ -51,7 +57,7 @@ export default function EndGameCont() {
                 </p>
             )}
             <div className='popup__buttons'>
-                <Button subClass='retry' actionFn={retryGame}>
+                <Button subClass={mana === 0 ? 'retry-lock' : ''} actionFn={retryGame}>
                     <img src="img/Icons/replay_icon.svg" alt="Retry" draggable={false}/>
                     <span>Повторить</span>
                 </Button>

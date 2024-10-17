@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react"
-import { useDifficultStore, useGameMana, useGameStore, usePokemonsStore } from "@/store/game.store"
+import { useDifficultStore, useGameStore, usePokemonsStore } from "@/store/game.store"
 import { useMediaQuery } from "@/hooks/MediaQuery/useMediaQuery"
 import { motion } from "framer-motion"
 
@@ -16,8 +16,6 @@ import "./GamePage.scss"
 export default function GamePage({ title }: { title: string }) {
 
     const isSmallMobile = useMediaQuery("(max-width: 389px)");
-
-    const { mana, deleteMana, addManaLive } = useGameMana()
 
     const {
         deck,
@@ -48,8 +46,6 @@ export default function GamePage({ title }: { title: string }) {
 
     useEffect(() => {
         document.title = `${title} | Pokemon Game`
-        deleteMana()
-        addManaLive(mana)
         setTimeout(() => indicateEnemy.current && indicateEnemy.current.style.setProperty('width', `${indicateTurn}px`), 250 ) 
         createDeck(deck)
         enemyEnergy.length === enemyEnergyLength && setTimeout(() => enemyAttack(), 950)
