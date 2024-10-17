@@ -57,9 +57,9 @@ export default function EndGameCont() {
                 </p>
             )}
             <div className='popup__buttons'>
-                <Button subClass={mana === 0 ? 'retry-lock' : ''} actionFn={retryGame}>
-                    <img src="img/Icons/replay_icon.svg" alt="Retry" draggable={false}/>
+                <Button subClass={mana === 0 ? 'retry-lock' : 'retry'} actionFn={retryGame}>
                     <span>Повторить</span>
+                    <img src="img/Icons/replay_icon.svg" alt="Retry" draggable={false}/>
                 </Button>
             </div>
         </motion.div>
