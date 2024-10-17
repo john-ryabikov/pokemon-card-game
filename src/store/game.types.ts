@@ -72,3 +72,13 @@ export interface IEnemyDifficult {
     selectDifficult: (difficult: string) => void,
     unlockDifficult: (difficult: string) => void
 }
+
+export interface IGameMana {
+    mana: number,
+    maxMana: number,
+    isEnoughMana: boolean,
+    lastTime: number,
+    deleteMana: () => void,
+    addMana: () => void,
+    addManaLive: (mana: number) => void
+}

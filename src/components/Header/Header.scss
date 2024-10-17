@@ -4,11 +4,12 @@
     left: 0;
     display: flex;
     flex-direction: row;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
     padding: var(--padding-mobile);
     width: 100%;
-    height: 90px;
+    height: 110px;
+    padding-top: 20px;
     z-index: 99;
     &_start {
         z-index: 97;
@@ -19,9 +20,10 @@
     &__indicators {
         position: relative;
         display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: flex-end;
+        flex-direction: column;
+        align-items: flex-end;
+        justify-content: center;
+        padding-top: 4px;
         gap: 20px;
     }
     &__indicator {

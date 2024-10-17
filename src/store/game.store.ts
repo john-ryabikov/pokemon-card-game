@@ -3,7 +3,7 @@ import { ENERGY } from "@/data/energy.cards"
 import { POKEMONS } from "@/data/pokemons.cards"
 import { ENEMIES } from "@/data/enemies.cards"
 
-import type { IEnemyDifficult, IGameStore, IPokemonsStore } from "./game.types";
+import type { IEnemyDifficult, IGameMana, IGameStore, IPokemonsStore } from "./game.types";
 
 import { gameOverAction } from "./actions-store/game-over";
 import { takeEnergyAction } from "./actions-store/take-energy";
@@ -21,7 +21,22 @@ import { loadingGameAction } from "./actions-store/loading-game";
 import { loadingPokemonsAction } from "./actions-store/loading-pokemons";
 import { changeFirstAction } from "./actions-store/change-first";
 import { deleteFirstAction } from "./actions-store/delete-first";
+import { deleteManaAction } from "./actions-store/delete-mana";
+import { addManaAction } from "./actions-store/add-mana";
+import { addManaLiveAction } from "./actions-store/add-mana-live";
 // import { persist } from "zustand/middleware";
+
+const useGameMana = create<IGameMana>()(
+    (set, get) => ({
+        mana: 10,
+        maxMana: 10,
+        isEnoughMana: false,
+        lastTime: 0,
+        deleteMana: () => deleteManaAction(set, get),
+        addMana: () => addManaAction(set, get),
+        addManaLive: (mana: number) => addManaLiveAction(set, get, mana)
+    })
+)
 
 const useDifficultStore = create<IEnemyDifficult>()(
     (set, get) => ({
@@ -106,4 +121,4 @@ const useGameStore = create<IGameStore>()(
     }),
 )
 
-export { useGameStore, usePokemonsStore, useDifficultStore }
+export { useGameStore, usePokemonsStore, useDifficultStore, useGameMana }
