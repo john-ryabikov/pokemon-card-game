@@ -8,7 +8,7 @@ import Indicator from "./Indicator"
 
 import "./Header.scss"
 
-export default function Header() {
+export default function HeaderStore() {
 
     const navigate = useNavigate()
     const location = useLocation()
@@ -18,7 +18,8 @@ export default function Header() {
         isFirstOpenBoard, 
         isFirstOpenStore, 
         isFirstOpenDiff,
-        isWin, 
+        isWin,
+        changeFirst, 
         changeEnemy, 
         gameExit 
     } = useGameStore()
@@ -47,9 +48,14 @@ export default function Header() {
                     exit={{ y: -120 }}
                     transition={{ delay: 0.45 }}
                 >
-                    <Button subClass={'exit'} actionFn={exitGame}>
-                        <img src="img/Icons/exit_icon.svg" alt="Exit" draggable="false"/>
-                    </Button>
+                    <div className='header__btns'>
+                        <Button subClass={'exit'} actionFn={exitGame}>
+                            <img src="img/Icons/exit_icon.svg" alt="Exit" draggable="false"/>
+                        </Button>
+                        <Button subClass={'setup'} actionFn={() => setTimeout(() => changeFirst('store-open'), 450)}>
+                            <img src="img/Icons/rules_icon.svg" alt="Exit" draggable="false"/>
+                        </Button>
+                    </div>
                     <div className='header__indicators'>
                         <Indicator type="coins"/>
                         <Indicator type="mana"/>

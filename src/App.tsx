@@ -6,8 +6,10 @@ import { useEffect } from "react";
 
 import StartPage from "./pages/Start/StartPage";
 import GamePage from "./pages/Game/GamePage";
-import Header from "./components/Header/Header";
+import HeaderGame from "./components/Header/HeaderGame";
 import HeaderStart from "./components/Header/HeaderStart";
+import HeaderStore from "./components/Header/HeaderStore";
+import HeaderSetup from "./components/Header/HeaderSetup";
 import PokemonStore from "./pages/PokemonStore/PokemonStore";
 import Loading from "./components/Loading/Loading";
 import DifficultPage from "./pages/Difficult/DifficultPage";
@@ -46,8 +48,10 @@ export default function App() {
         <>
           {popup_status && <Popup/>}
           <AnimatePresence mode="wait">
-            {location.pathname !== "/" && (<Header key={"header-game"}/>)}
-            {location.pathname === "/" && (<HeaderStart key={"header-start"}/>)}
+            {location.pathname == "/" && (<HeaderStart key={"header-start"}/>)}
+            {location.pathname == "/game" && (<HeaderGame key={"header-game"}/>)}
+            {location.pathname == "/store" && (<HeaderStore key={"header-store"}/>)}
+            {location.pathname == "/difficult" && (<HeaderSetup key={"header-setup"}/>)}
           </AnimatePresence>
           <AnimatePresence mode="wait">
             <Routes location={location} key={location.pathname}>

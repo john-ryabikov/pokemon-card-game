@@ -17,6 +17,14 @@
     &_popup {
         z-index: 97;
     }
+    &__btns {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        gap: 10px;
+    }
     &__indicators {
         position: relative;
         display: flex;

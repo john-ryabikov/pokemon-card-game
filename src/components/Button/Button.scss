@@ -11,15 +11,27 @@
         transform: scale(0.92, 0.92);
     }
     &_board {
-        width: 180px;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 14px;
+        width: 210px;
         height: 60px;
         font-size: 16px;
         text-align: center;
         color: #fff;
         background-color: #e5001c;
         border-bottom: 2px solid #7c0909;
+        img {
+            position: relative;
+            width: 30px;
+        }
     }
     &_board-lock {
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 14px;
         width: 180px;
         height: 60px;
         font-size: 16px;
@@ -29,9 +41,13 @@
         border-bottom: 2px solid #7c0909;
         pointer-events: none;
         opacity: 0.185;
+        img {
+            position: relative;
+            width: 30px;
+        }
     }
     &_store, &_rules, &_author {
-        width: 180px;
+        width: 160px;
         height: 60px;
         font-size: 16px;
         text-align: center;
@@ -40,23 +56,23 @@
         border-bottom: 2px solid #121727;
     }
     &_exit {
-        width: 40px;
-        height: 40px;
+        width: 36px;
+        height: 36px;
         background-color: #e5001c;
         border-bottom: 2px solid #7c0909;
         img {
             position: relative;
-            width: 14px;
+            width: 12px;
         }
     }
-    &_diff {
-        width: 40px;
-        height: 40px;
+    &_setup {
+        width: 36px;
+        height: 36px;
         background-color: #1c3ca1;
         border-bottom: 2px solid #121727;
         img {
             position: relative;
-            width: 20px;
+            width: 18px;
         }
     }
     &_popup-ok {
@@ -116,14 +132,12 @@
     &_up-lock {
         width: 160px;
         height: 60px;
-        background-color: #dd820a;
-        border-bottom: 2px solid #53271c;
-        font-size: 16px;
-        color: #fff;
+        background-color: #3b3b3b;
+        border-bottom: 2px solid #3F3E3E;
+        color: #939393;
         pointer-events: none;
-        span {
-            opacity: 0.25;
-        }
+        font-size: 16px;
+        opacity: 0.65;
     }
     &_buy-pokemon, &_buy-diff {
         height: 40px;
@@ -137,15 +151,12 @@
     &_buy-pokemon-lock, &_buy-diff-lock  {
         height: 40px;
         font-size: 12px;
-        color: #fff;
-        background-color: #1c3ca1;
-        border-bottom: 2px solid #121727;
+        color: #939393;
+        background-color: #3b3b3b;
+        border-bottom: 2px solid #3F3E3E;
         padding-left: 14px;
         padding-right: 14px;
         pointer-events: none;
-        span {
-            opacity: 0.25;
-        }
     }
     &_diff-btn {
         flex-direction: row;

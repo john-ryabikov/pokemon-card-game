@@ -60,9 +60,9 @@
         border-radius: 6px;
         background-color: rgba(94, 94, 94, 0.5);
         &_selected {
-            outline: 1px solid #0059ff;
+            outline: 1px solid #2b9700;
             outline-offset:-1px;
-            background-color: rgba(145, 179, 243, 0.25);
+            background-color: rgba(145, 243, 150, 0.15);
         }
     }
     &__pokemon-up-this {
@@ -106,7 +106,7 @@
         margin-top: 2px;
         &_lock {
             pointer-events: none;
-            opacity: 0.25;
+            opacity: 0.35;
         }
     }
     &__btn-up-box {

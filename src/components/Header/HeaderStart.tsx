@@ -29,7 +29,7 @@ export default function HeaderStart() {
                     exit={{ y: -120 }}
                     transition={{ delay: 0.45 }}
                 >
-                    <Button subClass={'diff'} actionFn={difficultGame}>
+                    <Button subClass={'setup'} actionFn={difficultGame}>
                         <img src="/img/Icons/settings_icon.svg" alt="Settings" draggable="false"/>
                     </Button>
                     <div className='header__indicators'>

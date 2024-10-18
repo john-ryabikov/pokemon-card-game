@@ -63,22 +63,23 @@ export default function StartPage() {
                     </div>
                     <div className='start-page__btns'>
                         <Button subClass={mana === 0 ?'board-lock' : 'board'} actionFn={playGame}>
-                            Начать дуэль
+                            <span>Начать дуэль</span>
+                            <img src="img/Icons/replay_icon.svg" alt="Retry" draggable={false}/>
                         </Button>
                         <Button subClass={'store'} actionFn={inStore}>
-                            Магазин
+                            <span>Магазин</span>
                         </Button>
                         <Button subClass={'rules'} actionFn={() => setTimeout(() => changeFirst('board-open'), 450)}>
-                            Об игре
+                            <span>Об игре</span>
                         </Button>
                         <Button subClass={'author'} actionFn={() => setTimeout(() => changeFirst('author-open'), 450)}>
-                            Об авторе
+                            <span>Об авторе</span>
                         </Button>
                     </div>
                 </>
                 ) : <Loading/> 
             }
-            <span className='start-page__version'>Version: 0.0.7</span>
+            <span className='start-page__version'>Version: 0.0.8</span>
         </motion.section>     
     )
   }

@@ -18,7 +18,11 @@ export default function BoardCont() {
                 <div className='popup__text-wrapper'>
                     <div className='popup__text-wrap'>
                         <p className='popup__text'>
-                            Твоя задача - победить вражеского Покемона.<br/><br/>
+                            За каждую дуэль списывается по одной мане <img src="img/Icons/game-mana_icon.svg" alt="Mana" draggable="false"/><br/>
+                            Восстанавление маны происходит каждые <b>10 минут</b><br/><br/>
+
+                            Твоя основная задача - победить<br/> 
+                            вражеского Покемона.<br/><br/>
 
                             Добывай карточку энергии и ищи подходящую<br/>
                             для своего игрового Покемона. В каждой новой<br/> 

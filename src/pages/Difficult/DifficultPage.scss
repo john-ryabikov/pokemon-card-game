@@ -16,6 +16,10 @@
         width: 100%;
         height: auto;
         padding: var(--padding-mobile);
+        @media only screen and (0 <= width <= 389px) {
+            gap: 30px;
+            padding-top: 70px;
+        }
     }
     &__title {
         position: relative;

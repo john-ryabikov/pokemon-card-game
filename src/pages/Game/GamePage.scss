@@ -135,10 +135,11 @@
             transform: scale(0.92, 0.92);
         }
         &_disable {
-            background-color: #272727;
+            background-color: #3b3b3b;
             border-bottom: 2px solid #3F3E3E;
-            color: #313131;
+            color: #939393;
             pointer-events: none;
+            opacity: 0.65;
         }
     }
 }
