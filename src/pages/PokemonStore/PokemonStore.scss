@@ -12,7 +12,7 @@
         flex-direction: column;
         align-items: center;
         justify-content: flex-start;
-        width: 100%;
+        width: 360px;
         height: 100dvh;
         padding: var(--padding-mobile);
         margin-top: 130px;
@@ -37,7 +37,6 @@
         background-color: rgb(10 10 10 / 50%);
         border-radius: 12px;
         padding-top: 12px;
-        padding-right: 12px;
     }
     &__pokemons-box {
         position: absolute;
@@ -119,7 +118,7 @@
         justify-content: center;
         gap: 20px;
         width: 220px;
-        height: 360px;
+        height: 480px;
         margin-top: 30px;
     }
     &__current-pokemon-title {
