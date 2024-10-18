@@ -7,7 +7,7 @@ export const deleteFirstAction = (
 
     switch (firsted) {
         case 'store-closed':
-            set({isFirstOpenStore: false})
+            set({isFirstOpenStore: null})
         break;
         case 'board-closed':
             set({isFirstOpenBoard: null})
