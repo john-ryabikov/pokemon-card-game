@@ -1,6 +1,6 @@
 import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
-import { useGameStore } from "./store/game.store";
+import { useGameMana, useGameStore } from "./store/game.store";
 import { audios } from "./data/audio..sfx";
 import { useEffect } from "react";
 
@@ -22,7 +22,7 @@ export default function App() {
 
   const navigate = useNavigate()
 
-  // const { mana, addMana } = useGameMana()
+  const { mana, addMana } = useGameMana()
 
   const { isLoading, isFirstOpen, isFirstOpenStore, isFirstOpenDiff, isFirstOpenBoard, isGameEnd, isAuthorOpen, loadingGame } = useGameStore()
 
@@ -33,7 +33,7 @@ export default function App() {
   }
 
   useEffect(() => {
-    // if (mana !== 10) addMana()
+    if (mana !== 10) addMana()
     onStartGame()
     navigate('/', { replace: true });
     return () => {}
