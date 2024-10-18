@@ -73,14 +73,14 @@ export const addManaAction = (
             if(state.mana >= state.maxMana) clearInterval(get().timer as NodeJS.Timeout)
         }, 60000 * 10)
     })
-    if (diff >= 70 && diff < 80) set(
-        {mana: 7,
+    if (diff >= 70 && diff < 80) set({
+        mana: 7,
         lastTime: nowDate.getTime(),
         timer: setInterval(() => {
             set({ mana: state.mana += 1 })
             if(state.mana >= state.maxMana) clearInterval(get().timer as NodeJS.Timeout)
         }, 60000 * 10)
-        })
+    })
     if (diff >= 80 && diff < 90) set({
         mana: 8,
         lastTime: nowDate.getTime(),
