@@ -6,7 +6,7 @@ import { useEffect } from "react";
 
 import StartPage from "./pages/Start/StartPage";
 import GamePage from "./pages/Game/GamePage";
-import HeaderGame from "./components/Header/HeaderGame";
+import HeaderGame from "./components/Header/Header";
 import HeaderStart from "./components/Header/HeaderStart";
 import HeaderStore from "./components/Header/HeaderStore";
 import HeaderSetup from "./components/Header/HeaderSetup";

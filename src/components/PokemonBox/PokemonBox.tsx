@@ -1,9 +1,11 @@
 import { usePokemonsStore } from "@/store/game.store"
+import { motion } from "framer-motion"
+
 import Button from "../Button/Button";
 
 export default function PokemonBox() {
 
-    const { pokemons, pokemonSelected, pokecoins, unlockPokemon, spendCoins, selectPokemon } = usePokemonsStore()
+    const { pokemons, startedPokemon, pokemonSelected, pokecoins, unlockPokemon, upgradePokemon, spendCoins, selectPokemon } = usePokemonsStore()
 
     const buyPokemon = (pokemonNumber: number, pokemonCost: number) => {
         setTimeout(() => {
@@ -11,6 +13,14 @@ export default function PokemonBox() {
             spendCoins(pokemonCost)
             selectPokemon(pokemonNumber)
         }, 400)
+    }
+
+    const pokemonUp = () => {
+        setTimeout(() => {
+            upgradePokemon(pokemonSelected, startedPokemon.stage as number)
+            selectPokemon(pokemonSelected)
+            spendCoins(startedPokemon.upCost as number)
+        }, 350)
     }
 
     return (
@@ -41,6 +51,30 @@ export default function PokemonBox() {
                         </Button>
                     </div>
                 ))}
+            </div>
+            <div className='store-page__current-pokemon'>
+                <p className='store-page__current-pokemon-title'>Текущий покемон</p>
+                <img className='store-page__current-pokemon-img' src={startedPokemon.pokemonImgStore}/>
+                {startedPokemon.stage !== startedPokemon.maxStage && (
+                    <motion.div 
+                        className='store-page__btn-up-box'
+                        initial={{ opacity: 0 }}
+                        whileInView={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ delay: 0.45 }}
+                    >     
+                        <p className='store-page__btn-up-price'>
+                            <img src='img/Icons/pokecoin_icon.svg' alt="" draggable="false"/>
+                            <span>{startedPokemon.upCost}</span>
+                        </p>
+                        <Button
+                            subClass={(startedPokemon.upCost && pokecoins < startedPokemon.upCost) ? "up-lock" : "up"}
+                            actionFn={pokemonUp}
+                        >
+                            <span>Улучшить</span>
+                        </Button>
+                    </motion.div>
+                )}
             </div>
         </div>
     )

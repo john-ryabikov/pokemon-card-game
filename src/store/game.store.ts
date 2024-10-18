@@ -25,10 +25,10 @@ import { deleteManaAction } from "./actions-store/delete-mana";
 import { addManaAction } from "./actions-store/add-mana";
 import { startTimerAction } from "./actions-store/start-timer";
 import { resetTimerAction } from "./actions-store/reset-timer";
-import { persist } from "zustand/middleware";
+// import { persist } from "zustand/middleware";
 
 const useGameMana = create<IGameMana>()(
-    persist(
+    // persist(
         (set, get) => ({
             mana: 10,
             maxMana: 10,
@@ -41,12 +41,12 @@ const useGameMana = create<IGameMana>()(
             resetTimer: () => resetTimerAction(set, get),
             stopTimer: () => set({ timer: null })
         }),
-        {name: "mana-timer"}
-    )
+        // {name: "mana-timer"}
+    // )
 )    
 
 const useDifficultStore = create<IEnemyDifficult>()(
-    persist(
+    // persist(
         (set, get) => ({
             enemies: ENEMIES,
             difficultSelected: 'easy',
@@ -54,12 +54,12 @@ const useDifficultStore = create<IEnemyDifficult>()(
             selectDifficult: (difficult: string) => set(selectDifficultAction(get, difficult)),
             unlockDifficult: (difficult: string) => set({enemies: get().enemies.map(e => difficult === e.difficult ? {...e, purchased: !e.purchased} : e)})
         }),
-        {name: "difficult-game"}
-    ) 
+        // {name: "difficult-game"}
+    // ) 
 )
 
 const usePokemonsStore = create<IPokemonsStore>()(
-    persist(
+    // persist(
         (set, get) => ({
             pokemons: POKEMONS,
             pokecoins: 0,
@@ -72,8 +72,8 @@ const usePokemonsStore = create<IPokemonsStore>()(
             unlockPokemon: (pokemonNumber: number) => set({pokemons: get().pokemons.map(p => pokemonNumber === p.number ? {...p, purchased: !p.purchased} : p)}),
             upgradePokemon: (pokemonNumber: number, stage: number) => set(upgradePokemonAction(get, stage, pokemonNumber))
         }),
-        {name: "store-game"}
-    )
+        // {name: "store-game"}
+    // )
 )
 
 const startedPokemon = usePokemonsStore.getState().startedPokemon
@@ -105,7 +105,7 @@ const initialGameSettings = {
 }
 
 const useGameStore = create<IGameStore>()(
-    persist(
+    // persist(
         (set, get) => ({
             ...initialGameSettings,
             isSounds: true,
@@ -133,8 +133,8 @@ const useGameStore = create<IGameStore>()(
             gameExit: () => setTimeout(() => set({ isWin: false, isGameEnd: false, isLose: false }), 450),
             changeSounds: () => set({isSounds: !get().isSounds}) 
         }),
-        {name: "settings-game"}
-    )
+        // {name: "settings-game"}
+    // )
 )
 
 export { useGameStore, usePokemonsStore, useDifficultStore, useGameMana }
