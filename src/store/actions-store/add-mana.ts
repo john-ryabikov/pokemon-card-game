@@ -21,28 +21,31 @@ export const addManaAction = (
     const manaCont = (mana: number) => {
         switch (mana) {
             case 9:
-                set({ mana: state.mana +=1 });
+                set({ mana: state.mana += 1 });
             break;
             case 8:
-                set({ mana: state.mana +=1 });
+                set({ mana: state.mana += 2 });
             break;
             case 7:
-                set({ mana: state.mana +=1 });
+                set({ mana: state.mana += 3 });
             break;
             case 6:
-                set({ mana: state.mana +=1 });
+                set({ mana: state.mana += 4 });
             break;
             case 5:
-                set({ mana: state.mana +=1 });
+                set({ mana: state.mana += 5 });
             break;
             case 4:
-                set({ mana: state.mana +=1 });
+                set({ mana: state.mana += 6 });
             break;
             case 3:
-                set({ mana: state.mana +=1 });
+                set({ mana: state.mana += 7 });
             break;
             case 2:
-                set({ mana: state.mana +=1 });
+                set({ mana: state.mana += 8 });
+            break;
+            case 1:
+                set({ mana: state.mana += 9 });
             break;
         }
     }
