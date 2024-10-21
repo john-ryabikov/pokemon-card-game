@@ -79,8 +79,8 @@ export const addManaAction = (
 
     if (diff >= 20 && diff < 30) {
         if (state.mana + 2 > state.maxMana) {
+            manaCont(state.mana)
             set({
-                mana: state.mana += 1,
                 lastTime: 0,
                 timer: null
             })
