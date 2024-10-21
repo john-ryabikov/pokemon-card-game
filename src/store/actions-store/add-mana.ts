@@ -180,21 +180,21 @@ export const addManaAction = (
 
     // Проходит больше 60 минут
 
-    if (diff >= 50 && diff < 60) {
-        if (state.mana + 5 > state.maxMana) {
+    if (diff >= 60 && diff < 70) {
+        if (state.mana + 6 > state.maxMana) {
             manaCont(state.mana)
             set({
                 lastTime: 0,
                 timer: null
             })
-        } else if (state.mana + 5 === state.maxMana) {
+        } else if (state.mana + 6 === state.maxMana) {
             set({
-                mana: state.mana += 5,
+                mana: state.mana += 6,
                 lastTime: 0,
                 timer: null
             })
         } else set({
-            mana: state.mana += 5,
+            mana: state.mana += 6,
             lastTime: nowDate.getTime(),
             timer: setInterval(() => {
                 set({ mana: state.mana += 1 })
@@ -205,21 +205,21 @@ export const addManaAction = (
 
     // Проходит больше 70 минут
 
-    if (diff >= 50 && diff < 60) {
-        if (state.mana + 5 > state.maxMana) {
+    if (diff >= 70 && diff < 80) {
+        if (state.mana + 7 > state.maxMana) {
             manaCont(state.mana)
             set({
                 lastTime: 0,
                 timer: null
             })
-        } else if (state.mana + 5 === state.maxMana) {
+        } else if (state.mana + 7 === state.maxMana) {
             set({
-                mana: state.mana += 5,
+                mana: state.mana += 7,
                 lastTime: 0,
                 timer: null
             })
         } else set({
-            mana: state.mana += 5,
+            mana: state.mana += 7,
             lastTime: nowDate.getTime(),
             timer: setInterval(() => {
                 set({ mana: state.mana += 1 })
@@ -230,21 +230,21 @@ export const addManaAction = (
 
     // Проходит больше 80 минут
 
-    if (diff >= 50 && diff < 60) {
-        if (state.mana + 5 > state.maxMana) {
+    if (diff >= 80 && diff < 90) {
+        if (state.mana + 8 > state.maxMana) {
             manaCont(state.mana)
             set({
                 lastTime: 0,
                 timer: null
             })
-        } else if (state.mana + 5 === state.maxMana) {
+        } else if (state.mana + 8 === state.maxMana) {
             set({
-                mana: state.mana += 5,
+                mana: state.mana += 8,
                 lastTime: 0,
                 timer: null
             })
         } else set({
-            mana: state.mana += 5,
+            mana: state.mana += 8,
             lastTime: nowDate.getTime(),
             timer: setInterval(() => {
                 set({ mana: state.mana += 1 })
@@ -255,27 +255,20 @@ export const addManaAction = (
 
     // Проходит больше 90 минут
 
-    if (diff >= 50 && diff < 60) {
-        if (state.mana + 5 > state.maxMana) {
+    if (diff >= 90 && diff < 100) {
+        if (state.mana + 9 > state.maxMana) {
             manaCont(state.mana)
             set({
                 lastTime: 0,
                 timer: null
             })
-        } else if (state.mana + 5 === state.maxMana) {
+        } else if (state.mana + 9 === state.maxMana) {
             set({
-                mana: state.mana += 5,
+                mana: state.mana += 9,
                 lastTime: 0,
                 timer: null
             })
-        } else set({
-            mana: state.mana += 5,
-            lastTime: nowDate.getTime(),
-            timer: setInterval(() => {
-                set({ mana: state.mana += 1 })
-                if(state.mana >= state.maxMana) clearInterval(get().timer as NodeJS.Timeout)
-            }, 60000 * 10)
-        })
+        }
     }
 
     // Проходит больше 100 минут
