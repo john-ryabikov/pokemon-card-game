@@ -66,7 +66,6 @@ export const addManaAction = (
             if (state.mana >= state.maxMana) clearInterval(get().timer as NodeJS.Timeout)
           }, 60000 * 10)
         })
-       }
     }
 
     // Проходит меньше 10 минут
