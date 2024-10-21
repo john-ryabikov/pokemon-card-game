@@ -54,7 +54,7 @@ export const addManaAction = (
         contMana: number,                                                                             
     ) => {
         if (state.mana + contMana > state.maxMana) {
-          addManaToMaxFn(state.mana)
+          addManaToMax(state.mana)
           set({ lastTime: 0, timer: null })
         } else if (state.mana + contMana === state.maxMana) {
           set({ mana: state.mana += contMana, lastTime: 0, timer: null })
