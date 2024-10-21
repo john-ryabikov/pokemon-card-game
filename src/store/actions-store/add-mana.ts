@@ -51,8 +51,7 @@ export const addManaAction = (
     }
 
     const addManaAfterTime = (
-        contMana: number, 
-        addManaToMaxFn : (mana: number) => void                                                                               
+        contMana: number,                                                                             
     ) => {
         if (state.mana + contMana > state.maxMana) {
           addManaToMaxFn(state.mana)
@@ -93,13 +92,13 @@ export const addManaAction = (
             }, 60000 * 10)
         })
     }
-    if (diff >= 20 && diff < 30) addManaAfterTime(2, addManaToMax) // Проходит больше 20 минут
-    if (diff >= 30 && diff < 40) addManaAfterTime(3, addManaToMax) // Проходит больше 30 минут
-    if (diff >= 40 && diff < 50) addManaAfterTime(4, addManaToMax) // Проходит больше 40 минут
-    if (diff >= 50 && diff < 60) addManaAfterTime(5, addManaToMax) // Проходит больше 50 минут
-    if (diff >= 60 && diff < 70) addManaAfterTime(6, addManaToMax) // Проходит больше 60 минут
-    if (diff >= 70 && diff < 80) addManaAfterTime(7, addManaToMax) // Проходит больше 70 минут
-    if (diff >= 80 && diff < 90) addManaAfterTime(8, addManaToMax) // Проходит больше 80 минут
+    if (diff >= 20 && diff < 30) addManaAfterTime(2) // Проходит больше 20 минут
+    if (diff >= 30 && diff < 40) addManaAfterTime(3) // Проходит больше 30 минут
+    if (diff >= 40 && diff < 50) addManaAfterTime(4) // Проходит больше 40 минут
+    if (diff >= 50 && diff < 60) addManaAfterTime(5) // Проходит больше 50 минут
+    if (diff >= 60 && diff < 70) addManaAfterTime(6) // Проходит больше 60 минут
+    if (diff >= 70 && diff < 80) addManaAfterTime(7) // Проходит больше 70 минут
+    if (diff >= 80 && diff < 90) addManaAfterTime(8) // Проходит больше 80 минут
 
     // Проходит больше 90 минут
 
