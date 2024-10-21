@@ -18,7 +18,7 @@ export const addManaAction = (
 
     const diff = (nowDate.getTime() - state.lastTime) / (1000 * 60)
 
-    const manaCont = (mana: number) => {
+    const addManaToMax = (mana: number) => {
         switch (mana) {
             case 9:
                 set({ mana: state.mana += 1 });
@@ -82,7 +82,7 @@ export const addManaAction = (
 
     if (diff >= 20 && diff < 30) {
         if (state.mana + 2 > state.maxMana) {
-            manaCont(state.mana)
+            addManaToMax(state.mana)
             set({
                 lastTime: 0,
                 timer: null
@@ -107,7 +107,7 @@ export const addManaAction = (
 
     if (diff >= 30 && diff < 40) {
         if (state.mana + 3 > state.maxMana) {
-            manaCont(state.mana)
+            addManaToMax(state.mana)
             set({
                 lastTime: 0,
                 timer: null
@@ -132,7 +132,7 @@ export const addManaAction = (
 
     if (diff >= 40 && diff < 50) {
         if (state.mana + 4 > state.maxMana) {
-            manaCont(state.mana)
+            addManaToMax(state.mana)
             set({
                 lastTime: 0,
                 timer: null
@@ -157,7 +157,7 @@ export const addManaAction = (
 
     if (diff >= 50 && diff < 60) {
         if (state.mana + 5 > state.maxMana) {
-            manaCont(state.mana)
+            addManaToMax(state.mana)
             set({
                 lastTime: 0,
                 timer: null
@@ -182,7 +182,7 @@ export const addManaAction = (
 
     if (diff >= 60 && diff < 70) {
         if (state.mana + 6 > state.maxMana) {
-            manaCont(state.mana)
+            addManaToMax(state.mana)
             set({
                 lastTime: 0,
                 timer: null
@@ -207,7 +207,7 @@ export const addManaAction = (
 
     if (diff >= 70 && diff < 80) {
         if (state.mana + 7 > state.maxMana) {
-            manaCont(state.mana)
+            addManaToMax(state.mana)
             set({
                 lastTime: 0,
                 timer: null
@@ -232,7 +232,7 @@ export const addManaAction = (
 
     if (diff >= 80 && diff < 90) {
         if (state.mana + 8 > state.maxMana) {
-            manaCont(state.mana)
+            addManaToMax(state.mana)
             set({
                 lastTime: 0,
                 timer: null
@@ -257,7 +257,7 @@ export const addManaAction = (
 
     if (diff >= 90 && diff < 100) {
         if (state.mana + 9 > state.maxMana) {
-            manaCont(state.mana)
+            addManaToMax(state.mana)
             set({
                 lastTime: 0,
                 timer: null
