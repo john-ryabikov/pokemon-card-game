@@ -49,11 +49,19 @@ export const addManaAction = (
 
     const addManaAfterTime = (contMana: number) => {
         switch (contMana) {
+            case 0:
+                set({
+                    timer: setInterval(() => {
+                        set({ mana: state.mana += 1 })
+                        if (state.mana >= state.maxMana) clearInterval(get().timer as NodeJS.Timeout)
+                    }, 60000 * 10)
+                })
+            break;    
             case 1:
-                if (state.mana + 1 === state.maxMana) {
-                    set({ mana: state.mana += 1, lastTime: 0, timer: null })
+                if (state.mana + contMana === state.maxMana) {
+                    set({ mana: state.mana += contMana, lastTime: 0, timer: null })
                 } else set({
-                    mana: state.mana += 1,
+                    mana: state.mana += contMana,
                     lastTime: nowDate.getTime(),
                     timer: setInterval(() => {
                         set({ mana: state.mana += 1 })
@@ -78,16 +86,8 @@ export const addManaAction = (
             break;    
         }
     }
-
-    // Проходит меньше 10 минут
-
-    if (diff < 10) set({
-        timer: setInterval(() => {
-            set({ mana: state.mana += 1 })
-            if (state.mana >= state.maxMana) clearInterval(get().timer as NodeJS.Timeout)
-        }, 60000 * 10)
-    })
     
+    if (diff < 10) addManaAfterTime(0) // Проходит меньше 10 минут
     if (diff >= 10 && diff < 20) addManaAfterTime(1) // Проходит больше 10 минут
     if (diff >= 20 && diff < 30) addManaAfterTime(2) // Проходит больше 20 минут
     if (diff >= 30 && diff < 40) addManaAfterTime(3) // Проходит больше 30 минут
