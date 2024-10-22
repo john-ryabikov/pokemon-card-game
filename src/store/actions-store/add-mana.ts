@@ -18,34 +18,7 @@ export const addManaAction = (
 
     const diff = (nowDate.getTime() - state.lastTime) / (1000 * 60)
 
-    const addManaToMax = (mana: number) => {
-        switch (mana) {
-            case 9:
-                set({ mana: state.mana += 1 });
-            break;
-            case 8:
-                set({ mana: state.mana += 2 });
-            break;
-            case 7:
-                set({ mana: state.mana += 3 });
-            break;
-            case 6:
-                set({ mana: state.mana += 4 });
-            break;
-            case 5:
-                set({ mana: state.mana += 5 });
-            break;
-            case 4:
-                set({ mana: state.mana += 6 });
-            break;
-            case 3:
-                set({ mana: state.mana += 7 });
-            break;
-            case 2:
-                set({ mana: state.mana += 8 });
-            break;
-        }
-    }
+    const addManaToMax = (mana: number) => set({ mana: state.mana += state.maxMana - mana })
 
     const addManaAfterTime = (contMana: number) => {
         switch (contMana) {
