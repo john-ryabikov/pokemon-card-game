@@ -105,9 +105,18 @@ export const addManaAction = (
         if (state.mana + 9 > state.maxMana) {
             addManaToMax(state.mana)
             set({ lastTime: 0, timer: null})
-        } else if (state.mana + 9 === state.maxMana) set({ mana: state.mana += 9, lastTime: 0, timer: null})
+        } else if (state.mana + 9 === state.maxMana) {
+            set({ mana: state.mana += 9, lastTime: 0, timer: null})
+        } else set({
+            mana: state.mana += 9,
+            lastTime: nowDate.getTime(),
+            timer: setInterval(() => {
+                set({ mana: state.mana += 1 })
+                if (state.mana >= state.maxMana) clearInterval(get().timer as NodeJS.Timeout)
+            }, 60000 * 10)
+        })
     }
-
+    
     // Проходит больше 100 минут
 
     if (diff > 100) set({ mana: 10, lastTime: 0, timer: null })
