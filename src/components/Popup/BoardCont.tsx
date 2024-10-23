@@ -19,7 +19,8 @@ export default function BoardCont() {
                     <div className='popup__text-wrap'>
                         <p className='popup__text'>
                             За каждую дуэль списывается по одной мане <img src="img/Icons/game-mana_icon.svg" alt="Mana" draggable="false"/><br/>
-                            Восстанавление маны происходит каждые <b>10 минут</b><br/><br/>
+                            Если мана закончилась, то дуэль будет недоступна.<br/>
+                            Восполнение маны происходит каждые <b>10 минут</b><br/><br/>
 
                             Твоя основная задача - победить<br/> 
                             вражеского Покемона.<br/><br/>
