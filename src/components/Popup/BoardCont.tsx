@@ -58,7 +58,7 @@ export default function BoardCont() {
                             Уровень сложности можно выбрать в<br/>
                             разделе настроек <img src="img/Icons/settings_icon.svg" alt="Setting" draggable="false"/>  
                         </p>
-                        <p className='popup__title popup__title_small'>Желаем удачи!</p>
+                        <p className='popup__title popup__title_small'>Удачной игры!</p>
                     </div>
                 </div>
             </div>
