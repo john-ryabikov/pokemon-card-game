@@ -29,7 +29,9 @@ export default function BoardCont() {
                             для своего игрового Покемона. В каждой новой<br/> 
                             дуэли карточки будут выпадать<br/>
                             в <b>случайном</b> порядке.<br/><br/>
-
+                        </p>
+                        <img className='popup__indicate-enemy' width="200" src="img/Icons/energies-cards_icon.png" alt="Energies" draggable="false"/> 
+                        <p className='popup__text'>
                             Как только ты полностью заполнишь энергию<br/>
                             своего Покемона, то <b>обязательно</b> должен<br/>
                             атаковать вражеского Покемона.<br/><br/>
