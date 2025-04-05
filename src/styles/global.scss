@@ -81,13 +81,14 @@ body::after {
 }
 
 main {
-  position: relative;
+  position: fixed;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 100%;
   height: 100%;
+  overflow: auto;
 }
 
 h1, h2, h3, h4, h5, h6, p {
