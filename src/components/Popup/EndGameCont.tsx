@@ -52,7 +52,7 @@ export default function EndGameCont() {
             {isWin && (
                 <p className='popup__win-coins'>
                     <span>+</span>
-                    <span>{startedDiff.reward}</span>
+                    <span>{startedDiff.reward.toLocaleString()}</span>
                     <img src="img/Icons/pokecoin_icon.svg" alt="" draggable="false"/>
                 </p>
             )}

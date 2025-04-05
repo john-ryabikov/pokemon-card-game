@@ -44,17 +44,17 @@ export const addManaAction = (
             break;
             default:
                 if (state.mana + contMana > state.maxMana) {
-                  addManaToMax(state.mana)
-                  set({ lastTime: 0, timer: null })
+                    addManaToMax(state.mana)
+                    set({ lastTime: 0, timer: null })
                 } else if (state.mana + contMana === state.maxMana) {
-                  set({ mana: state.mana += contMana, lastTime: 0, timer: null })
+                    set({ mana: state.mana += contMana, lastTime: 0, timer: null })
                 } else set({
-                  mana: state.mana += contMana,
-                  lastTime: nowDate.getTime(),
-                  timer: setInterval(() => {
-                    set({ mana: state.mana += 1 })
-                    if (state.mana >= state.maxMana) clearInterval(get().timer as NodeJS.Timeout)
-                  }, 60000 * 10)
+                    mana: state.mana += contMana,
+                    lastTime: nowDate.getTime(),
+                    timer: setInterval(() => {
+                        set({ mana: state.mana += 1 })
+                        if (state.mana >= state.maxMana) clearInterval(get().timer as NodeJS.Timeout)
+                    }, 60000 * 10)
                 })
             break;    
         }

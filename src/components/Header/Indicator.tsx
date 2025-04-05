@@ -15,7 +15,7 @@ export default function Indicator({ type }: Props) {
             {type === 'coins' && <img className='header__indicator-icon' src="img/Icons/pokecoin_icon.svg" alt="Pokecoin" draggable="false"/>}
             {type === 'mana' && <img className='header__indicator-icon' src="img/Icons/game-mana_icon.svg" alt="Mana" draggable="false"/>}
             <span className='header__indicator-total'>
-                {type === 'coins' && pokecoins}
+                {type === 'coins' && pokecoins.toLocaleString()}
                 {type === 'mana' && `${mana}/${maxMana}`}
             </span>
         </div>

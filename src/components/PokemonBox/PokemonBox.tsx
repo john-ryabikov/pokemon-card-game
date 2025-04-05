@@ -36,7 +36,7 @@ export default function PokemonBox() {
                             <div className='store-page__buy-pokemon'>
                                 <p className='store-page__buy-pokemon-price'>
                                     <img src='img/Icons/pokecoin_icon.svg' alt="" draggable="false"/>
-                                    <span>{p.cost as number}</span>
+                                    <span>{p.cost?.toLocaleString()}</span>
                                 </p>
                                 <Button 
                                     subClass={(p.cost && pokecoins < p.cost) ? "buy-pokemon-lock" : "buy-pokemon"}
@@ -65,7 +65,7 @@ export default function PokemonBox() {
                     >     
                         <p className='store-page__btn-up-price'>
                             <img src='img/Icons/pokecoin_icon.svg' alt="" draggable="false"/>
-                            <span>{startedPokemon.upCost}</span>
+                            <span>{startedPokemon.upCost?.toLocaleString()}</span>
                         </p>
                         <Button
                             subClass={(startedPokemon.upCost && pokecoins < startedPokemon.upCost) ? "up-lock" : "up"}
