@@ -1,7 +1,7 @@
 import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import { useGameMana, useGameStore } from "./store/game.store";
-import { audios } from "./data/audio..sfx";
+// import { audios } from "./data/audio..sfx";
 import { useEffect } from "react";
 
 import StartPage from "./pages/Start/StartPage";
@@ -30,9 +30,7 @@ export default function App() {
 
   const popup_status = isGameEnd || isFirstOpen || isFirstOpenStore || isFirstOpenDiff || isFirstOpenBoard || isAuthorOpen
 
-  const onStartGame = () => {
-    loadingGame(audios)
-  }
+  const onStartGame = () => loadingGame()
 
   useEffect(() => {
     if (mana !== 10) addMana()
